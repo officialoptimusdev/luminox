@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Eye } from "lucide-react";
+import FadeSlider from "../FadeSlider";
+import heroImages from "@/constants/heroImages";
+
+
 
 export default function Hero() {
   const words = ["Compassion", "Care", "Clarity"];
@@ -66,6 +70,12 @@ export default function Hero() {
           Know More <Eye className="ml-2 w-5 h-5" />
         </Button>
       </div>
+
+     <div className="w-full">
+     <FadeSlider images={heroImages} duration={5000} />
+     </div>
+
+
     </section>
   );
 }

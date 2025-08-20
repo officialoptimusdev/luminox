@@ -4,6 +4,7 @@ const Home = () => {
   return (
     <main className="w-full">
       <Hero />
+
     </main>
   );
 };
