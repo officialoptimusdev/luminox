@@ -6,6 +6,7 @@ import heroImages from "@/constants/heroImages";
 
 
 
+
 export default function Hero() {
   const words = ["Compassion", "Care", "Clarity"];
   const [currentWord, setCurrentWord] = useState("");
@@ -41,7 +42,7 @@ export default function Hero() {
   }, [subIndex, index, backspace]);
 
   return (
-    <section className="w-full relative flex flex-col items-center justify-center text-center min-h-[100vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8">
+    <section className="w-full relative flex flex-col items-center justify-center text-center min-h-[80vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8">
       {/* Heading */}
       <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-4">
         Embodying,{" "}
@@ -70,11 +71,6 @@ export default function Hero() {
           Know More <Eye className="ml-2 w-5 h-5" />
         </Button>
       </div>
-
-     <div className="w-full">
-     <FadeSlider images={heroImages} duration={5000} />
-     </div>
-
 
     </section>
   );

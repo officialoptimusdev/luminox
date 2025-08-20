@@ -1,50 +1,46 @@
-import GlassWaveOverlay from "@/utils/GlassWaveOverlay";
 import { useEffect, useState } from "react";
+import GlassWaveOverlay from "@/utils/GlassWaveOverlay";
 
 export default function FadeSlider({ images = [], duration = 4000 }) {
-   const [currentIndex, setCurrentIndex] = useState(0);
-   const [fade, setFade] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(false);
 
-   useEffect(() => {
-      const fadeTimeout = setTimeout(() => {
-         setFade(true);
-      }, duration - 1000);
+  useEffect(() => {
+    if (!images || images.length === 0) return;
 
-      const slideTimeout = setTimeout(() => {
-         setCurrentIndex((prevIndex) =>
-            prevIndex === images.length - 1 ? 0 : prevIndex + 1
-         );
-         setFade(false);
-      }, duration);
+    const fadeTimeout = setTimeout(() => setFade(true), Math.max(0, duration - 1000));
+    const slideTimeout = setTimeout(() => {
+      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+      setFade(false);
+    }, duration);
 
-      return () => {
-         clearTimeout(slideTimeout);
-         clearTimeout(fadeTimeout);
-      };
-   }, [currentIndex, duration, images.length]);
+    return () => {
+      clearTimeout(slideTimeout);
+      clearTimeout(fadeTimeout);
+    };
+  }, [currentIndex, duration, images.length]);
 
-   return (
-      <>
-
-         <div className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden">
-            {images.map((img, index) => (
-               <img
-                  key={index}
-                  src={img}
-                  alt={`slide-${index}`}
-                  className={`
-            absolute inset-0 w-full h-full object-cover transition-opacity duration-1000
+  return (
+    <div className="relative h-[50vh] sm:h-[60vh] md:h-[75vh] lg:h-[85vh] overflow-hidden bg-[#e6f0ef]">
+      {/* Slides as background-image wrappers so overlay aligns exactly with crop */}
+      {images.map((img, index) => (
+        <div
+          key={index}
+          className={`
+            absolute inset-0 transition-opacity duration-1000 bg-center bg-cover
             ${index === currentIndex ? "opacity-100" : "opacity-0"}
             ${fade && index === currentIndex ? "opacity-0" : ""}
           `}
-               />
-            ))}
-
-            <GlassWaveOverlay className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1880px] h-[555px] max-w-none" />
-
-         </div>
-
-
-      </>
-   );
+          style={{
+            backgroundImage: `url(${img})`,
+            // optionally add backgroundPosition if you need different focal points
+            backgroundPosition: "center center",
+          }}
+        >
+          {/* Place overlay inside the same box so it hugs exactly */}
+          <GlassWaveOverlay className="pointer-events-auto" />
+        </div>
+      ))}
+    </div>
+  );
 }
