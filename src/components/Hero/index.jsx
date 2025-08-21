@@ -4,7 +4,6 @@ import { ArrowRight, Eye } from "lucide-react";
 import FadeSlider from "../FadeSlider";
 import heroImages from "@/constants/heroImages";
 
-
 export default function Hero() {
   const words = ["Compassion", "Care", "Clarity"];
   const [currentWord, setCurrentWord] = useState("");
@@ -41,7 +40,8 @@ export default function Hero() {
 
   return (
     <>
-      <section className="w-full relative flex flex-col items-center justify-center text-center min-h-[50vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8">
+      {/* Hero Section */}
+      <section className="w-full relative flex flex-col items-center justify-center text-center min-h-[70vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8 pb-20">
         {/* Heading */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-4">
           Embodying,{" "}
@@ -70,13 +70,14 @@ export default function Hero() {
             Know More <Eye className="ml-2 w-5 h-5" />
           </Button>
         </div>
-      </section>
 
-      <div className="bg-[#e6f0ef]">
+
+      </section>
+      <div className="w-full bg-gradient-to-b from-[#e6f0ef] to-transparent pointer-events-none">
+        {/* Slider */}
         <FadeSlider images={heroImages} duration={5000} />
       </div>
 
     </>
-
   );
 }
