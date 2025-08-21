@@ -52,8 +52,8 @@ export default function GlassWaveOverlay({
       </svg>
 
       {/* + Icon bottom-left (clickable) */}
-      <div className="absolute bottom-6 left-6 z-10 pointer-events-auto">
-        <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/40 backdrop-blur-sm text-gray-200 shadow-md">
+      <div className="absolute bottom-24 left-6 z-10 pointer-events-auto">
+        <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-sm text-white shadow-md">
           {icon}
         </div>
       </div>

@@ -21,8 +21,8 @@ export default function FadeSlider({ images = [], duration = 4000 }) {
   }, [currentIndex, duration, images.length]);
 
   return (
-    <div className="relative h-[50vh] sm:h-[60vh] md:h-[75vh] lg:h-[85vh] overflow-hidden bg-[#e6f0ef]">
-      {/* Slides as background-image wrappers so overlay aligns exactly with crop */}
+    <div className="relative h-[20vh] sm:h-[60vh] md:h-[75vh] lg:h-[85vh] overflow-hidden">
+      {/* Slides */}
       {images.map((img, index) => (
         <div
           key={index}
@@ -33,12 +33,10 @@ export default function FadeSlider({ images = [], duration = 4000 }) {
           `}
           style={{
             backgroundImage: `url(${img})`,
-            // optionally add backgroundPosition if you need different focal points
             backgroundPosition: "center center",
           }}
         >
-          {/* Place overlay inside the same box so it hugs exactly */}
-          <GlassWaveOverlay className="pointer-events-auto" />
+          <GlassWaveOverlay className="pointer-events-none" />
         </div>
       ))}
     </div>
