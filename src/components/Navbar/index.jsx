@@ -15,7 +15,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full sticky top-0 z-50 bg-[#0d2d2d]/90 md:bg-[#e6f0f0]/60 backdrop-blur-md mt-2 border-none">
+    <nav className="w-full sticky top-0 z-50 bg-[#0d2d2d]/90 md:bg-[#e6f0f0]/65 backdrop-blur-md mt-2 border-none">
       {/* make the bar tall enough to support a big logo/wordmark */}
       <div className="container mx-auto px-4 flex items-center justify-between h-20">
         {/* LEFT: Logo (icon + wordmark) + nav */}
