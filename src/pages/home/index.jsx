@@ -3,6 +3,7 @@ import FeaturedSection from "@/components/FeaturedSection";
 import FeaturedServices from "@/components/FeaturedServices";
 import Hero from "@/components/Hero";
 import MissionStatement from "@/components/MissionStatement";
+import ReviewSection from "@/components/ReviewSection";
 
 const Home = () => {
   const sections = [
@@ -31,12 +32,9 @@ const Home = () => {
       <Hero />
       <FeaturedServices />
       <MissionStatement />
-
-      {/* Blog sits on black bg */}
       <FeaturedBlog />
-
-      {/* First section starts with top curve blending into black */}
       <FeaturedSection sections={sections} />
+      <ReviewSection />
     </main>
   );
 };
