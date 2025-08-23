@@ -61,7 +61,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4">
           <Button
             size="lg"
-            className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#3E757B] hover:bg-emerald-300 text-white"
+            className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#3E757B] hover:bg-[#3E757B] text-white"
           >
             Book Apointment
             <span className="rounded-full bg-white p-2">
@@ -71,11 +71,11 @@ export default function Hero() {
 
           <Button
             size="lg"
-            className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#fff] hover:bg-emerald-300 text-[#3E757B]"
+            className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#fff] hover:bg-[#3E757B] text-[#3E757B] hover:text-white"
           >
             Know More
-            <span className="rounded-full bg-[#3E757B] p-2">
-              <Eye className="h-5 w-5 text-white" />
+            <span className="rounded-full bg-[#fff] p-2">
+              <Eye className="h-5 w-5 text-[#000] hover:text-[#fff]" />
             </span>
           </Button>
         </div>
