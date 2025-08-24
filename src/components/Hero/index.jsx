@@ -59,15 +59,24 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button className="rounded-full bg-teal-700 hover:bg-teal-800 text-white px-6 py-4 sm:py-5 text-base sm:text-lg">
-            Book Appointment <ArrowRight className="ml-2 w-5 h-5" />
+          <Button
+            size="lg"
+            className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#3E757B] hover:bg-[#3E757B] text-white"
+          >
+            Book Apointment
+            <span className="rounded-full bg-white p-2">
+              <ArrowRight className="h-5 w-5 text-black" />
+            </span>
           </Button>
 
           <Button
-            variant="outline"
-            className="rounded-full border-gray-300 bg-white hover:bg-gray-100 text-gray-700 px-6 py-4 sm:py-5 text-base sm:text-lg"
+            size="lg"
+            className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#fff] hover:bg-[#3E757B] text-[#3E757B] hover:text-white"
           >
-            Know More <Eye className="ml-2 w-5 h-5" />
+            Know More
+            <span className="rounded-full bg-[#fff] p-2">
+              <Eye className="h-5 w-5 text-[#000] hover:text-[#fff]" />
+            </span>
           </Button>
         </div>
 

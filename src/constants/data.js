@@ -2,6 +2,28 @@ import { Pill, Baby, Activity, HeartPulse, ArrowRight } from "lucide-react";
 import cardImages from "./cardImages";
 import missionImages from "./missionImages";
 import blogFeatImages from "./blogFeatImages"
+import aboutCardsImages from "./aboutCardsImages";
+
+export const missionVisionData = [
+  {
+    id: 1,
+    title: "Our Mission.",
+    description:
+      "At our telepsychiatry clinic, our mission is to provide compassionate, accessible, and high-quality mental healthcare to individuals seeking support, regardless of geographical barriers. We are dedicated to fostering genuine connections with our patients and delivering personalized care that addresses their unique needs. Our commitment to 'Compassion, connection, and care' drives us to empower individuals on their journey towards mental well-being, promoting healthier and happier lives.",
+    image: aboutCardsImages.aboutOne,
+    buttonLabel: "See Services",
+    buttonVariant: "default",
+  },
+  {
+    id: 2,
+    title: "Our Vision.",
+    description:
+      "Our vision is to lead the telepsychiatry field by setting the standard for compassionate, connection-focused, and caring mental health services. We aspire to break down the boundaries that limit access to mental healthcare, making our services available to anyone in need anytime, anywhere. We envision a world where individuals, regardless of their location, can easily access the support and guidance they require to achieve emotional and psychological well-being.",
+    image: aboutCardsImages.aboutTwo,
+    buttonLabel: "Need Help?",
+    buttonVariant: "outline",
+  },
+];
 
 
 export const blogData = [
@@ -101,6 +123,8 @@ export const servicesData = [
     bgColor: "bg-gray-900 text-white", // dark card
   },
 ];
+
+
 
 
 
