@@ -1,22 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Popover } from "@headlessui/react";
+import MegaMenuCard from "../Cards/MegaMenuCard";
 import ContactFormModal from "../Modals/ContactFormModal";
 
-const Navbar = () => {
+const Navbar = ({ isDesktop }) => {
   const [open, setOpen] = useState(false);
-  const [contactOpen, setContactOpen] = useState(false); // control modal
+  const [contactOpen, setContactOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const timeoutRef = useRef(null); // ref for close delay
 
   const navItems = [
-    { name: "Services", href: "#" },
+    { name: "Services", href: "/services" },
     { name: "Forms", href: "#" },
     { name: "About Us", href: "/about" },
     { name: "Blog", href: "#" },
   ];
 
-  // Prevent body scroll when sheet is open
+  // Prevent body scroll when mobile sheet is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -31,8 +35,8 @@ const Navbar = () => {
   return (
     <>
       <nav className="w-full sticky top-0 z-50 md:bg-[#e6f0f0]/65 backdrop-blur-md mt-2 border-none">
-        <div className="container mx-auto px-4 flex items-center justify-between h-20">
-          {/* LEFT: Logo (icon + wordmark) + nav */}
+        <div className="container mx-auto px-4 flex items-center justify-between h-20 relative">
+          {/* LEFT: Logo + nav */}
           <div className="flex items-center">
             <a href="/" className="flex items-center h-20 shrink-0">
               <img
@@ -45,17 +49,62 @@ const Navbar = () => {
               </span>
             </a>
 
-            {/* Desktop nav pill */}
+            {/* Desktop nav */}
             <div className="hidden md:flex items-center bg-white/70 rounded-full px-4 py-4 ml-4">
-              {navItems.map((item) => (
-                <a
+              {navItems.map((item) =>
+                item.name === "Services" && isDesktop ? (
+                  <Popover
                   key={item.name}
-                  href={item.href}
-                  className="text-sm font-medium hover:text-[#007171] transition-colors first:pl-0 last:pr-0 px-4"
+                  className="relative"
+                  onMouseEnter={() => {
+                    if (timeoutRef.current) {
+                      clearTimeout(timeoutRef.current);
+                      timeoutRef.current = null;
+                    }
+                    setServicesOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    timeoutRef.current = setTimeout(() => {
+                      setServicesOpen(false);
+                    }, 150);
+                  }}
                 >
-                  {item.name}
-                </a>
-              ))}
+                  <>
+                    <Popover.Button
+                      as="a"
+                      href={item.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.location.href = item.href;
+                      }}
+                      className="text-sm font-medium hover:text-[#007171] transition-colors px-4"
+                    >
+                      {item.name}
+                    </Popover.Button>
+                
+                    {servicesOpen && (
+                      <Popover.Panel
+                        static
+                        className="absolute -right-80 top-full mt-2 z-50"
+                      >
+                        <div className="container mx-auto px-4">
+                          <MegaMenuCard />
+                        </div>
+                      </Popover.Panel>
+                    )}
+                  </>
+                </Popover>
+                
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-sm font-medium hover:text-[#007171] transition-colors px-4"
+                  >
+                    {item.name}
+                  </a>
+                )
+              )}
 
               <ContactFormModal
                 trigger={
@@ -67,7 +116,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* RIGHT: Desktop buttons pill */}
+          {/* RIGHT: Desktop buttons */}
           <div className="hidden md:flex items-center bg-white/70 rounded-full p-4 space-x-2">
             <Button
               variant="ghost"
@@ -132,8 +181,8 @@ const Navbar = () => {
                   {/* Mobile Contact Us */}
                   <button
                     onClick={() => {
-                      setOpen(false); // close sheet
-                      setTimeout(() => setContactOpen(true), 300); // delay modal open for smoothness
+                      setOpen(false);
+                      setTimeout(() => setContactOpen(true), 300);
                     }}
                     className="block py-4 font-semibold text-3xl text-left w-full text-white"
                   >
@@ -141,7 +190,7 @@ const Navbar = () => {
                   </button>
                 </nav>
 
-                {/* Other mobile items below */}
+                {/* Other mobile items */}
                 <div className="pt-6 border-t border-white/10 space-y-4">
                   <div className="rounded-xl bg-[#234e4f]/95 p-4">
                     <p className="text-xs uppercase opacity-80">Business Hours</p>
@@ -219,7 +268,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Contact modal stays mounted outside so it survives sheet unmount */}
+      {/* Contact modal outside */}
       <ContactFormModal open={contactOpen} onOpenChange={setContactOpen} />
     </>
   );
