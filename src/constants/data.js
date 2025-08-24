@@ -12,7 +12,7 @@ export const megaMenuData = [
     description:
       "Addiction can negatively affect every aspect of your life. We provide comprehensive support including evidence-based interventions, telepsychiatry, and relapse prevention.",
     image: megaMenuImages.addiction,
-    bgColor: "bg-[#dad4ec]",
+    bgColor: "bg-[#cb6c6e]",
     textColor: "text-black",       
     descriptionColor: "text-black",
   },
