@@ -1,15 +1,15 @@
 import { Button } from "@/components/ui/button";
 import * as Icons from "lucide-react"; // import all lucide icons
-import { aboutHeroData } from "@/constants/data";
+import { servicesHeroData } from "@/constants/data";
 
-export default function AboutHero({
-  icon = aboutHeroData.icon,
-  label = aboutHeroData.label,
-  title = aboutHeroData.title,
-  description = aboutHeroData.description,
-  buttonText = aboutHeroData.buttonText,
-  imageDesktop = aboutHeroData.imageDesktop,
-  imageMobile = aboutHeroData.imageMobile,
+export default function ServiceHero({
+  icon = servicesHeroData.icon,
+  label = servicesHeroData.label,
+  title = servicesHeroData.title,
+  description = servicesHeroData.description,
+  buttonText = servicesHeroData.buttonText,
+  imageDesktop = servicesHeroData.imageDesktop,
+  imageMobile = servicesHeroData.imageMobile,
 }) {
   // dynamically pick lucide-react icon
   const IconComponent = Icons[icon] || Icons.User2;
