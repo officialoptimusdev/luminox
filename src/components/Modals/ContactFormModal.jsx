@@ -67,11 +67,11 @@ export default function ContactFormModal({ trigger }) {
                 <div className="flex">
                   <Listbox value={selected} onChange={setSelected}>
                     <div className="relative">
-                      <Listbox.Button className="flex items-center gap-2 bg-gray-100 px-3 py-3 rounded-l-lg">
+                      <Listbox.Button className="flex items-center gap-2 bg-gray-100 px-6 py-3 rounded-l-lg">
                         <span>{selected.flag}</span>
                         <span>{selected.code}</span>
                       </Listbox.Button>
-                      <Listbox.Options className="absolute mt-1 bg-white shadow rounded-lg z-10">
+                      <Listbox.Options className="absolute mt-1 bg-white shadow rounded-lg z-10 text-[15px]">
                         {countries.map((c) => (
                           <Listbox.Option
                             key={c.code}
@@ -113,7 +113,7 @@ export default function ContactFormModal({ trigger }) {
           </div>
 
           {/* Right: Contact info */}
-          <div className="bg-white p-8 border-l relative">
+          <div className="hidden md:block bg-white p-8 border-l relative">
             <h3 className="text-xs font-semibold text-[#007171] mb-4 uppercase tracking-wide">
               Contact Info
             </h3>
