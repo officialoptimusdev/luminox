@@ -7,6 +7,7 @@ import ContactFormModal from "../Modals/ContactFormModal";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false); // control modal
 
   const navItems = [
     { name: "Services", href: "#" },
@@ -28,182 +29,199 @@ const Navbar = () => {
   }, [open]);
 
   return (
-    <nav className="w-full sticky top-0 z-50  md:bg-[#e6f0f0]/65 backdrop-blur-md mt-2 border-none">
-      {/* make the bar tall enough to support a big logo/wordmark */}
-      <div className="container mx-auto px-4 flex items-center justify-between h-20">
-        {/* LEFT: Logo (icon + wordmark) + nav */}
-        <div className="flex items-center">
-          <a href="/" className="flex items-center h-20 shrink-0">
-            {/* Your portrait PNG (icon) */}
-            <img
-              src="/assets/luminox_logo_main.png"
-              alt="Luminox logo"
-              className="block h-12 md:h-14 w-auto object-contain shrink-0"
-            />
+    <>
+      <nav className="w-full sticky top-0 z-50 md:bg-[#e6f0f0]/65 backdrop-blur-md mt-2 border-none">
+        <div className="container mx-auto px-4 flex items-center justify-between h-20">
+          {/* LEFT: Logo (icon + wordmark) + nav */}
+          <div className="flex items-center">
+            <a href="/" className="flex items-center h-20 shrink-0">
+              <img
+                src="/assets/luminox_logo_main.png"
+                alt="Luminox logo"
+                className="block h-12 md:h-14 w-auto object-contain shrink-0"
+              />
+              <span className="hidden md:inline ml-3 text-lg md:text-2xl font-semibold tracking-tight text-[#1c1c1c]">
+                Luminox
+              </span>
+            </a>
 
-            <span className="ml-3 text-lg md:text-2xl hidden font-semibold tracking-tight text-[#1c1c1c]">
-              Luminox
-            </span>
-          </a>
+            {/* Desktop nav pill */}
+            <div className="hidden md:flex items-center bg-white/70 rounded-full px-4 py-4 ml-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium hover:text-[#007171] transition-colors first:pl-0 last:pr-0 px-4"
+                >
+                  {item.name}
+                </a>
+              ))}
 
-          {/* Desktop nav pill */}
-          <div className="hidden md:flex items-center bg-white/70 rounded-full px-4 py-4 ml-4">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm font-medium hover:text-[#007171] transition-colors first:pl-0 last:pr-0 px-4"
-              >
-                {item.name}
-              </a>
-            ))}
-
-            <ContactFormModal
-              trigger={
-                <button className="text-sm font-medium hover:text-[#007171] transition-colors px-4">
-                  Contact Us
-                </button>
-              }
-            />
+              <ContactFormModal
+                trigger={
+                  <button className="text-sm font-medium hover:text-[#007171] transition-colors px-4">
+                    Contact Us
+                  </button>
+                }
+              />
+            </div>
           </div>
-        </div>
 
-        {/* RIGHT: Desktop buttons pill */}
-        <div className="hidden md:flex items-center bg-white/70 rounded-full p-4 space-x-2">
-          <Button
-            variant="ghost"
-            className="rounded-full px-6 hover:bg-transparent text-[#004d4d]"
-          >
-            Patient Portal
-          </Button>
-          <Button className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-6">
-            Book Appointment
-            <ArrowRight className="w-4 h-4" />
-          </Button>
-        </div>
-
-        {/* Mobile drawer */}
-        <div className="flex items-center md:hidden">
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <button
-                aria-label={open ? "Close menu" : "Open menu"}
-                className="flex items-center justify-center h-10 w-10 rounded-full bg-[#3E757B] text-white focus:outline-none"
-              >
-                <Menu className="w-6 h-6" />
-              </button>
-            </SheetTrigger>
-
-            <SheetContent
-              side="left"
-              className="fixed inset-0 left-0 top-0 z-50 w-full max-w-none h-screen bg-[#2e6f73] text-white p-6 rounded-none overflow-y-auto [&>button:first-of-type]:hidden"
+          {/* RIGHT: Desktop buttons pill */}
+          <div className="hidden md:flex items-center bg-white/70 rounded-full p-4 space-x-2">
+            <Button
+              variant="ghost"
+              className="rounded-full px-6 hover:bg-transparent text-[#004d4d]"
             >
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-4">
-                  <a href="/" className="flex items-center h-20 shrink-0">
-                    <img src="/assets/logo-icon.png" alt="Luminox logo" className="h-10 w-auto object-contain" />
-                  </a>
+              Patient Portal
+            </Button>
+            <Button className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-6">
+              Book Appointment
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+
+          {/* Mobile drawer */}
+          <div className="flex items-center md:hidden">
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetTrigger asChild>
+                <button
+                  aria-label={open ? "Close menu" : "Open menu"}
+                  className="flex items-center justify-center h-10 w-10 rounded-full bg-[#3E757B] text-white focus:outline-none"
+                >
+                  <Menu className="w-6 h-6" />
+                </button>
+              </SheetTrigger>
+
+              <SheetContent
+                side="left"
+                className="fixed inset-0 left-0 top-0 z-50 w-full max-w-none h-screen bg-[#2e6f73] text-white p-6 rounded-none overflow-y-auto [&>button:first-of-type]:hidden"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-4">
+                    <a href="/" className="flex items-center h-20 shrink-0">
+                      <img
+                        src="/assets/logo-icon.png"
+                        alt="Luminox logo"
+                        className="h-10 w-auto object-contain"
+                      />
+                    </a>
+                  </div>
+
+                  <button
+                    aria-label="Close menu"
+                    onClick={() => setOpen(false)}
+                    className="flex items-center justify-center h-10 w-10 rounded-full bg-black text-white focus:outline-none"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
                 </div>
 
-                <button
-                  aria-label="Close menu"
-                  onClick={() => setOpen(false)}
-                  className="flex items-center justify-center h-10 w-10 rounded-full bg-black text-white focus:outline-none"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              <nav className="space-y-1">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="block py-4 font-semibold text-3xl text-white tracking-tight"
-                    onClick={() => setOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-
-                <ContactFormModal
-                  trigger={
-                    <button
+                <nav className="space-y-1">
+                  {navItems.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="block py-4 font-semibold text-3xl text-white tracking-tight"
                       onClick={() => setOpen(false)}
-                      className="block py-4 font-semibold text-3xl text-left w-full text-white"
                     >
-                      Contact Us
-                    </button>
-                  }
-                />
-              </nav>
+                      {item.name}
+                    </a>
+                  ))}
 
-              <div className="pt-6 border-t border-white/10 space-y-4">
-                <div className="rounded-xl bg-[#234e4f]/95 p-4">
-                  <p className="text-xs uppercase opacity-80">Business Hours</p>
-                  <div className="mt-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-sm">Monday - Friday</span>
-                      <span className="text-sm font-semibold">10AM - 8PM</span>
-                    </div>
-                    <div className="flex justify-between mt-1">
-                      <span className="text-sm">Saturday & Sunday</span>
-                      <span className="text-sm font-semibold">8AM - 8PM</span>
+                  {/* Mobile Contact Us */}
+                  <button
+                    onClick={() => {
+                      setOpen(false); // close sheet
+                      setTimeout(() => setContactOpen(true), 300); // delay modal open for smoothness
+                    }}
+                    className="block py-4 font-semibold text-3xl text-left w-full text-white"
+                  >
+                    Contact Us
+                  </button>
+                </nav>
+
+                {/* Other mobile items below */}
+                <div className="pt-6 border-t border-white/10 space-y-4">
+                  <div className="rounded-xl bg-[#234e4f]/95 p-4">
+                    <p className="text-xs uppercase opacity-80">Business Hours</p>
+                    <div className="mt-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="text-sm">Monday - Friday</span>
+                        <span className="text-sm font-semibold">10AM - 8PM</span>
+                      </div>
+                      <div className="flex justify-between mt-1">
+                        <span className="text-sm">Saturday & Sunday</span>
+                        <span className="text-sm font-semibold">8AM - 8PM</span>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="rounded-xl bg-[#234e4f]/95 p-4">
-                  <p className="text-xs uppercase opacity-80">Email Address</p>
-                  <p className="mt-2 text-sm">contact@luminoxmentalhealth.com</p>
+                  <div className="rounded-xl bg-[#234e4f]/95 p-4">
+                    <p className="text-xs uppercase opacity-80">Email Address</p>
+                    <p className="mt-2 text-sm">
+                      contact@luminoxmentalhealth.com
+                    </p>
 
-                  <a
-                    href="tel:+12405537970"
-                    className="mt-3 block w-full text-center bg-white/10 py-3 rounded-full font-semibold"
+                    <a
+                      href="tel:+12405537970"
+                      className="mt-3 block w-full text-center bg-white/10 py-3 rounded-full font-semibold"
+                    >
+                      +1 (240)-553-7970
+                    </a>
+                  </div>
+
+                  <Button
+                    variant="outline"
+                    className="w-full rounded-full border-white text-white"
+                    onClick={() => setOpen(false)}
                   >
-                    +1 (240)-553-7970
-                  </a>
+                    Patient Portal
+                  </Button>
+
+                  <Button
+                    className="w-full rounded-full flex items-center justify-center gap-2 bg-black/20 hover:bg-black/30"
+                    onClick={() => setOpen(false)}
+                  >
+                    Book Appointment
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
                 </div>
 
-                <Button
-                  variant="outline"
-                  className="w-full rounded-full border-white text-white"
-                  onClick={() => {
-                    setOpen(false);
-                  }}
-                >
-                  Patient Portal
-                </Button>
-
-                <Button
-                  className="w-full rounded-full flex items-center justify-center gap-2 bg-black/20 hover:bg-black/30"
-                  onClick={() => setOpen(false)}
-                >
-                  Book Appointment
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
-
-              <div className="mt-6">
-                <div className="flex items-center gap-3">
-                  <a href="#" aria-label="Facebook" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white">
-                    <FaFacebookF />
-                  </a>
-
-                  <a href="#" aria-label="Instagram" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white">
-                    <FaInstagram />
-                  </a>
-
-                  <a href="#" aria-label="LinkedIn" className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white">
-                    <FaLinkedinIn />
-                  </a>
+                <div className="mt-6">
+                  <div className="flex items-center gap-3">
+                    <a
+                      href="#"
+                      aria-label="Facebook"
+                      className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white"
+                    >
+                      <FaFacebookF />
+                    </a>
+                    <a
+                      href="#"
+                      aria-label="Instagram"
+                      className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white"
+                    >
+                      <FaInstagram />
+                    </a>
+                    <a
+                      href="#"
+                      aria-label="LinkedIn"
+                      className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white"
+                    >
+                      <FaLinkedinIn />
+                    </a>
+                  </div>
                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Contact modal stays mounted outside so it survives sheet unmount */}
+      <ContactFormModal open={contactOpen} onOpenChange={setContactOpen} />
+    </>
   );
 };
 
