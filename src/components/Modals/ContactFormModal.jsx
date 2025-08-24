@@ -11,16 +11,22 @@ const countries = [
   { code: "+234", flag: "🇳🇬" },
 ];
 
-export default function ContactFormModal({ trigger }) {
+export default function ContactFormModal({ trigger, open, onOpenChange }) {
   const [selected, setSelected] = useState(countries[0]);
 
   return (
-    <Dialog>
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      {trigger && <DialogTrigger asChild>{trigger}</DialogTrigger>}
 
-      <DialogContent className="max-w-5xl w-full p-0 rounded-2xl overflow-hidden">
-        {/* Close button */}
-        <button className="absolute top-4 right-4 rounded-full bg-white shadow p-1">
+      <DialogContent
+        className="max-w-5xl w-full p-0 rounded-2xl overflow-hidden [&>button:first-of-type]:hidden"
+    
+      >
+        {/* Custom Close button */}
+        <button
+          onClick={() => onOpenChange && onOpenChange(false)}
+          className="absolute top-4 right-4 rounded-full bg-white shadow p-1"
+        >
           <X className="h-5 w-5" />
         </button>
 
@@ -28,7 +34,9 @@ export default function ContactFormModal({ trigger }) {
           {/* Left: Form */}
           <div className="bg-white p-8 space-y-6">
             <div>
-              <p className="text-sm font-medium text-gray-500 mb-2">Contact Us</p>
+              <p className="text-sm font-medium text-gray-500 mb-2">
+                Contact Us
+              </p>
               <h2 className="text-3xl font-bold leading-snug">
                 Get in touch with us. <br /> We&apos;re here to assist you.
               </h2>
@@ -67,11 +75,11 @@ export default function ContactFormModal({ trigger }) {
                 <div className="flex">
                   <Listbox value={selected} onChange={setSelected}>
                     <div className="relative">
-                      <Listbox.Button className="flex items-center gap-2 bg-gray-100 px-3 py-3 rounded-l-lg">
+                      <Listbox.Button className="flex items-center gap-2 bg-gray-100 px-6 py-3 rounded-l-lg">
                         <span>{selected.flag}</span>
                         <span>{selected.code}</span>
                       </Listbox.Button>
-                      <Listbox.Options className="absolute mt-1 bg-white shadow rounded-lg z-10">
+                      <Listbox.Options className="absolute mt-1 bg-white shadow rounded-lg z-10 text-[15px]">
                         {countries.map((c) => (
                           <Listbox.Option
                             key={c.code}
@@ -113,7 +121,7 @@ export default function ContactFormModal({ trigger }) {
           </div>
 
           {/* Right: Contact info */}
-          <div className="bg-white p-8 border-l relative">
+          <div className="hidden md:block bg-white p-8 border-l relative">
             <h3 className="text-xs font-semibold text-[#007171] mb-4 uppercase tracking-wide">
               Contact Info
             </h3>
