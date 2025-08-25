@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import * as Icons from "lucide-react"; // import all lucide icons
+import * as Icons from "lucide-react";
 import { servicesHeroData } from "@/constants/data";
+import ServiceForm from "../Forms/ServiceForm";
 
 export default function ServiceHero({
   icon = servicesHeroData.icon,
@@ -51,6 +52,7 @@ export default function ServiceHero({
           </div>
 
           {/* Right Image */}
+          {/* Right Image with Form overlay */}
           <div className="relative w-full flex justify-center">
             <div className="relative w-full">
               {/* Desktop Image */}
@@ -63,22 +65,29 @@ export default function ServiceHero({
               <img
                 src={imageMobile}
                 alt={title + ' Mobile'}
-                className="block sm:hidden rounded-lg object-cover w-full h-full max-h-[400px]"
+                className="block sm:hidden rounded-lg object-cover w-full h-full max-h-[600px]"
               />
+
+              {/* Service Form overlay (desktop only) */}
+              <div className="hidden lg:block absolute top-4 -bottom-14 left-1/2 transform -translate-y-1 -translate-x-24 w-[380px] z-10">
+                <ServiceForm />
+              </div>
+
+
             </div>
           </div>
         </div>
       </section>
 
-      {/* Curved bottom */}
+      {/* Curved bottom (hidden on mobile) */}
       <div
         aria-hidden="true"
+        className="hidden sm:flex"
         style={{
           position: "relative",
-          top: -160,
+          top: -155,
           left: 0,
           width: "100%",
-          display: "flex",
           justifyContent: "center",
           alignItems: "flex-start",
           height: "10%",
@@ -99,6 +108,7 @@ export default function ServiceHero({
           />
         </svg>
       </div>
+
     </>
   );
 }
