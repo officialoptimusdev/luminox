@@ -1,11 +1,16 @@
+import React, { useEffect, useState } from "react";
 import FeaturedBlog from "@/components/FeaturedBlog";
 import FeaturedSection from "@/components/FeaturedSection";
 import FeaturedServices from "@/components/FeaturedServices";
 import Hero from "@/components/Hero";
 import MissionStatement from "@/components/MissionStatement";
 import ReviewSection from "@/components/ReviewSection";
+import NewsLetterModal from "@/components/Modals/NewsLetterModal";
+
 
 const Home = () => {
+  const [showNewsletter, setShowNewsletter] = useState(false);
+
   const sections = [
     {
       tagline: "Washington DC",
@@ -27,6 +32,26 @@ const Home = () => {
     },
   ];
 
+  useEffect(() => {
+    // Only show the newsletter modal when Home mounts (i.e., user visits "/")
+    setShowNewsletter(true);
+
+    // Auto close after 20 seconds (20000 ms)
+    const t = setTimeout(() => {
+      setShowNewsletter(false);
+    }, 20000);
+
+    // Cleanup timer on unmount
+    return () => clearTimeout(t);
+  }, []);
+
+  // Optional handler when user successfully joins
+  const handleJoin = (email) => {
+    // Keep your subscription logic here; this will be called when form submits
+    console.log("Newsletter subscribed:", email);
+    // you can also call an API here
+  };
+
   return (
     <main className="w-full">
       <Hero />
@@ -35,6 +60,16 @@ const Home = () => {
       <FeaturedBlog />
       <FeaturedSection sections={sections} />
       <ReviewSection />
+
+      {/* Newsletter modal rendered on top when showNewsletter is true */}
+      <NewsLetterModal
+        open={showNewsletter}
+        onClose={() => setShowNewsletter(false)}
+        onJoin={(email) => {
+          handleJoin(email);
+          setShowNewsletter(false);
+        }}
+      />
     </main>
   );
 };
