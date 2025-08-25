@@ -6,10 +6,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 const services = [
-   { id: 1, name: "Web Development" },
-   { id: 2, name: "Mobile App Development" },
-   { id: 3, name: "UI/UX Design" },
-   { id: 4, name: "SEO Optimization" },
+   { id: 1, name: "Addiction Treatment" },
+   { id: 2, name: "Child & Adolescent" },
+   { id: 3, name: "Crisis Intervention" },
+   { id: 4, name: "Follow-Up & Monitoring" },
 ];
 
 const countries = [
@@ -23,7 +23,7 @@ export default function ServiceForm() {
 
    const [selectedCountry, setSelectedCountry] = useState(countries[0]);
 
-   return (
+   return ( 
       <div className="max-w-lg mx-auto rounded-2xl bg-white shadow-sm p-4 space-y-4">
          <div>
             <h2 className="text-lg font-semibold">
