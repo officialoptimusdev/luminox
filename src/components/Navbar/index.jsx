@@ -6,6 +6,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Popover } from "@headlessui/react";
 import MegaMenuCard from "../Cards/MegaMenuCard";
 import ContactFormModal from "../Modals/ContactFormModal";
+import { GiHeartPlus } from "react-icons/gi";
 
 const Navbar = ({ isDesktop }) => {
   const [open, setOpen] = useState(false);
@@ -54,47 +55,47 @@ const Navbar = ({ isDesktop }) => {
               {navItems.map((item) =>
                 item.name === "Services" && isDesktop ? (
                   <Popover
-                  key={item.name}
-                  className="relative"
-                  onMouseEnter={() => {
-                    if (timeoutRef.current) {
-                      clearTimeout(timeoutRef.current);
-                      timeoutRef.current = null;
-                    }
-                    setServicesOpen(true);
-                  }}
-                  onMouseLeave={() => {
-                    timeoutRef.current = setTimeout(() => {
-                      setServicesOpen(false);
-                    }, 150);
-                  }}
-                >
-                  <>
-                    <Popover.Button
-                      as="a"
-                      href={item.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.location.href = item.href;
-                      }}
-                      className="text-sm font-medium hover:text-[#007171] transition-colors px-4"
-                    >
-                      {item.name}
-                    </Popover.Button>
-                
-                    {servicesOpen && (
-                      <Popover.Panel
-                        static
-                        className="absolute -right-80 top-full mt-2 z-50"
+                    key={item.name}
+                    className="relative"
+                    onMouseEnter={() => {
+                      if (timeoutRef.current) {
+                        clearTimeout(timeoutRef.current);
+                        timeoutRef.current = null;
+                      }
+                      setServicesOpen(true);
+                    }}
+                    onMouseLeave={() => {
+                      timeoutRef.current = setTimeout(() => {
+                        setServicesOpen(false);
+                      }, 150);
+                    }}
+                  >
+                    <>
+                      <Popover.Button
+                        as="a"
+                        href={item.href}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.location.href = item.href;
+                        }}
+                        className="text-sm font-medium hover:text-[#007171] transition-colors px-4"
                       >
-                        <div className="container mx-auto px-4">
-                          <MegaMenuCard />
-                        </div>
-                      </Popover.Panel>
-                    )}
-                  </>
-                </Popover>
-                
+                        {item.name}
+                      </Popover.Button>
+
+                      {servicesOpen && (
+                        <Popover.Panel
+                          static
+                          className="absolute -right-80 top-full mt-2 z-50"
+                        >
+                          <div className="container mx-auto px-4">
+                            <MegaMenuCard />
+                          </div>
+                        </Popover.Panel>
+                      )}
+                    </>
+                  </Popover>
+
                 ) : (
                   <a
                     key={item.name}
@@ -117,18 +118,22 @@ const Navbar = ({ isDesktop }) => {
           </div>
 
           {/* RIGHT: Desktop buttons */}
-          <div className="hidden md:flex items-center bg-white/70 rounded-full p-4 space-x-2">
-            <Button
-              variant="ghost"
-              className="rounded-full px-6 hover:bg-transparent text-[#004d4d]"
-            >
-              Patient Portal
-            </Button>
-            <Button className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-6">
-              Book Appointment
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
+          <div className="hidden md:flex items-center bg-white/70 rounded-full px-4 space-x-3">
+  <Button
+    variant="ghost"
+    className="rounded-full px-6 py-3 hover:bg-transparent text-[#004d4d] flex items-center"
+  >
+    Patient Portal
+    <GiHeartPlus className="w-4 h-4 ml-2" />
+  </Button>
+
+  <Button
+    className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-3 py-6 mt-2 mb-2"
+  >
+    Book Appointment
+    <ArrowRight className="w-4 h-4 ml-2" />
+  </Button>
+</div>
 
           {/* Mobile drawer */}
           <div className="flex items-center md:hidden">
