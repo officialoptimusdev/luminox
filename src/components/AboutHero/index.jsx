@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import * as Icons from "lucide-react"; // import all lucide icons
+import * as Icons from "lucide-react";
 import { aboutHeroData } from "@/constants/data";
 
 export default function AboutHero({
@@ -70,15 +70,15 @@ export default function AboutHero({
         </div>
       </section>
 
-      {/* Curved bottom */}
+      {/* Curved bottom (hidden on mobile) */}
       <div
         aria-hidden="true"
+        className="hidden sm:flex"
         style={{
           position: "relative",
-          top: -160,
+          top: -155,
           left: 0,
           width: "100%",
-          display: "flex",
           justifyContent: "center",
           alignItems: "flex-start",
           height: "10%",
