@@ -51,7 +51,7 @@ export default function ServiceHero({
             </div>
           </div>
 
-          {/* Right Image */}
+  
           {/* Right Image with Form overlay */}
           <div className="relative w-full flex justify-center">
             <div className="relative w-full">
