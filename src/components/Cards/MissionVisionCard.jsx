@@ -13,7 +13,7 @@ export default function MissionVisionCard({
 }) {
   return (
     <div className="w-full flex justify-center px-4">
-
+ 
       <div
         className={cn(
           "flex flex-col md:flex-row items-stretch md:gap-6 gap-8 max-w-6xl w-full",
