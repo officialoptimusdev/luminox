@@ -1,54 +1,61 @@
-import { Pill, Baby, Activity, HeartPulse, ArrowRight, SlidersHorizontal } from "lucide-react";
+
 import cardImages from "./cardImages";
 import missionImages from "./missionImages";
 import blogFeatImages from "./blogFeatImages"
 import aboutCardsImages from "./aboutCardsImages";
-import megaMenuImages from "./megaMenuImages";
 import aboutImages from "./aboutImages";
 import serviceImages from "./serviceImages";
-
-export const aboutHeroData = {
-  icon: "User2", // lucide-react icon name (can be swapped dynamically)
-  label: "About Us",
-  title: "Meet Luminox Healthcare.",
-  description:
-    "Luminox Healthcare Services (Mental Health Services) believes in breaking down barriers to mental health care. That is why we offer compassionate, accessible, and comprehensive remote mental health services.",
-  buttonText: "Book Session",
-  imageDesktop: aboutImages.aboutHero2, 
-  imageMobile: aboutImages.aboutHero,  
-};
+import { Pill, Baby, Activity, HeartPulse, ArrowRight, SlidersHorizontal } from "lucide-react";
+import megaMenuImages from "./megaMenuImages";
+import pricingImages from "./pricingImages";
 
 
-export const servicesHeroData = {
-  icon: "SlidersHorizontal", // lucide-react icon name (can be swapped dynamically)
-  label: "Services",
-  title: "Empowering Your Health Journey.",
-  description:
-    "Discover our range of services designed to support your, mental well-being, financial convenience and more.",
-  buttonText: "Book Session",
-  imageDesktop: serviceImages.serviceHero2, 
-  imageMobile: serviceImages.serviceHero,  
-};
 
-
-export const missionVisionData = [
+export const pricingData = [
   {
     id: 1,
-    title: "Our Mission.",
-    description:
-      "At our telepsychiatry clinic, our mission is to provide compassionate, accessible, and high-quality mental healthcare to individuals seeking support, regardless of geographical barriers. We are dedicated to fostering genuine connections with our patients and delivering personalized care that addresses their unique needs. Our commitment to 'Compassion, connection, and care' drives us to empower individuals on their journey towards mental well-being, promoting healthier and happier lives.",
-    image: aboutCardsImages.aboutOne,
-    buttonLabel: "See Services",
-    buttonVariant: "default",
+    title: "Initial Assessment",
+    price: "$375",
+    description: "Click 'Book Session' to get assessment.",
+    image: pricingImages.assessment,
+    bgColor: "bg-[#fef2e0]",
+    textColor: "text-black",
   },
   {
     id: 2,
-    title: "Our Vision.",
-    description:
-      "Our vision is to lead the telepsychiatry field by setting the standard for compassionate, connection-focused, and caring mental health services. We aspire to break down the boundaries that limit access to mental healthcare, making our services available to anyone in need anytime, anywhere. We envision a world where individuals, regardless of their location, can easily access the support and guidance they require to achieve emotional and psychological well-being.",
-    image: aboutCardsImages.aboutTwo,
-    buttonLabel: "Need Help?",
-    buttonVariant: "outline",
+    title: "Suboxone Induction",
+    price: "$350",
+    description: "Comprehensive induction session for Suboxone treatment.",
+    image: pricingImages.suboxone,
+    bgColor: "bg-[#f5e4e6]",
+    textColor: "text-black",
+  },
+  {
+    id: 3,
+    title: "Suboxone Maintenance Therapy/Routine Follow-up visits",
+    price: "$275",
+    description: "Ongoing therapy and regular follow-up visits.",
+    image: pricingImages.maintenance,
+    bgColor: "bg-[#e0ecf9]",
+    textColor: "text-black",
+  },
+  {
+    id: 4,
+    title: "Telephone Consultation Calls",
+    price: "$225/20 mins",
+    description: "Quick telephonic consultations for follow-ups and support.",
+    image: pricingImages.call,
+    bgColor: "bg-[#1f2b4c]",
+    textColor: "text-white",
+  },
+  {
+    id: 5,
+    title: "Others",
+    price: "$50 - $100",
+    description: "Paperwork, forms, and temporary disability support.",
+    image: null,
+    bgColor: "bg-white",
+    textColor: "text-black",
   },
 ];
 
@@ -215,6 +222,52 @@ export const megaMenuData = [
     descriptionColor: "text-black",
   },
 ];
+
+export const aboutHeroData = {
+  icon: "User2", // lucide-react icon name (can be swapped dynamically)
+  label: "About Us",
+  title: "Meet Luminox Healthcare.",
+  description:
+    "Luminox Healthcare Services (Mental Health Services) believes in breaking down barriers to mental health care. That is why we offer compassionate, accessible, and comprehensive remote mental health services.",
+  buttonText: "Book Session",
+  imageDesktop: aboutImages.aboutHero2, 
+  imageMobile: aboutImages.aboutHero,  
+};
+
+
+export const servicesHeroData = {
+  icon: "SlidersHorizontal", // lucide-react icon name (can be swapped dynamically)
+  label: "Services",
+  title: "Empowering Your Health Journey.",
+  description:
+    "Discover our range of services designed to support your, mental well-being, financial convenience and more.",
+  buttonText: "Book Session",
+  imageDesktop: serviceImages.serviceHero2, 
+  imageMobile: serviceImages.serviceHero,  
+};
+
+
+export const missionVisionData = [
+  {
+    id: 1,
+    title: "Our Mission.",
+    description:
+      "At our telepsychiatry clinic, our mission is to provide compassionate, accessible, and high-quality mental healthcare to individuals seeking support, regardless of geographical barriers. We are dedicated to fostering genuine connections with our patients and delivering personalized care that addresses their unique needs. Our commitment to 'Compassion, connection, and care' drives us to empower individuals on their journey towards mental well-being, promoting healthier and happier lives.",
+    image: aboutCardsImages.aboutOne,
+    buttonLabel: "See Services",
+    buttonVariant: "default",
+  },
+  {
+    id: 2,
+    title: "Our Vision.",
+    description:
+      "Our vision is to lead the telepsychiatry field by setting the standard for compassionate, connection-focused, and caring mental health services. We aspire to break down the boundaries that limit access to mental healthcare, making our services available to anyone in need anytime, anywhere. We envision a world where individuals, regardless of their location, can easily access the support and guidance they require to achieve emotional and psychological well-being.",
+    image: aboutCardsImages.aboutTwo,
+    buttonLabel: "Need Help?",
+    buttonVariant: "outline",
+  },
+];
+
 
 
 export const blogData = [
