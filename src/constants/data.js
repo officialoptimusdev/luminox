@@ -18,7 +18,7 @@ export const pricingData = [
     price: "$375",
     description: "Click 'Book Session' to get assessment.",
     image: pricingImages.assessment,
-    bgColor: "bg-[#fef2e0]",
+    bgColor: "bg-[#ffe2be]",
     textColor: "text-black",
   },
   {
@@ -27,7 +27,7 @@ export const pricingData = [
     price: "$350",
     description: "Comprehensive induction session for Suboxone treatment.",
     image: pricingImages.suboxone,
-    bgColor: "bg-[#f5e4e6]",
+    bgColor: "bg-[#F5E4E6]",
     textColor: "text-black",
   },
   {
@@ -36,7 +36,7 @@ export const pricingData = [
     price: "$275",
     description: "Ongoing therapy and regular follow-up visits.",
     image: pricingImages.maintenance,
-    bgColor: "bg-[#e0ecf9]",
+    bgColor: "bg-[#a2b9e1]",
     textColor: "text-black",
   },
   {
@@ -45,7 +45,7 @@ export const pricingData = [
     price: "$225/20 mins",
     description: "Quick telephonic consultations for follow-ups and support.",
     image: pricingImages.call,
-    bgColor: "bg-[#1f2b4c]",
+    bgColor: "bg-[#1b2745]",
     textColor: "text-white",
   },
   {

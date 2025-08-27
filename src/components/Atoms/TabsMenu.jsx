@@ -3,7 +3,9 @@ import { useState } from "react";
 import ServicesCards from "../Cards/SevicesCards";
 import PricingCards from "../Cards/PricingCards";
 import { megaMenuData, pricingData } from "@/constants/data";
-import LocationsCard from "../LocationsCard";
+import LocationsCard from "../Cards/LocationsCard";
+import ExtraPricingNoteCard from "../Cards/ExtraPricingNoteCard";
+import { ArrowRight } from "lucide-react";
 
 function classNames(...classes) {
    return classes.filter(Boolean).join(" ");
@@ -41,64 +43,102 @@ const TabsMenu = () => {
 
                {/* Tab Panels */}
                <Tab.Panels className="mt-8">
-               <Tab.Panel>
-  <div className="grid grid-cols-1 gap-3 md:grid-cols-5 md:grid-rows-2">
-    {/* Big left card */}
-    <div className="col-span-1 md:col-span-2 md:row-span-2">
-      <ServicesCards
-        service={categories["Services"][0]}
-        variant="card"
-      />
-    </div>
+                  <Tab.Panel>
+                     <div className="grid grid-cols-1 gap-3 md:grid-cols-5 md:grid-rows-2">
+                        {/* Big left card */}
+                        <div className="col-span-1 md:col-span-2 md:row-span-2">
+                           <ServicesCards
+                              service={categories["Services"][0]}
+                              variant="card"
+                           />
+                        </div>
 
-    {/* Three smaller cards (top-right) */}
-    <ServicesCards
-      service={categories["Services"][1]}
-      variant="card"
-    />
-    <ServicesCards
-      service={categories["Services"][4]}
-      variant="card"
-    />
-    <ServicesCards
-      service={categories["Services"][15]}
-      variant="card"
-    />
+                        {/* Three smaller cards (top-right) */}
+                        <ServicesCards
+                           service={categories["Services"][1]}
+                           variant="card"
+                        />
+                        <ServicesCards
+                           service={categories["Services"][4]}
+                           variant="card"
+                        />
+                        <ServicesCards
+                           service={categories["Services"][15]}
+                           variant="card"
+                        />
 
-    {/* Compact list */}
-    <div className="col-span-1 md:col-span-3 bg-white rounded-2xl p-6">
-      <h4 className="text-sm font-semibold text-gray-500 mb-4">
-        Services{" "}
-        <span className="ml-2 text-xs text-gray-400">
-         See more services.
-        </span>
-      </h4>
-      {categories["Services"]
-        .slice(2, 4)
-        .map((service) => (
-          <ServicesCards
-            key={service.id}
-            service={service}
-            variant="list"
-          />
-        ))}
-    </div>
-  </div>
+                        {/* Compact list */}
+                        <div className="col-span-1 md:col-span-3 bg-white rounded-2xl p-6">
+                           <h4 className="text-sm font-semibold text-gray-500 mb-4">
+                              Services{" "}
+                              <span className="ml-2 text-xs text-gray-400">
+                                 See more services.
+                              </span>
+                           </h4>
+                           {categories["Services"]
+                              .slice(2, 4)
+                              .map((service) => (
+                                 <ServicesCards
+                                    key={service.id}
+                                    service={service}
+                                    variant="list"
+                                 />
+                              ))}
+                        </div>
+                     </div>
 
-  {/* Locations */}
-  <div className="mt-4">
-    <LocationsCard />
-  </div>
-</Tab.Panel>
+                     {/* Locations */}
+                     <div className="mt-4">
+                        <LocationsCard />
+                     </div>
+                  </Tab.Panel>
 
                   {/* Pricing Panel */}
                   <Tab.Panel>
-                     {/* <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                        {categories["Pricing List"].map((pricing) => (
+                     <div className="grid grid-cols-1  md:grid-cols-5 md:grid-rows-1 gap-3">
+                        {/* Featured Big Left Card */}
+                        <div className="col-span-1 md:col-span-2 md:row-span-2">
+                           <PricingCards
+                              pricing={categories["Pricing List"][0]}
+                              variant="featured"
+                           />
+                        </div>
+
+                        {/* Others / Compact Pricing List */}
+                        <div className="md:col-span-3 col-span-1 bg-white rounded-2xl p-6">
+                           <h4 className="text-sm font-semibold text-gray-500 mb-4">
+                              Others{" "}
+                              <span className="ml-2 text-xs text-gray-400">
+                                 Scroll to reveal more pricing.
+                              </span>
+                           </h4>
+                           {categories["Pricing List"]
+                              .slice(4, 6) // adjust indexes for your data
+                              .map((pricing) => (
+                                 <div
+                                    key={pricing.id}
+                                    className="flex justify-between items-center border-b border-gray-200 py-3"
+                                 >
+                                    <div>
+                                       <h3 className="text-base font-semibold">{pricing.price}</h3>
+                                       <p className="text-sm text-gray-600">{pricing.title}</p>
+                                    </div>
+                                    <button className="inline-flex items-center text-sm font-medium hover:underline">
+                                       Book Session <ArrowRight className="ml-2 w-4 h-4" />
+                                    </button>
+                                 </div>
+                              ))}
+                        </div>
+                        {/* Three Smaller Cards */}
+                        {categories["Pricing List"].slice(1, 4).map((pricing) => (
                            <PricingCards key={pricing.id} pricing={pricing} />
                         ))}
-                     </div> */}
+                     </div>
+
+                     {/* Extra Note Underneath */}
+                     <ExtraPricingNoteCard />
                   </Tab.Panel>
+
                </Tab.Panels>
             </Tab.Group>
          </div>
