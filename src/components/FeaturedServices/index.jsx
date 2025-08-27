@@ -1,7 +1,7 @@
 import { servicesData } from "@/constants/data";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// import FeaturedCards from "../Cards/FeaturedCards";
+
 
 export default function FeaturedServices() {
   return (
@@ -20,27 +20,6 @@ export default function FeaturedServices() {
           See Services <ArrowRight className="ml-2 w-4 h-4" />
         </Button>
       </div>
-
-      {/* Cards Grid */}
-      {/* <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(200px,auto)]">
-  {servicesData.map((service, idx) => (
-    <FeaturedCards
-      key={service.id}
-      {...service}
-      className={
-        idx === 0
-          ? "sm:col-span-2 sm:row-span-2" // big Addiction Treatment card
-          : idx === 1
-          ? "sm:col-span-1 sm:row-span-1" // Child & Adolescent
-          : idx === 2
-          ? "sm:col-span-1 sm:row-span-1" // Follow-Up & Monitoring
-          : "sm:col-span-2 sm:row-span-1" // Support for Specific Conditions (full bottom row)
-      }
-    />
-  ))}
-</div> */}
-
-
     </section>
   );
 }
