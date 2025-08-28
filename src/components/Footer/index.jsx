@@ -146,13 +146,13 @@ const Footer = () => {
               {/* Social & badges */}
               <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <a href="#" className="bg-[#1b1c1d] hover:bg-[#222425] p-2 rounded-full text-gray-300">
+                <a href="#" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
                     <FaFacebookF size={14} />
                   </a>
-                  <a href="#" className="bg-[#1b1c1d] hover:bg-[#222425] p-2 rounded-full text-gray-300">
+                  <a href="#" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
                     <FaInstagram size={14} />
                   </a>
-                  <a href="#" className="bg-[#1b1c1d] hover:bg-[#222425] p-2 rounded-full text-gray-300">
+                  <a href="#" className="bg-[#ff2929] hover:bg-[#222425] p-2 rounded-full text-white">
                     <FaYoutube size={14} />
                   </a>
                 </div>
@@ -171,7 +171,7 @@ const Footer = () => {
               <div className="flex items-center gap-4">
                 <div className="bg-[#1b1c1d] rounded-full px-4 py-2 text-sm text-gray-200 flex items-center gap-3">
                   <Phone size={14} className="text-teal-300" />
-                  <span className="font-sm">+1 (240)-553-7970</span>
+                  <span className="font-sm sm:text-xs">+1 (240)-553-7970</span>
                 </div>
                 <div className="text-sm text-gray-400">© {new Date().getFullYear()} Luminox Healthcare Services. All rights reserved.</div>
               </div>
