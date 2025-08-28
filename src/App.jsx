@@ -7,6 +7,7 @@ import './index.css'
 import Home from "./pages/home";
 import About from "./pages/about";
 import Services from "./pages/services";
+import Referral from "./pages/Referral";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/referral" element={<Referral />} />
         </Routes>
         <Footer />
       </div>
