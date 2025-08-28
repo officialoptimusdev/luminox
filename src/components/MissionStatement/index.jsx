@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import MissionCards from "../Cards/MissionCards";
+import { Link } from "react-router-dom";
 
 export default function MissionStatement() {
    return (
@@ -44,9 +45,11 @@ export default function MissionStatement() {
                   support, regardless of geographical barriers.
                </p>
 
-               <button className="flex items-center gap-2 bg-white text-gray-900 font-medium px-5 py-2 rounded-full hover:bg-gray-100 transition mb-10">
-                  About Us <ArrowRight size={18} />
-               </button>
+               <Link to="/about">
+                  <button className="flex items-center gap-2 bg-white text-gray-900 font-medium px-5 py-2 rounded-full hover:bg-gray-100 transition mb-10">
+                     About Us <ArrowRight size={18} />
+                  </button>
+               </Link>
 
                <MissionCards />
             </div>

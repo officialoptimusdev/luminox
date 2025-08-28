@@ -17,7 +17,7 @@ export default function ServiceHero({
 
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#e3fcfb]">
+      <section className="-mt-4 relative w-full overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#e3fcfb]">
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-2 px-6 lg:px-0 pt-3 -lg:pt-0 relative z-0">
           {/* Left Content */}
           <div className="max-w-xl text-center lg:text-left space-y-5 mx-auto lg:mx-12">

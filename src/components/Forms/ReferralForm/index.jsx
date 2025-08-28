@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Phone, Mail, User } from "lucide-react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { Listbox } from "@headlessui/react";
 
+
+const countries = [
+  { code: "+1", flag: "🇺🇸" },
+  { code: "+44", flag: "🇬🇧" },
+  { code: "+234", flag: "🇳🇬" },
+];
+
+const genders = ["Female", "Male", "Other"];
 
 
 export default function ReferralForm() {
+  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+  const [selectedGender, setSelectedGender] = useState("");
+
   // service checkboxes
   const [services, setServices] = useState({
     outpatient: false,
@@ -119,13 +131,32 @@ export default function ReferralForm() {
                   <div className="space-y-1">
                     <label className="text-sm text-gray-600">Enter Phone Number</label>
                     <div className="flex items-center gap-2">
-                      <Phone size={16} className="text-gray-400" />
+                      <Listbox value={selectedCountry} onChange={setSelectedCountry}>
+                        <div className="relative">
+                          <Listbox.Button className="flex items-center gap-2 bg-gray-100 px-6 py-3 rounded-l-lg">
+                            <span>{selectedCountry.flag}</span>
+                            <span>{selectedCountry.code}</span>
+                          </Listbox.Button>
+                          <Listbox.Options className="absolute mt-1 bg-white shadow rounded-lg z-10 text-[15px]">
+                            {countries.map((c) => (
+                              <Listbox.Option
+                                key={c.code}
+                                value={c}
+                                className="cursor-pointer px-4 py-2 hover:bg-gray-100"
+                              >
+                                {c.flag} {c.code}
+                              </Listbox.Option>
+                            ))}
+                          </Listbox.Options>
+                        </div>
+                      </Listbox>
                       <input
+                        type="tel"
                         name="phone"
                         value={form.phone}
                         onChange={handleChange}
                         placeholder="000-000-0000"
-                        className="flex-1 bg-gray-50 border border-gray-200 rounded-full px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-[#dbeeee]"
+                        className="w-full bg-gray-50 border flex-1 px-4 py-3 rounded-full bg-gray-200 outline-none focus:ring-2 focus:ring-[#dbeeee]"
                       />
                     </div>
                   </div>
@@ -157,18 +188,26 @@ export default function ReferralForm() {
 
                   <div className="space-y-1">
                     <label className="text-sm text-gray-600">Gender</label>
-                    <select
-                      name="gender"
-                      value={form.gender}
-                      onChange={handleChange}
-                      className="w-full bg-gray-50 border border-gray-200 rounded-full px-4 py-2 text-sm outline-none focus:ring-2 focus:ring-[#dbeeee]"
-                    >
-                      <option value="">Select Gender</option>
-                      <option>Female</option>
-                      <option>Male</option>
-                      <option>Other</option>
-                    </select>
+                    <Listbox value={selectedGender} onChange={setSelectedGender}>
+                      <div className="relative">
+                        <Listbox.Button className="w-full bg-gray-50 border border-gray-200 rounded-full px-4 py-2 text-sm text-left outline-none focus:ring-2 focus:ring-[#dbeeee]">
+                          {selectedGender || "Select Gender"}
+                        </Listbox.Button>
+                        <Listbox.Options className="absolute mt-1 w-full bg-white shadow rounded-lg z-10 text-sm">
+                          {genders.map((g) => (
+                            <Listbox.Option
+                              key={g}
+                              value={g}
+                              className="cursor-pointer px-4 py-2 hover:bg-gray-100"
+                            >
+                              {g}
+                            </Listbox.Option>
+                          ))}
+                        </Listbox.Options>
+                      </div>
+                    </Listbox>
                   </div>
+
                 </div>
               </div>
 
@@ -216,9 +255,8 @@ export default function ReferralForm() {
                 <button
                   type="submit"
                   disabled={!isValid}
-                  className={`inline-flex items-center gap-2 px-5 py-2 rounded-full text-white font-medium transition-colors ${
-                    isValid ? "bg-[#4d8e92]" : "bg-[#abcdcb] cursor-not-allowed"
-                  }`}
+                  className={`inline-flex items-center gap-2 px-5 py-2 rounded-full text-white font-medium transition-colors ${isValid ? "bg-[#4d8e92]" : "bg-[#abcdcb] cursor-not-allowed"
+                    }`}
                 >
                   Submit Form
                   <svg
@@ -245,8 +283,12 @@ export default function ReferralForm() {
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <FaFacebookF className="text-gray-500" />
-                <FaInstagram className="text-gray-500" />
+                <a href="#" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <FaFacebookF size={14} />
+                </a>
+                <a href="#" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <FaInstagram size={14} />
+                </a>
               </div>
             </div>
 
@@ -268,7 +310,7 @@ export default function ReferralForm() {
               </div>
             </div>
 
-            <div className="mt-6 text-center text-slate-400 text-sm">We are always happy to assist you</div>
+            <div className="mt-6 text-center text-slate-400 text-[35px]">We are always happy to assist you</div>
           </aside>
         </div>
       </section>

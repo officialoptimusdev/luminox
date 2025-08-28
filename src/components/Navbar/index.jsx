@@ -244,24 +244,16 @@ const Navbar = ({ isDesktop }) => {
 
                 <div className="mt-6">
                   <div className="flex items-center gap-3">
-                    <a
-                      href="#"
-                      aria-label="Facebook"
-                      className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white"
-                    >
-                      <FaFacebookF />
-                    </a>
-                    <a
-                      href="#"
-                      aria-label="Instagram"
-                      className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white"
-                    >
-                      <FaInstagram />
-                    </a>
+                  <a href="#" className="h-10 w-10 bg-[#0866ff] hover:bg-[#222425] flex items-center justify-center rounded-full text-white">
+                    <FaFacebookF size={14} />
+                  </a>
+                  <a href="#" className="h-10 w-10 bg-[#d53c6c] hover:bg-[#222425] flex items-center justify-center rounded-full text-white">
+                    <FaInstagram  />
+                  </a>
                     <a
                       href="#"
                       aria-label="LinkedIn"
-                      className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white"
+                      className="h-10 w-10 bg-[#2167a4] hover:bg-[#222425] flex items-center justify-center rounded-full text-white"
                     >
                       <FaLinkedinIn />
                     </a>
