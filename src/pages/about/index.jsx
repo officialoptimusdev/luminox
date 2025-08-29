@@ -1,18 +1,17 @@
-import AboutHero from "@/components/AboutHero";
+import AboutHero from "@/components/Hero/AboutHero";
 import BrandsSection from "@/components/BrandsSection";
-import FeaturedAbout from "@/components/FeaturedAbout";
-import MeetTheTeam from "@/components/MeetTheTeam";
+import FeaturedAbout from "@/components/Featured/FeaturedAbout";
+import MeetTheTeam from "@/components/Sections/MeetTheTeam";
 
 const About = () => {
    return (
-    <main className="w-full">
-       <AboutHero />
-       <FeaturedAbout />
-       <BrandsSection />
-       <MeetTheTeam />
-       </main>
+      <main className="w-full">
+         <AboutHero />
+         <FeaturedAbout />
+         <BrandsSection />
+         <MeetTheTeam />
+      </main>
    );
- };
- 
- export default About;
-  
+};
+
+export default About;

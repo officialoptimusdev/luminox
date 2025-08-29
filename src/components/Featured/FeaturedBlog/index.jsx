@@ -1,5 +1,5 @@
 import { blogData } from "@/constants/data";
-import BlogFeaturedCards from "../Cards/BlogFeaturedCards";
+import BlogFeaturedCards from "../../Cards/BlogFeaturedCards";
 
 export default function FeaturedBlog() {
    return (

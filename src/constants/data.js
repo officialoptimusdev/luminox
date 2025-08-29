@@ -5,11 +5,130 @@ import blogFeatImages from "./blogFeatImages"
 import aboutCardsImages from "./aboutCardsImages";
 import aboutImages from "./aboutImages";
 import serviceImages from "./serviceImages";
-import { Pill, Baby, Activity, HeartPulse, ArrowRight, SlidersHorizontal } from "lucide-react";
+
 import megaMenuImages from "./megaMenuImages";
 import pricingImages from "./pricingImages";
+import formHeroImages from "./formHeroImages";
+
+import onlineFormImages from "./onlineFormImages";
+import downloadFormImages from "./downloadFormImages";
+import { Pill, Baby, Activity, HeartPulse, ArrowRight, SlidersHorizontal } from "lucide-react";
 
 
+export const onlineFormsData = [
+  {
+    id: 1,
+    title: "Client Safety Contract",
+    description: "Agreement ensuring client safety and therapeutic guidelines.",
+    image: onlineFormImages.safety,
+    bgColor: "bg-blue-600",
+    textColor: "text-white",
+  },
+  {
+    id: 2,
+    title: "Informed Consent for Counseling",
+    description: "Outlines rights, responsibilities, and counseling procedures.",
+   image: onlineFormImages.informed,
+   bgColor: "bg-[#ebe2f8]",
+    textColor: "text-black",
+  },
+  {
+    id: 3,
+    title: "Patient Consent for Telehealth",
+    description: "Consent form for online and remote therapy sessions.",
+    image: onlineFormImages.telehealth,
+    bgColor: "bg-neutral-900",
+    textColor: "text-white",
+  },
+  {
+    id: 4,
+    title: "Authorization for Release of Information",
+    description: "Allows sharing of information between authorized parties.",
+    image: onlineFormImages.release,
+    bgColor: "bg-[#fff9ec]",
+    textColor: "text-black",
+  },
+];
+
+
+export const downloadFormsData = [
+  {
+    id: 1,
+    title: "Client Safety Contract",
+    description: "Click “Fill form” to fill and submit the form below.",
+    image: downloadFormImages.safety,
+    bgColor: "bg-blue-600",
+    textColor: "text-white",
+  },
+  {
+    id: 2,
+    title: "Patient Consent for Telehealth tx and Services.",
+    description: "Click “Fill form” to fill and submit the form below with.",
+    image: downloadFormImages.informed,
+    bgColor: "bg-[#ebe2f8]",
+    textColor: "text-black",
+  },
+  {
+    id: 3,
+    title: "Informed Consent for Psychotropic Medications.",
+    description: "Click “Fill form” to fill and submit the form below with.",
+    image: downloadFormImages.telehealth,
+    bgColor: "bg-[#000000]",
+    textColor: "text-white",
+  },
+  {
+    id: 4,
+    title: "Notice of Privacy Practices.",
+    description: "Luminox Healthcare Services, Inc",
+    image: null,
+    bgColor: "bg-white",
+    textColor: "text-black",
+  },
+  {
+    id: 5,
+    title: "Consent to Mental Health Services.",
+    description: "Luminox Healthcare Services, Inc",
+    image: null,
+    bgColor: "bg-white",
+    textColor: "text-black",
+  },
+  {
+    id: 6,
+    title: "Notice of Privacy Practices.",
+    description: "Luminox Healthcare Services, Inc",
+    image: null,
+    bgColor: "bg-white",
+    textColor: "text-black",
+  },
+  {
+    id: 7,
+    title: "Consent to Mental Health Services.",
+    description: "Luminox Healthcare Services, Inc",
+    image: null,
+    bgColor: "bg-white",
+    textColor: "text-black",
+  },
+  {
+    id: 8,
+    title: "Notice of Privacy Practices.",
+    description: "Luminox Healthcare Services, Inc",
+    image: null,
+    bgColor: "bg-white",
+    textColor: "text-black",
+  },
+];
+
+
+export const formHeroData = {
+  icon: "SlidersHorizontal", 
+  label: "Forms",
+  title: "Start Your Journey Here.",
+  description:
+    "Complete your forms conveniently online, or download soft copies to fill out at your leisure.",
+  buttonText: "Need Help?",
+  imageDesktop: formHeroImages.formHero2, 
+  imageMobile: formHeroImages.formHero,  
+};
 
 export const pricingData = [
   {

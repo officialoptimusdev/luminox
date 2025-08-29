@@ -4,8 +4,8 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Popover } from "@headlessui/react";
-import MegaMenuCard from "../Cards/MegaMenuCard";
-import ContactFormModal from "../Modals/ContactFormModal";
+import MegaMenuCard from "../../Cards/MegaMenuCard";
+import ContactFormModal from "../../Modals/ContactFormModal";
 import { GiHeartPlus } from "react-icons/gi";
 
 const Navbar = ({ isDesktop }) => {
@@ -16,7 +16,7 @@ const Navbar = ({ isDesktop }) => {
 
   const navItems = [
     { name: "Services", href: "/services" },
-    { name: "Forms", href: "#" },
+    { name: "Forms", href: "/forms" },
     { name: "About Us", href: "/about" },
     { name: "Blog", href: "#" },
   ];
@@ -119,21 +119,25 @@ const Navbar = ({ isDesktop }) => {
 
           {/* RIGHT: Desktop buttons */}
           <div className="hidden md:flex items-center bg-white/70 rounded-full px-4 space-x-3">
-  <Button
-    variant="ghost"
-    className="rounded-full px-6 py-3 hover:bg-transparent text-[#004d4d] flex items-center"
-  >
-    Patient Portal
-    <GiHeartPlus className="w-4 h-4 ml-2" />
-  </Button>
+           <a href="https://portal.kareo.com/app/new/login">
+           <Button
+              variant="ghost"
+              className="rounded-full px-6 py-3 hover:bg-transparent text-[#004d4d] flex items-center"
+            >
+              Patient Portal
+              <GiHeartPlus className="w-4 h-4 ml-2" />
+            </Button>
+           </a>
 
-  <Button
-    className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-3 py-6 mt-2 mb-2"
-  >
-    Book Appointment
-    <ArrowRight className="w-4 h-4 ml-2" />
-  </Button>
-</div>
+           <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
+            <Button
+              className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-3 py-6 mt-2 mb-2"
+            >
+              Book Appointment
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
+            </a>
+          </div>
 
           {/* Mobile drawer */}
           <div className="flex items-center md:hidden">
@@ -225,6 +229,7 @@ const Navbar = ({ isDesktop }) => {
                     </a>
                   </div>
 
+                  <a href="https://portal.kareo.com/app/new/login">
                   <Button
                     variant="outline"
                     className="w-full rounded-full border-white text-white"
@@ -232,7 +237,9 @@ const Navbar = ({ isDesktop }) => {
                   >
                     Patient Portal
                   </Button>
-
+                  </a>
+                 
+                  <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
                   <Button
                     className="w-full rounded-full flex items-center justify-center gap-2 bg-black/20 hover:bg-black/30"
                     onClick={() => setOpen(false)}
@@ -240,16 +247,18 @@ const Navbar = ({ isDesktop }) => {
                     Book Appointment
                     <ArrowRight className="w-4 h-4" />
                   </Button>
+                  </a>
+              
                 </div>
 
                 <div className="mt-6">
                   <div className="flex items-center gap-3">
-                  <a href="#" className="h-10 w-10 bg-[#0866ff] hover:bg-[#222425] flex items-center justify-center rounded-full text-white">
-                    <FaFacebookF size={14} />
-                  </a>
-                  <a href="#" className="h-10 w-10 bg-[#d53c6c] hover:bg-[#222425] flex items-center justify-center rounded-full text-white">
-                    <FaInstagram  />
-                  </a>
+                    <a href="#" className="h-10 w-10 bg-[#0866ff] hover:bg-[#222425] flex items-center justify-center rounded-full text-white">
+                      <FaFacebookF size={14} />
+                    </a>
+                    <a href="#" className="h-10 w-10 bg-[#d53c6c] hover:bg-[#222425] flex items-center justify-center rounded-full text-white">
+                      <FaInstagram />
+                    </a>
                     <a
                       href="#"
                       aria-label="LinkedIn"

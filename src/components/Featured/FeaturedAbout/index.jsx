@@ -1,5 +1,5 @@
 import { missionVisionData } from "@/constants/data";
-import MissionVisionCard from "../Cards/MissionVisionCard";
+import MissionVisionCard from "../../Cards/MissionVisionCard";
 
 export default function FeaturedAbout() {
   return (

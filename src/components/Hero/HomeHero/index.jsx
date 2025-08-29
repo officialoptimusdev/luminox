@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Eye } from "lucide-react";
-import FadeSlider from "../FadeSlider";
+import FadeSlider from "../../Atoms/FadeSlider";
 import heroImages from "@/constants/heroImages";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   const words = ["Compassion", "Care", "Clarity"];
@@ -59,7 +60,8 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button
+        <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
+        <Button
             size="lg"
             className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#3E757B] hover:bg-[#3E757B] text-white"
           >
@@ -68,8 +70,11 @@ export default function Hero() {
               <ArrowRight className="h-5 w-5 text-black" />
             </span>
           </Button>
+        </a>
+         
 
-          <Button
+       <Link to="/about">
+       <Button
             size="lg"
             className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#fff] hover:bg-[#3E757B] text-[#3E757B] hover:text-white"
           >
@@ -78,6 +83,7 @@ export default function Hero() {
               <Eye className="h-5 w-5 text-[#000] hover:text-[#fff]" />
             </span>
           </Button>
+       </Link>
         </div>
 
 
