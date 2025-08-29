@@ -1,5 +1,5 @@
 import ReferralForm from "@/components/Forms/ReferralForm";
-import ReferralBanner from "@/components/ReferralBanner";
+import ReferralBanner from "@/components/Banners/ReferralBanner";
 
 
 

@@ -1,13 +1,13 @@
-import TabsMenu from "@/components/Atoms/TabsMenu";
+import ServicesTabsMenu from "@/components/Atoms/Tabs/ServicesTabsMenu";
 import MobileServiceFormModal from "@/components/Modals/MobileServiceFormModal";
-import ServiceHero from "@/components/ServiceHero";
+import ServiceHero from "@/components/Hero/ServiceHero";
 
 const Services = () => {
   return (
     <main className="w-full">
       <ServiceHero />
       <MobileServiceFormModal />
-      <TabsMenu />
+      <ServicesTabsMenu />
     </main>
   );
 };

@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavbarWithMegaMenu from "./components/NavbarWithMegaMenu";
+import NavbarWithMegaMenu from "./components/Navs/NavbarWithMegaMenu";
 import Footer from "./components/Footer";
 import './index.css'
 
 import Home from "./pages/home";
 import About from "./pages/about";
 import Services from "./pages/services";
-import Referral from "./pages/Referral";
+import Referral from "./pages/referral";
+import Form from "./pages/form";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/referral" element={<Referral />} />
+          <Route path="/forms" element={<Form />} />
         </Routes>
         <Footer />
       </div>
