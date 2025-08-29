@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import MissionCards from "../Cards/MissionCards";
+import MissionCards from "../../Cards/MissionCards";
 import { Link } from "react-router-dom";
 
 export default function MissionStatement() {

@@ -38,7 +38,8 @@ export default function AboutHero({
 
             {/* Button */}
             <div className="flex justify-center lg:justify-start">
-              <Button
+            <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
+            <Button
                 size="lg"
                 className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#3E757B] hover:bg-[#3E757B] text-white"
               >
@@ -47,6 +48,8 @@ export default function AboutHero({
                   <Icons.ArrowRight className="h-5 w-5 text-black" />
                 </span>
               </Button>
+            </a>
+            
             </div>
           </div>
 

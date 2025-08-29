@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import FeaturedBlog from "@/components/FeaturedBlog";
-import FeaturedSection from "@/components/FeaturedSection";
-import FeaturedServices from "@/components/FeaturedServices";
-import Hero from "@/components/Hero";
-import MissionStatement from "@/components/MissionStatement";
-import ReviewSection from "@/components/ReviewSection";
+import FeaturedBlog from "@/components/Featured/FeaturedBlog";
+import FeaturedSection from "@/components/Featured/FeaturedSection";
+import FeaturedServices from "@/components/Featured/FeaturedServices";
+import Hero from "@/components/Hero/HomeHero";
+import MissionStatement from "@/components/Sections/MissionStatement";
+import ReviewSection from "@/components/Sections/ReviewSection";
 import NewsLetterModal from "@/components/Modals/NewsLetterModal";
 
 

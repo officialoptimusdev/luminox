@@ -1,17 +1,17 @@
 import { Tab } from "@headlessui/react";
 import { useState } from "react";
-import ServicesCards from "../Cards/SevicesCards";
-import PricingCards from "../Cards/PricingCards";
+import ServicesCards from "../../Cards/SevicesCards";
+import PricingCards from "../../Cards/PricingCards";
 import { megaMenuData, pricingData } from "@/constants/data";
-import LocationsCard from "../Cards/LocationsCard";
-import ExtraPricingNoteCard from "../Cards/ExtraPricingNoteCard";
+import LocationsCard from "../../Cards/LocationsCard";
+import ExtraPricingNoteCard from "../../Cards/ExtraPricingNoteCard";
 import { ArrowRight } from "lucide-react";
 
 function classNames(...classes) {
    return classes.filter(Boolean).join(" ");
 }
 
-const TabsMenu = () => {
+const ServicesTabsMenu = () => {
    const [categories] = useState({
       Services: megaMenuData,
       "Pricing List": pricingData,
@@ -68,7 +68,7 @@ const TabsMenu = () => {
                         />
 
                         {/* Compact list */}
-                        <div className="col-span-1 md:col-span-3 bg-white rounded-2xl p-6">
+                        <div className="col-span-1 md:col-span-3 bg-white rounded-2xl p-6 max-h-60 overflow-y-auto">
                            <h4 className="text-sm font-semibold text-gray-500 mb-4">
                               Services{" "}
                               <span className="ml-2 text-xs text-gray-400">
@@ -76,7 +76,7 @@ const TabsMenu = () => {
                               </span>
                            </h4>
                            {categories["Services"]
-                              .slice(2, 4)
+                              .slice(0, 16)
                               .map((service) => (
                                  <ServicesCards
                                     key={service.id}
@@ -105,7 +105,7 @@ const TabsMenu = () => {
                         </div>
 
                         {/* Others / Compact Pricing List */}
-                        <div className="md:col-span-3 col-span-1 bg-white rounded-2xl p-6">
+                        <div className="md:col-span-3 col-span-1 bg-white rounded-2xl p-6 max-h-60 overflow-y-auto">
                            <h4 className="text-sm font-semibold text-gray-500 mb-4">
                               Others{" "}
                               <span className="ml-2 text-xs text-gray-400">
@@ -113,7 +113,7 @@ const TabsMenu = () => {
                               </span>
                            </h4>
                            {categories["Pricing List"]
-                              .slice(4, 6) // adjust indexes for your data
+                              .slice(0, 5) // adjust indexes for your data
                               .map((pricing) => (
                                  <div
                                     key={pricing.id}
@@ -123,9 +123,12 @@ const TabsMenu = () => {
                                        <h3 className="text-base font-semibold">{pricing.price}</h3>
                                        <p className="text-sm text-gray-600">{pricing.title}</p>
                                     </div>
+                                    <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
                                     <button className="inline-flex items-center text-sm font-medium hover:underline">
                                        Book Session <ArrowRight className="ml-2 w-4 h-4" />
                                     </button>
+                                    </a>
+                                  
                                  </div>
                               ))}
                         </div>
@@ -146,4 +149,4 @@ const TabsMenu = () => {
    );
 };
 
-export default TabsMenu;
+export default ServicesTabsMenu;
