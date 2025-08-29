@@ -1,6 +1,7 @@
 import { servicesData } from "@/constants/data";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 
 export default function FeaturedServices() {
@@ -16,9 +17,11 @@ export default function FeaturedServices() {
           providers committed to your well-being through accessible and culturally
           competent support.
         </p>
-        <Button className="rounded-full bg-black text-white hover:bg-gray-800">
-          See Services <ArrowRight className="ml-2 w-4 h-4" />
-        </Button>
+        <Link to="/services">
+          <Button className="rounded-full bg-black text-white hover:bg-gray-800">
+            See Services <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </Link>
       </div>
     </section>
   );

@@ -41,7 +41,7 @@ export default function Hero() {
   return (
     <>
       {/* Hero Section */}
-      <section className="w-full relative flex flex-col items-center justify-center text-center min-h-[50vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8 pb-5">
+      <section className="-mt-4 w-full relative flex flex-col items-center justify-center text-center min-h-[50vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8 pb-5">
         {/* Heading */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-3">
           Embodying,{" "}
