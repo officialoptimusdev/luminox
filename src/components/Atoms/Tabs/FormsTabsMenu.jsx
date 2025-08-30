@@ -2,8 +2,8 @@ import { Tab } from "@headlessui/react";
 import { useState } from "react";
 import { onlineFormsData, downloadFormsData } from "@/constants/data";
 import { ArrowRight } from "lucide-react";
-import OnlineFormsCards from "@/components/Cards/onlineFormsCards";
 import DownloadFormsCards from "@/components/Cards/DownloadFormsCards";
+import OnlineFormsCards from "@/components/Cards/OnlineFormsCards";
 
 
 function classNames(...classes) {
