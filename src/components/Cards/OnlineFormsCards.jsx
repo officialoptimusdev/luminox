@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";   
 
 const OnlineFormsCards = ({ onlineForms, variant = "default" }) => {
   return (
@@ -13,8 +14,7 @@ const OnlineFormsCards = ({ onlineForms, variant = "default" }) => {
             alt={onlineForms.title}
             className="w-full h-full object-cover rounded-2xl"
           />
-          <div className="absolute inset-0 rounded-2xl bg-black/20" /> 
-          {/* optional dark overlay */}
+          <div className="absolute inset-0 rounded-2xl bg-black/20" />
         </div>
       )}
 
@@ -38,7 +38,10 @@ const OnlineFormsCards = ({ onlineForms, variant = "default" }) => {
           {onlineForms.description && (
             <p className="mt-2 text-sm">{onlineForms.description}</p>
           )}
-          <button
+
+ 
+          <Link
+            to={onlineForms.url}
             className={`mt-3 inline-flex items-center font-medium ${
               variant === "featured"
                 ? "text-sm bg-white/20 px-4 py-2 rounded-full hover:bg-white/30"
@@ -46,7 +49,7 @@ const OnlineFormsCards = ({ onlineForms, variant = "default" }) => {
             }`}
           >
             Fill Form <ArrowRight className="ml-2 w-4 h-4" />
-          </button>
+          </Link>
         </div>
 
         {/* Right-side Image for Normal Cards */}

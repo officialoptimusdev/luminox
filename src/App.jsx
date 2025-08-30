@@ -7,8 +7,12 @@ import './index.css'
 import Home from "./pages/home";
 import About from "./pages/about";
 import Services from "./pages/services";
-import Referral from "./pages/referral";
-import Form from "./pages/form";
+import Form from "./pages/forms";
+import Referral from "./pages/Referral";
+import ClientSafetyContract from "./pages/clientSafetyContract";
+import InformedConsentContract from "./pages/informedConsentContract";
+import TelehealthConsentContract from "./pages/TelehealthConsentContract";
+import AuthorizationConsentContract from "./pages/AuthorizationConsentContract";
 
 const App = () => {
   return (
@@ -22,6 +26,10 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/referral" element={<Referral />} />
           <Route path="/forms" element={<Form />} />
+          <Route path="/forms/client-safety" element={<ClientSafetyContract />} />
+          <Route path="/forms/informed" element={<InformedConsentContract />} />
+          <Route path="/forms/tele-health" element={<TelehealthConsentContract />} />
+          <Route path="/forms/authorization-release" element={<AuthorizationConsentContract />} />
         </Routes>
         <Footer />
       </div>
