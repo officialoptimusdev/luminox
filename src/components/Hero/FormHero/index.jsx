@@ -14,7 +14,7 @@ export default function FormHero({
 }) {
   // dynamically pick lucide-react icon
   const IconComponent = Icons[icon] || Icons.User2;
-
+ 
   return (
     <>
       <section className="-mt-4 relative w-full overflow-hidden bg-gradient-to-b from-[#ffffff] to-[#e3fcfb]">

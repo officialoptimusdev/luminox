@@ -23,14 +23,16 @@ export const onlineFormsData = [
     image: onlineFormImages.safety,
     bgColor: "bg-blue-600",
     textColor: "text-white",
+    url: "/forms/client-safety",  
   },
   {
     id: 2,
     title: "Informed Consent for Counseling",
     description: "Outlines rights, responsibilities, and counseling procedures.",
-   image: onlineFormImages.informed,
-   bgColor: "bg-[#ebe2f8]",
+    image: onlineFormImages.informed,
+    bgColor: "bg-[#ebe2f8]",
     textColor: "text-black",
+    url: "/forms/informed",
   },
   {
     id: 3,
@@ -39,6 +41,7 @@ export const onlineFormsData = [
     image: onlineFormImages.telehealth,
     bgColor: "bg-neutral-900",
     textColor: "text-white",
+    url: "/forms/tele-health",
   },
   {
     id: 4,
@@ -47,8 +50,10 @@ export const onlineFormsData = [
     image: onlineFormImages.release,
     bgColor: "bg-[#fff9ec]",
     textColor: "text-black",
+    url: "/forms/authorization-release",
   },
 ];
+
 
 
 export const downloadFormsData = [

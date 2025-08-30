@@ -156,7 +156,7 @@ export default function ReferralForm() {
                         value={form.phone}
                         onChange={handleChange}
                         placeholder="000-000-0000"
-                        className="w-full bg-gray-50 border flex-1 px-4 py-3 rounded-full bg-gray-200 outline-none focus:ring-2 focus:ring-[#dbeeee]"
+                        className="w-full border flex-1 px-4 py-3 rounded-full bg-gray-200 outline-none focus:ring-2 focus:ring-[#dbeeee]"
                       />
                     </div>
                   </div>
