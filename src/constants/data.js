@@ -15,6 +15,18 @@ import downloadFormImages from "./downloadFormImages";
 import { Pill, Baby, Activity, HeartPulse, ArrowRight, SlidersHorizontal } from "lucide-react";
 
 
+
+
+export const blogHeroData = {
+  icon: "BookOpen",
+  label: "Read Our Blog",
+  title: "Explore Our Insights.",
+  description:
+    "Dive into our latest articles for expert advice, industry trends, and valuable perspectives.",
+};
+
+
+
 export const onlineFormsData = [
   {
     id: 1,
@@ -423,6 +435,42 @@ export const blogData = [
     description:
       "Mental health needs don’t come with a one-size-fits-all label. What works wonders for one person might barely scratch the surface for another...",
     image: blogFeatImages.blogfeatThree,
+    date: "June 30, 2025",
+    author: "Digital Guider",
+    href: "#",
+  },
+
+  {
+    id: 4,
+    title:
+      "Maryland Behavioral Health Services That Integrate Online Psychiatry",
+    description:
+      "Mental health has taken center stage in conversations about overall well-being, and rightly so. Between busy schedules, social expectations, and personal struggles...",
+    image: blogFeatImages.blogfeatFour,
+    date: "June 30, 2025",
+    author: "Digital Guider",
+    href: "#",
+  },
+
+  {
+    id: 5,
+    title:
+      "Exploring the Essentials of Comprehensive Mental Health Care Management",
+    description:
+      "Managing mental health goes far beyond weekly therapy appointments or a quick chat with a doctor. It involves a thoughtful balance of emotional, physical...",
+    image: blogFeatImages.blogfeatFive,
+    date: "June 30, 2025",
+    author: "Digital Guider",
+    href: "#",
+  },
+
+  {
+    id: 6,
+    title:
+      "Strengthening Recovery Through Mental Health Support Services at Treatment Centers",
+    description:
+      "Let’s face it—life isn’t always sunshine and smooth sailing. Between personal pressures, family responsibilities, work stress, and a thousand other things pulling...",
+    image: blogFeatImages.blogfeatSix,
     date: "June 30, 2025",
     author: "Digital Guider",
     href: "#",
