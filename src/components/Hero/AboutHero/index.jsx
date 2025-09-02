@@ -38,18 +38,18 @@ export default function AboutHero({
 
             {/* Button */}
             <div className="flex justify-center lg:justify-start">
-            <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
-            <Button
-                size="lg"
-                className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#3E757B] hover:bg-[#3E757B] text-white"
-              >
-                {buttonText}
-                <span className="rounded-full bg-white p-2">
-                  <Icons.ArrowRight className="h-5 w-5 text-black" />
-                </span>
-              </Button>
-            </a>
-            
+              <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
+                <Button
+                  size="lg"
+                  className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#3E757B] hover:bg-[#3E757B] text-white"
+                >
+                  {buttonText}
+                  <span className="rounded-full bg-white p-2">
+                    <Icons.ArrowRight className="h-5 w-5 text-black" />
+                  </span>
+                </Button>
+              </a>
+
             </div>
           </div>
 

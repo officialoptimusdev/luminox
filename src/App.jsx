@@ -13,6 +13,7 @@ import ClientSafetyContract from "./pages/clientSafetyContract";
 import InformedConsentContract from "./pages/informedConsentContract";
 import TelehealthConsentContract from "./pages/TelehealthConsentContract";
 import AuthorizationConsentContract from "./pages/AuthorizationConsentContract";
+import Blog from "./pages/blog";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/forms/informed" element={<InformedConsentContract />} />
           <Route path="/forms/tele-health" element={<TelehealthConsentContract />} />
           <Route path="/forms/authorization-release" element={<AuthorizationConsentContract />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
         <Footer />
       </div>

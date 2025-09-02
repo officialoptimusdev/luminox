@@ -18,7 +18,7 @@ const Navbar = ({ isDesktop }) => {
     { name: "Services", href: "/services" },
     { name: "Forms", href: "/forms" },
     { name: "About Us", href: "/about" },
-    { name: "Blog", href: "#" },
+    { name: "Blog", href: "/blog" },
   ];
 
   // Prevent body scroll when mobile sheet is open

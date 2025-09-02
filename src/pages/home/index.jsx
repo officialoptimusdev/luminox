@@ -57,7 +57,7 @@ const Home = () => {
       <Hero />
       <FeaturedServices />
       <MissionStatement />
-      <FeaturedBlog />
+      <div className="bg-black text-white">  <FeaturedBlog limit={3} /></div>
       <FeaturedSection sections={sections} />
       <ReviewSection />
 
