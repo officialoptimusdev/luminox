@@ -44,7 +44,7 @@ const ServicesTabsMenu = () => {
                {/* Tab Panels */}
                <Tab.Panels className="mt-8">
                   <Tab.Panel>
-                     <div className="grid grid-cols-1 gap-3 md:grid-cols-5 md:grid-rows-2">
+                     <div className="grid grid-cols-1 gap-3 md:grid-cols-5">
                         {/* Big left card */}
                         <div className="col-span-1 md:col-span-2 md:row-span-2">
                            <ServicesCards
@@ -63,7 +63,7 @@ const ServicesTabsMenu = () => {
                            variant="card"
                         />
                         <ServicesCards
-                           service={categories["Services"][15]}
+                           service={categories["Services"][7]}
                            variant="card"
                         />
 
@@ -76,7 +76,7 @@ const ServicesTabsMenu = () => {
                               </span>
                            </h4>
                            {categories["Services"]
-                              .slice(0, 16)
+                              .slice(0, 8)
                               .map((service) => (
                                  <ServicesCards
                                     key={service.id}
@@ -88,9 +88,9 @@ const ServicesTabsMenu = () => {
                      </div>
 
                      {/* Locations */}
-                     <div className="mt-4">
-                        <LocationsCard />
-                     </div>
+                  
+                   
+<LocationsCard />
                   </Tab.Panel>
 
                   {/* Pricing Panel */}
