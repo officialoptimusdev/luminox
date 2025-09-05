@@ -27,7 +27,10 @@ const ServicesCards = ({ service, variant }) => {
               {service.description}
             </p>
           </div>
-          <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
+          <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680" 
+           target="_blank"
+           rel="noopener noreferrer"
+          >
             <button className="mt-3 inline-flex items-center text-xs font-medium hover:underline">
               Book Session <ArrowRight className="ml-1 w-3 h-3" />
             </button>
@@ -45,7 +48,10 @@ const ServicesCards = ({ service, variant }) => {
         <h3 className="font-semibold text-lg">{service.title}</h3>
         <p className="text-sm text-gray-600">{service.description}</p>
       </div>
-      <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
+      <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+       target="_blank"
+       rel="noopener noreferrer"
+      >
         <button className="inline-flex items-center text-[13px] whitespace-nowrap font-medium hover:underline">
           Book Session <ArrowRight className="ml-2 w-4 h-4" />
         </button>

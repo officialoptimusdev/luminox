@@ -119,7 +119,10 @@ const Navbar = ({ isDesktop }) => {
 
           {/* RIGHT: Desktop buttons */}
           <div className="hidden md:flex items-center bg-white/70 rounded-full px-4 space-x-3">
-           <a href="https://portal.kareo.com/app/new/login">
+           <a href="https://portal.kareo.com/app/new/login"
+            target="_blank"
+            rel="noopener noreferrer"
+           >
            <Button
               variant="ghost"
               className="rounded-full px-6 py-3 hover:bg-transparent text-[#004d4d] flex items-center"
@@ -129,7 +132,10 @@ const Navbar = ({ isDesktop }) => {
             </Button>
            </a>
 
-           <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
+           <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680" 
+            target="_blank"
+            rel="noopener noreferrer"
+           >
             <Button
               className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-3 py-6 mt-2 mb-2"
             >

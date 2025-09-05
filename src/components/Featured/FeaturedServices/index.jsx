@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 
 export default function FeaturedServices() {
   return (
-    <section className="w-full py-16 px-6 sm:px-10 lg:px-20">
+    <section className="w-full py-16 px-6 sm:px-10 lg:px-4">
       {/* Header */}
-      <div className="text-center max-w-2xl mx-auto mb-12">
+      <div className="text-center max-w-2xl mx-auto mb-2">
         <h2 className="text-4xl font-extrabold mb-4">Welcome!</h2>
         <p className="text-gray-600 text-base sm:text-lg mb-6">
           Luminox Healthcare Services offers compassionate, convenient, and

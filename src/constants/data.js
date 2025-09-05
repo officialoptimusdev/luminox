@@ -392,6 +392,8 @@ export const missionVisionData = [
     image: aboutCardsImages.aboutOne,
     buttonLabel: "See Services",
     buttonVariant: "default",
+    buttonType: "internal",    
+    buttonHref: "/services", 
   },
   {
     id: 2,
@@ -401,6 +403,8 @@ export const missionVisionData = [
     image: aboutCardsImages.aboutTwo,
     buttonLabel: "Need Help?",
     buttonVariant: "outline",
+    buttonType: "external", 
+    buttonHref: "https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680",
   },
 ];
 
