@@ -9,7 +9,7 @@ export default function LocationsCard() {
   ]
 
   return (
-    <Card className="w-full rounded-2xl shadow-md">
+    <Card className="w-full rounded-2xl shadow-md mt-10">
       <CardHeader>
         <CardTitle className="text-lg sm:text-center lg:text-start font-semibold text-gray-800">
           Locations:

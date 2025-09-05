@@ -2,7 +2,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 
 const ExtraPricingNoteCard = () => {
   return (
-    <Card className="w-full rounded-2xl shadow-md mt-6">
+    <Card className="w-full rounded-2xl shadow-md mt-10">
       <CardHeader>
         <CardTitle className="text-sm font-semibold text-gray-500">
           Get In Touch:

@@ -6,7 +6,7 @@ import heroImages from "@/constants/heroImages";
 import { Link } from "react-router-dom";
 
 export default function Hero() {
-  const words = ["Compassion", "Care", "Clarity"];
+  const words = ["Connection", "Compassion", "Care"];
   const [currentWord, setCurrentWord] = useState("");
   const [index, setIndex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
@@ -54,8 +54,9 @@ export default function Hero() {
 
         {/* Subtext */}
         <p className="max-w-2xl text-gray-600 text-sm sm:text-base md:text-lg mb-8">
-          Experience compassionate, expert mental health care that fits seamlessly
-          into your life. There's always hope despite the hurdles you are facing.
+          We embody Connection, Compassion, and Care by fostering genuine relationships, offering empathy,
+         and delivering dedicated support that nurtures well-being and resilience. 
+         Our commitment is to ensure every individual feels seen, valued, and empowered on their journey to healing.
         </p>
 
         {/* Buttons */}
@@ -75,7 +76,7 @@ export default function Hero() {
           </Button>
         </a>
          
-
+{/* 
        <Link to="/about">
        <Button
             size="lg"
@@ -86,7 +87,7 @@ export default function Hero() {
               <Eye className="h-5 w-5 text-[#000] hover:text-[#fff]" />
             </span>
           </Button>
-       </Link>
+       </Link> */}
         </div>
 
 
