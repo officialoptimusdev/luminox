@@ -39,7 +39,10 @@ export default function FormHero({
 
             {/* Button */}
             <div className="flex justify-center lg:justify-start">
-            <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
+            <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+             target="_blank"
+             rel="noopener noreferrer"
+            >
             <Button
                 size="lg"
                 className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#3E757B] hover:bg-[#3E757B] text-white"
@@ -74,7 +77,7 @@ export default function FormHero({
       </section>
 
       {/* Curved bottom (hidden on mobile) */}
-      <div
+      {/* <div
         aria-hidden="true"
         className="hidden sm:flex"
         style={{
@@ -101,7 +104,7 @@ export default function FormHero({
             fill="#e3fcfb"
           />
         </svg>
-      </div>
+      </div> */}
     </>
   );
 }

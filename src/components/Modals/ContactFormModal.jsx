@@ -57,7 +57,7 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
                 <span className="block font-semibold text-xs text-gray-500 mb-1">
                   Email Address
                 </span>
-                luminoxhealth@gmail.com
+                contact@luminoxmentalhealth.com
               </p>
 
               <p>

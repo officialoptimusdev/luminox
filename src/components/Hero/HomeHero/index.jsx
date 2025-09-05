@@ -60,7 +60,10 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
-        <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
+        <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+         target="_blank"
+         rel="noopener noreferrer"
+        >
         <Button
             size="lg"
             className="rounded-full px-6 py-7 flex items-center gap-2 bg-[#3E757B] hover:bg-[#3E757B] text-white"
