@@ -7,7 +7,7 @@ export default function MissionStatement() {
       <>
          <section className="relative bg-[#000000] text-white overflow-hidden">
             {/* Curved top: dot-free, centered at the top edge of content */}
-            <div
+            {/* <div
                aria-hidden="true"
                style={{
                   position: "relative",
@@ -34,7 +34,7 @@ export default function MissionStatement() {
                      fill="#fff"
                   />
                </svg>
-            </div>
+            </div> */}
 
             {/* Content — starts below the curve */}
             <div className="relative pt-10 md:pt-20 lg:pt-36 pb-16 px-6 md:px-12 lg:px-20 max-w-6xl mx-auto" style={{ position: "relative", zIndex: 3 }}>
