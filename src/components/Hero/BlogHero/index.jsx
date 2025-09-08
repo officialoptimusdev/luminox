@@ -1,27 +1,22 @@
-import { Button } from "@/components/ui/button";
-import * as Icons from "lucide-react";
+import SearchBar from "@/components/Atoms/SearchBar";
 import { blogHeroData } from "@/constants/data";
+import * as Icons from "lucide-react";
 import { useState } from "react";
 
+
 export default function BlogHero({
+  query,
+  setQuery,
   icon = blogHeroData.icon,
   label = blogHeroData.label,
   title = blogHeroData.title,
   description = blogHeroData.description,
 }) {
   const IconComponent = Icons[icon] || Icons.User2;
-  const [query, setQuery] = useState("");
-
-  const handleSearch = () => {
-    if (!query.trim()) return;
-    console.log("Searching for:", query);
-    alert(`Searching for: ${query}`);
-  };
 
   return (
     <>
-
-      <section className="relative w-full  overflow-hidden bg-gradient-to-b from-white/60 to-[#e3fcfb]/60">
+      <section className="relative w-full overflow-hidden bg-gradient-to-b from-white/60 to-[#e3fcfb]/60">
         {/* Background image */}
         <div
           className="absolute inset-0 h-auto w-auto"
@@ -29,7 +24,7 @@ export default function BlogHero({
             backgroundImage: `linear-gradient(rgba(55, 53, 59, 0.35), rgba(55,53,59,0.35)), url('/assets/blog_hero.jpg')`,
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover", // ensures proper scaling
+            backgroundSize: "cover",
           }}
         >
           <div className="absolute inset-0 bg-white/5" />
@@ -54,38 +49,14 @@ export default function BlogHero({
               {description}
             </p>
 
-            {/* Search Bar */}
-            <div className="flex items-center justify-center lg:justify-start gap-3 pt-4">
-              <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 shadow-md w-full max-w-sm">
-                <Icons.Search className="h-4 w-4 text-white/70" />
-                <input
-                  type="text"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                  placeholder="Search post"
-                  className="ml-2 flex-1 bg-transparent outline-none text-white placeholder-white/70"
-                />
-              </div>
-              <Button
-                type="button"
-                onClick={handleSearch}
-                className="rounded-full px-6 py-2 shadow-md bg-white text-gray-800"
-              >
-                Search
-                <Icons.Eye className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
+            {/*  Reusable SearchBar */}
+            <SearchBar query={query} setQuery={setQuery} />
+
           </div>
         </div>
-
-
-
-
-
       </section>
       {/* Curved bottom (SVG) */}
-      <div
+      {/* <div
         aria-hidden="true"
         className="hidden sm:block"
         style={{
@@ -105,7 +76,6 @@ export default function BlogHero({
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-
           <defs>
             <linearGradient id="glassGradient" x1="0" y1="1" x2="0" y2="0">
               <stop offset="0%" stopColor="rgba(227,252,251,0.85)" />
@@ -117,8 +87,7 @@ export default function BlogHero({
             fill="url(#glassGradient)"
           />
         </svg>
-      </div>
-
+      </div> */}
     </>
   );
 }
