@@ -6,10 +6,11 @@ import Hero from "@/components/Hero/HomeHero";
 import MissionStatement from "@/components/Sections/MissionStatement";
 import ReviewSection from "@/components/Sections/ReviewSection";
 import NewsLetterModal from "@/components/Modals/NewsLetterModal";
+import ContactFormModal from "@/components/Modals/ContactFormModal";
 
 const Home = () => {
   const [showNewsletter, setShowNewsletter] = useState(false);
-
+  const [showContact, setShowContact] = useState(false);
   const sections = [
     {
       tagline: "Washington DC",
@@ -17,7 +18,8 @@ const Home = () => {
       description:
         "The core foundation of this movement exists with Luminox Healthcare Services which operates to revolutionize mental health service delivery throughout Washington DC.",
       buttonText: "Learn More",
-      image: "/assets/featsec-one.jpg", // 👈 now .jpg
+      href: "/services",
+      image: "/assets/featsec-one.jpg",
       bg: "#fff",
     },
     {
@@ -26,16 +28,38 @@ const Home = () => {
       description:
         "Have questions or ready to start your journey to better mental well-being? Reach out to Luminox Healthcare Services today—we look forward to connecting with you.",
       buttonText: "Get In Touch",
-      image: "/assets/featsec-two.jpg", // 👈 now .jpg
+      modal: true,
+      image: "/assets/featsec-two.jpg",
       bg: "#f9fafb",
     },
   ];
 
+
   useEffect(() => {
-    setShowNewsletter(true);
-    const t = setTimeout(() => setShowNewsletter(false), 20000);
-    return () => clearTimeout(t);
+    // delay before showing
+    const showTimer = setTimeout(() => {
+      setShowNewsletter(true);
+  
+      // auto-close after 10s
+      const hideTimer = setTimeout(() => {
+        setShowNewsletter(false);
+      }, 10000);
+  
+      // cleanup hideTimer when unmounted
+      return () => clearTimeout(hideTimer);
+    }, 5000); //  delay before showing (5s here)
+  
+    // cleanup showTimer when unmounted
+    return () => clearTimeout(showTimer);
   }, []);
+  
+
+  useEffect(() => {
+    const handler = () => setShowContact(true);
+    window.addEventListener("open-contact-modal", handler);
+    return () => window.removeEventListener("open-contact-modal", handler);
+  }, []);
+
 
   const handleJoin = (email) => {
     console.log("Newsletter subscribed:", email);
@@ -59,6 +83,8 @@ const Home = () => {
           setShowNewsletter(false);
         }}
       />
+      <ContactFormModal open={showContact} onOpenChange={setShowContact} />
+
     </main>
   );
 };

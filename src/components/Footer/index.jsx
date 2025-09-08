@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import ContactFormModal from "../Modals/ContactFormModal";
 
-/*
- If you use shadcn/ui components, replace the input/button parts with
- their <Input />, <Button /> etc. For clarity I use plain Tailwind markup
- but show where to swap in shadcn components.
-*/
 
 const Footer = () => {
+  const [showContact, setShowContact] = useState(false);
   return (
     <footer className="bg-[#111115] text-gray-200">
       {/* Top curved decoration (approx) */}
@@ -86,14 +84,34 @@ const Footer = () => {
             <div className="md:col-span-4">
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <h4 className="text-sm text-teal-300 font-semibold mb-2">QUICK LINKS</h4>
+                  <h4 className="text-sm text-teal-300 font-semibold mb-2">
+                    QUICK LINKS
+                  </h4>
                   <ul className="space-y-2 text-gray-300 text-sm">
-                    <li><a className="hover:underline" href="#">Services</a></li>
-                    <li><a className="hover:underline" href="#">Forms</a></li>
-                    <li><a className="hover:underline" href="#">About Us</a></li>
-                    <li><a className="hover:underline" href="#">Contact Us</a></li>
-                    <li><a className="hover:underline" href="#">Blog</a></li>
-                    <li><a className="hover:underline" href="#">Meet The Team</a></li>
+                    <li>
+                      <Link className="hover:underline" to="/services">Services</Link>
+                    </li>
+                    <li>
+                      <Link className="hover:underline" to="/forms">Forms</Link>
+                    </li>
+                    <li>
+                      <Link className="hover:underline" to="/about">About Us</Link>
+                    </li>
+                    <li>
+                      {/* Contact triggers modal */}
+                      <button
+                        onClick={() => setShowContact(true)}
+                        className="hover:underline text-left"
+                      >
+                        Contact Us
+                      </button>
+                    </li>
+                    <li>
+                      <Link className="hover:underline" to="/blog">Blog</Link>
+                    </li>
+                    {/* <li>
+                      <Link className="hover:underline" to="/team">Meet The Team</Link>
+                    </li> */}
                   </ul>
                 </div>
 
@@ -122,16 +140,24 @@ const Footer = () => {
                   <div className="flex items-start gap-3">
                     <Phone className="text-teal-300 mt-1" size={18} />
                     <div>
-                      <div className="text-white font-medium">+1 (240)-553-7970</div>
+                      <a href="tel:+12405537970" className="text-white font-medium cursor-pointer">
+                        +1 (240)-553-7970
+                      </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <Mail className="text-teal-300 mt-1" size={18} />
                     <div>
-                      <div className="text-gray-400 text-sm">contact@luminoxmentalhealth.com</div>
+                      <a
+                        href="mailto:contact@luminoxmentalhealth.com"
+                        className="text-gray-400 text-sm cursor-pointer"
+                      >
+                        contact@luminoxmentalhealth.com
+                      </a>
                     </div>
                   </div>
+
 
                   <div className="flex items-start gap-3">
                     <MapPin className="text-teal-300 mt-1" size={18} />
@@ -146,13 +172,16 @@ const Footer = () => {
               {/* Social & badges */}
               <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div className="flex items-center gap-3">
-                <a href="#" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <a href="#" target="_blank"
+                    rel="noopener noreferrer" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
                     <FaFacebookF size={14} />
                   </a>
-                  <a href="#" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <a href="https://www.instagram.com/luminox.mentalhealth/" target="_blank"
+                    rel="noopener noreferrer" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
                     <FaInstagram size={14} />
                   </a>
-                  <a href="#" className="bg-[#ff2929] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <a href="#" target="_blank"
+                    rel="noopener noreferrer" className="bg-[#ff2929] hover:bg-[#222425] p-2 rounded-full text-white">
                     <FaYoutube size={14} />
                   </a>
                 </div>
@@ -170,23 +199,27 @@ const Footer = () => {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div className="bg-[#1b1c1d] rounded-full px-4 py-2 text-sm text-gray-200 flex items-center gap-3">
-                  <Phone size={14} className="text-teal-300" />
-                  <span className="font-sm sm:text-xs">+1 (240)-553-7970</span>
+                  <Phone size={14} className="text-teal-300 cursor-pointer" />
+                  <span className="font-sm sm:text-xs"> <a href="tel:+12405537970">
+                    240-553-7970
+                  </a></span>
                 </div>
                 <div className="text-sm text-gray-400">© {new Date().getFullYear()} Luminox Healthcare Services. All rights reserved.</div>
               </div>
 
               <div className="text-sm text-gray-400 flex gap-4">
                 <a href="#" className="hover:underline">Designed by Spark Technologies</a>
-                <span>—</span>
-                <a href="#" className="hover:underline">Privacy Policy</a>
-                <span>—</span>
-                <a href="#" className="hover:underline">Cookies</a>
+                {/* <span>—</span>
+                <a href="#" className="hover:underline">Privacy Policy</a> */}
+                {/* <span>—</span>
+                <a href="#" className="hover:underline">Cookies</a> */}
               </div>
             </div>
           </div>
         </div>
       </div>
+      {/* Contact Modal */}
+      <ContactFormModal open={showContact} onOpenChange={setShowContact} />
     </footer>
   );
 };

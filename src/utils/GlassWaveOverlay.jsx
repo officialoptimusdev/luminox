@@ -22,7 +22,8 @@ export default function GlassWaveOverlay({
 
           {/* Denser dot pattern */}
           <pattern id="dotPattern" width="18" height="18" patternUnits="userSpaceOnUse">
-            <circle cx="6" cy="6" r="2.5" fill="rgba(255,255,255,0.48)" />
+          <circle cx="6" cy="6" r="2.5" fill="#ffffff" fillOpacity="0.2" />
+
           </pattern>
 
           {/* clip path for the wave shape */}
