@@ -44,7 +44,9 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
             <div className="flex items-center gap-4 mb-6">
               <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full gap-2">
                 <Phone className="h-4 w-4 text-gray-600" />
-                <span className="font-semibold">+1 (240)-553-7970</span>
+                <span className="font-semibold cursor-pointer"> <a href="tel:+12405537970">
+                  240-553-7970
+                </a></span>
               </div>
               <div className="flex items-center gap-3 text-xl">
                 <FaFacebook className="cursor-pointer hover:opacity-80 text-[#3b5998]" />
@@ -54,17 +56,24 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
 
             <div className="space-y-4 text-gray-700 text-sm">
               <p>
-                <span className="block font-semibold text-xs text-gray-500 mb-1">
+                <span className="block font-semibold text-xs text-gray-500 mb-1 cursor-pointer">
                   Email Address
                 </span>
-                contact@luminoxmentalhealth.com
+                <a
+                  href="mailto:contact@luminoxmentalhealth.com">
+                  contact@luminoxmentalhealth.com
+                </a>
+
               </p>
 
               <p>
-                <span className="block font-semibold text-xs text-gray-500 mb-1">
+                <span className="block font-semibold text-xs text-gray-500 mb-1 cursor-pointer">
                   Phone Number
                 </span>
-                240-553-7970
+                <a href="tel:+12405537970">
+                  240-553-7970
+                </a>
+
                 <br />
                 <span className="text-xs text-gray-500">
                   Assistance hours: Monday - Friday 6 am to 8 pm EST
