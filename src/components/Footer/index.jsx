@@ -120,11 +120,11 @@ const Footer = () => {
                   <div className="text-gray-300 text-sm space-y-2">
                     <div>
                       <strong className="text-white">Monday – Friday</strong>
-                      <div className="text-gray-400">10AM - 8PM</div>
+                      <div className="text-gray-400">9am - 5pm</div>
                     </div>
                     <div>
                       <strong className="text-white">Saturday & Sunday</strong>
-                      <div className="text-gray-400">8AM - 8PM</div>
+                      <div className="text-gray-400">9am - 5pm</div>
                     </div>
                   </div>
                 </div>
@@ -172,7 +172,7 @@ const Footer = () => {
               {/* Social & badges */}
               <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <a href="#" target="_blank"
+                  <a href="https://www.facebook.com/share/1FUdebEzjS/" target="_blank"
                     rel="noopener noreferrer" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
                     <FaFacebookF size={14} />
                   </a>
@@ -198,12 +198,12 @@ const Footer = () => {
           <div className="mt-10 border-t border-[#1b1b1b] pt-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
-                <div className="bg-[#1b1c1d] rounded-full px-4 py-2 text-sm text-gray-200 flex items-center gap-3">
+                {/* <div className="bg-[#1b1c1d] rounded-full px-4 py-2 text-sm text-gray-200 flex items-center gap-3">
                   <Phone size={14} className="text-teal-300 cursor-pointer" />
-                  <span className="font-sm sm:text-xs"> <a href="tel:+12405537970">
+                  <span className="font-sm sm:text-[10px]"> <a href="tel:+12405537970">
                     240-553-7970
                   </a></span>
-                </div>
+                </div> */}
                 <div className="text-sm text-gray-400">© {new Date().getFullYear()} Luminox Healthcare Services. All rights reserved.</div>
               </div>
 

@@ -25,6 +25,8 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "flowbite": "^3.1.2",
+    "flowbite-react": "^0.12.9",
     "framer-motion": "^12.11.0",
     "lucide-react": "^0.540.0",
     "react": "^19.1.1",

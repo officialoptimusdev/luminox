@@ -23,9 +23,14 @@ const DownloadFormsCards = ({ downloadForms, variant }) => {
             {downloadForms.title}
           </h3>
           <p className="mt-2 text-sm">{downloadForms.description}</p>
-          <button className="mt-4 inline-flex items-center text-sm font-medium bg-white/20 px-4 py-2 rounded-full hover:bg-white/30">
+          <a
+            href={downloadForms.url}
+            target="_blank"
+            className="mt-4 inline-flex items-center text-sm font-medium bg-white/20 px-4 py-2 rounded-full hover:bg-white/30"
+          >
             Download <Download className="ml-2 w-4 h-4" />
-          </button>
+          </a>
+
         </div>
       </div>
     );
@@ -42,9 +47,14 @@ const DownloadFormsCards = ({ downloadForms, variant }) => {
             {downloadForms.title}
           </h3>
           <p className="mt-1 text-sm opacity-80">{downloadForms.description}</p>
-          <button className="mt-3 inline-flex items-center text-xs font-medium hover:underline">
+          <a
+            href={downloadForms.url}
+            target="_blank"
+            className="mt-3 inline-flex items-center text-xs font-medium hover:underline"
+          >
             Download <Download className="ml-1 w-3 h-3" />
-          </button>
+          </a>
+
         </div>
         {downloadForms.image && (
           <img
@@ -64,9 +74,14 @@ const DownloadFormsCards = ({ downloadForms, variant }) => {
         <h3 className="font-semibold text-base">{downloadForms.title}</h3>
         <p className="text-sm text-gray-600">{downloadForms.description}</p>
       </div>
-      <button className="inline-flex items-center text-xs font-medium rounded-full border px-3 py-1 hover:bg-gray-100">
+      <a
+        href={downloadForms.url}
+        target="_blank"
+        className="inline-flex items-center text-xs font-medium rounded-full border px-3 py-1 hover:bg-gray-100"
+      >
         Download <Download className="ml-1 w-3 h-3" />
-      </button>
+      </a>
+
     </div>
   );
 };
