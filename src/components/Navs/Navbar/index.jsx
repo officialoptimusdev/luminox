@@ -36,7 +36,7 @@ const Navbar = ({ isDesktop }) => {
   return (
     <>
       <nav className="w-full sticky top-0 z-50 md:bg-[#e6f0f0]/65 backdrop-blur-md mt-2 border-none">
-        <div className="container mx-auto px-4 flex items-center justify-between h-20 relative">
+        <div className="container mx-auto px-4 flex items-center justify-between h-full relative">
           {/* LEFT: Logo + nav */}
           <div className="flex items-center">
             <a href="/" className="flex items-center h-20 shrink-0">
@@ -186,7 +186,7 @@ const Navbar = ({ isDesktop }) => {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="block py-4 font-semibold text-3xl text-white tracking-tight"
+                      className="block py-2 font-semibold text-2xl text-white"
                       onClick={() => setOpen(false)}
                     >
                       {item.name}
@@ -199,7 +199,7 @@ const Navbar = ({ isDesktop }) => {
                       setOpen(false);
                       setTimeout(() => setContactOpen(true), 300);
                     }}
-                    className="block py-4 font-semibold text-3xl text-left w-full text-white"
+                    className="block py-4 font-semibold text-2xl text-left w-full text-white"
                   >
                     Contact Us
                   </button>
@@ -229,7 +229,7 @@ const Navbar = ({ isDesktop }) => {
 
                     <a
                       href="tel:+12405537970"
-                      className="mt-3 block w-full text-center bg-white/10 py-3 rounded-full font-semibold"
+                      className="mt-3 block w-full text-center bg-white/10 py-3 rounded-md font-semibold"
                     >
                       +1 (240)-553-7970
                     </a>
@@ -238,7 +238,7 @@ const Navbar = ({ isDesktop }) => {
                   <a href="https://portal.kareo.com/app/new/login">
                   <Button
                     variant="outline"
-                    className="w-full rounded-full border-white text-white"
+                    className="w-full rounded-md mt-3 mb-2 text-white"
                     onClick={() => setOpen(false)}
                   >
                     Patient Portal
@@ -247,7 +247,7 @@ const Navbar = ({ isDesktop }) => {
                  
                   <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
                   <Button
-                    className="w-full rounded-full flex items-center justify-center gap-2 bg-black/20 hover:bg-black/30"
+                    className="w-full rounded-md flex items-center justify-center gap-2 bg-black/20 hover:bg-black/30"
                     onClick={() => setOpen(false)}
                   >
                     Book Appointment
@@ -258,7 +258,7 @@ const Navbar = ({ isDesktop }) => {
                 </div>
 
                 <div className="mt-6">
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <a href="#" className="h-10 w-10 bg-[#0866ff] hover:bg-[#222425] flex items-center justify-center rounded-full text-white">
                       <FaFacebookF size={14} />
                     </a>

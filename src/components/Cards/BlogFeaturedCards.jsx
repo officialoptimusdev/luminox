@@ -40,10 +40,10 @@ export default function BlogFeaturedCards({ blogs }) {
 
             {/* Content */}
             <CardContent className="flex flex-col flex-1 p-5">
-              <h3 className="font-semibold text-lg mb-2 line-clamp-2">
+              <h3 className="font-semibold text-lg mb-2">
                 {blog.title}
               </h3>
-              <p className="text-sm text-gray-600 mb-4 line-clamp-3">
+              <p className="text-sm text-gray-600 mb-4">
                 {blog.description}
               </p>
 

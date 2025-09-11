@@ -9,7 +9,7 @@ const About = () => {
          <AboutHero />
          <FeaturedAbout />
          <BrandsSection />
-         <MeetTheTeam />
+         {/* <MeetTheTeam /> */}
       </main>
    );
 };
