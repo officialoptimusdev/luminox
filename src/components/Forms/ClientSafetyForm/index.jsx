@@ -105,7 +105,7 @@ export default function ClientSafetyForm() {
               {/* Emergency Notice */}
               <div className="p-4 border-l-4 border-cyan-400 bg-cyan-50 text-gray-700">
                 <p>
-                  If I do not reach Dr. Lartoniah Hassan or my assigned provider, I can
+                  If I do not reach Dr. Olayemi Adurota or my assigned provider, I can
                   either call my therapist or phone any of the following services:
                 </p>
               </div>

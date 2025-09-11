@@ -70,7 +70,7 @@ export default function ReviewSection() {
                               />
                               <h3 className="font-bold text-xl text-gray-900">Keisha Robinson</h3>
                            </div>
-                           <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                           <p className="text-gray-600 text-sm md:text-md">
                               I just moved to Virginia from California. I have been on the waiting list with my provider for almost 3 years...
                            </p>
                         </div>
@@ -117,7 +117,7 @@ export default function ReviewSection() {
                                     />
                                     <h4 className="font-bold text-gray-900">{review.name}</h4>
                                  </div>
-                                 <p className="text-gray-600 text-sm leading-relaxed">{review.text}</p>
+                                 <p className="text-gray-600 text-md">{review.text}</p>
                               </CardContent>
                            </Card>
 

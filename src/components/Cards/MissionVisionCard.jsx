@@ -63,7 +63,7 @@ export default function MissionVisionCard({
             <h3 className="text-2xl sm:text-3xl font-extrabold mb-4">
               {title}
             </h3>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-gray-600 mb-6">
               {description}
             </p>
 

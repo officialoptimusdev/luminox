@@ -1,6 +1,6 @@
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { X, Phone } from "lucide-react";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import ContactForm from "../Forms/ContactForm";
 
 
@@ -49,8 +49,14 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
                 </a></span>
               </div>
               <div className="flex items-center gap-3 text-xl">
-                <FaFacebook className="cursor-pointer hover:opacity-80 text-[#3b5998]" />
-                <FaInstagram className="cursor-pointer hover:opacity-80 text-pink-600" />
+              <a href="https://www.facebook.com/share/1FUdebEzjS/" target="_blank"
+                    rel="noopener noreferrer" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
+                    <FaFacebookF size={14} />
+                  </a>
+                  <a href="https://www.instagram.com/luminox.mentalhealth/" target="_blank"
+                    rel="noopener noreferrer" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
+                    <FaInstagram size={14} />
+                  </a>
               </div>
             </div>
 
@@ -76,7 +82,7 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
 
                 <br />
                 <span className="text-xs text-gray-500">
-                  Assistance hours: Monday - Friday 6 am to 8 pm EST
+                  Assistance hours: Monday - Friday 9am to 6pm
                 </span>
               </p>
 

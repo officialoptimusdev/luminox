@@ -25,7 +25,7 @@ export default function FeaturedSection({ sections = [] }) {
                            <img
                               src={section.image}
                               alt={section.title}
-                              className="w-[500px] h-[500px] object-cover block relative z-10 rounded-xl"
+                              className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] object-cover block relative z-10 rounded-xl"
                            />
                         </div>
 
@@ -45,11 +45,11 @@ export default function FeaturedSection({ sections = [] }) {
                                  </p>
                               )}
 
-                              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
                                  {section.title}
                               </h2>
 
-                              <p className="text-gray-600 text-lg leading-relaxed max-w-md">
+                              <p className="text-gray-600 text-lg max-w-md">
                                  {section.description}
                               </p>
 
