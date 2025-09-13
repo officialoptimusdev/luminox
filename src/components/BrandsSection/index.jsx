@@ -3,14 +3,14 @@ import { motion } from "framer-motion"
 const brands = [
   "/assets/brand-one.png",
   "/assets/brand-two.png",
-  "/assets/brand-three.png",
+  // "/assets/brand-three.png",
   "/assets/brand-four.png",
   "/assets/brand-five.png",
   "/assets/brand-six.png",
   "/assets/brand-seven.png",
   "/assets/brand-eight.png",
   "/assets/brand-nine.png",
-  "/assets/brand-ten.png",
+  // "/assets/brand-ten.png",
   "/assets/brand-eleven.png",
 ]
 
