@@ -38,18 +38,18 @@ export default function FeaturedSection({ sections = [] }) {
                               } lg:col-span-3 lg:mt-32`}
                         >
                            <div className="absolute inset-0 bg-[radial-gradient(circle,_#e5e7eb_1px,_transparent_1px)] [background-size:20px_20px] opacity-20 pointer-events-none rounded-xl"></div>
-                           <div className="relative space-y-6">
+                           <div className="relative space-y-4">
                               {section.tagline && (
                                  <p className="text-sm font-semibold uppercase tracking-wide text-indigo-600">
                                     {section.tagline}
                                  </p>
                               )}
 
-                              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
+                              <h2 className="text-3xl lg:text-3xl font-bold text-gray-900">
                                  {section.title}
                               </h2>
 
-                              <p className="text-gray-600 text-lg max-w-md">
+                              <p className="text-gray-600 text-sm max-w-md">
                                  {section.description}
                               </p>
 

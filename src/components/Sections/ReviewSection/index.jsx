@@ -117,7 +117,7 @@ export default function ReviewSection() {
                                     />
                                     <h4 className="font-bold text-gray-900">{review.name}</h4>
                                  </div>
-                                 <p className="text-gray-600 text-md">{review.text}</p>
+                                 <p className="text-gray-600 text-sm">{review.text}</p>
                               </CardContent>
                            </Card>
 
