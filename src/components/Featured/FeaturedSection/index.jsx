@@ -9,7 +9,7 @@ export default function FeaturedSection({ sections = [] }) {
 
             return (
                <div
-                  key={idx}
+                  key={idx} 
                   className="relative w-full h-full mt-5"
                   style={{ backgroundColor: bg }}
                >

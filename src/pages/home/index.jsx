@@ -13,7 +13,7 @@ const Home = () => {
   const [showContact, setShowContact] = useState(false);
   const sections = [
     {
-      tagline: "Washington DC",
+      tagline: "Washington DC | Maryland | Virginia",
       title: "Mental Health Services.",
       description:
         "The core foundation of this movement exists with Luminox Healthcare Services which operates to revolutionize mental health service delivery throughout Washington DC.",

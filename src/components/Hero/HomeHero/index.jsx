@@ -42,9 +42,9 @@ export default function Hero() {
   return (
     <>
       {/* Hero Section */}
-      <section className="-mt-4 w-full relative flex flex-col items-center justify-center text-center min-h-[50vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8 pb-5">
+      <section className="-mt-6 w-full relative flex flex-col items-center justify-center text-center min-h-[50vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8 pb-8">
         {/* Heading */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-3">
+        <h1 className="mt-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-10">
           Embodying,{" "}
           <span className="text-teal-700 transition-all duration-300">
             {currentWord}
@@ -53,14 +53,14 @@ export default function Hero() {
         </h1>
 
         {/* Subtext */}
-        <p className="max-w-2xl text-gray-600 text-sm sm:text-base md:text-lg mb-8">
+        <p className="max-w-2xl text-gray-600 text-sm sm:text-base md:text-lg mt-10 mb-8">
           We embody Connection, Compassion, and Care by fostering genuine relationships, offering empathy,
          and delivering dedicated support that nurtures well-being and resilience. 
          Our commitment is to ensure every individual feels seen, valued, and empowered on their journey to healing.
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="mt-10 flex flex-col sm:flex-row gap-4">
         <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
          target="_blank"
          rel="noopener noreferrer"
