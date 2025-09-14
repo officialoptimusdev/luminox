@@ -63,198 +63,85 @@ export const onlineFormsData = [
 ];
 
 
-// export const megaMenuData = [
-//   {
-//     id: 1,
-//     title: "Depression",
-//     description: `Depression is more than just feeling sad. It affects how you think, feel, and live your daily life.
-
-// Signs:
-// - Feeling sad, empty, or hopeless
-// - Losing interest in hobbies
-// - Trouble sleeping or oversleeping
-// - Low energy or fatigue
-// - Difficulty concentrating
-// - Changes in appetite/weight
-// - Thoughts of self-harm
-
-// Causes: Brain chemical changes, stressful life events, family history, chronic conditions.  
-// Treatment: Therapy, medication, lifestyle support, mindfulness.  
-// Remember: Depression is treatable — you’re not alone.`,
-//     image: megaMenuImages.addiction,
-//     bgColor: "bg-[#cb6c6e]",
-//     textColor: "text-black",
-//     descriptionColor: "text-black",
-//   },
-//   {
-//     id: 2,
-//     title: "Anxiety",
-//     description: `Anxiety is your body’s response to stress — but when constant, it interferes with life.
-
-// Signs:
-// - Constant worry or fear
-// - Restlessness or on edge
-// - Racing heartbeat
-// - Sweating or shaking
-// - Trouble sleeping
-// - Difficulty concentrating
-
-// Causes: Stressful/traumatic experiences, family history, brain imbalance.  
-// Treatment: Therapy, medication, relaxation techniques, lifestyle changes.`,
-//     image: megaMenuImages.child,
-//     bgColor: "bg-[#dad4ec]",
-//     textColor: "text-black",
-//     descriptionColor: "text-black",
-//   },
-//   {
-//     id: 3,
-//     title: "PTSD",
-//     description: `PTSD can develop after trauma — abuse, violence, accidents, or combat.
-
-// Signs:
-// - Flashbacks or nightmares
-// - Avoiding reminders
-// - Feeling jumpy or easily startled
-// - Emotional numbness
-// - Trouble sleeping or concentrating
-
-// Causes: Abuse, disasters, combat, accidents.  
-// Treatment: Trauma-focused therapy, medication, coping strategies, supportive environment.`,
-//     image: megaMenuImages.crisis,
-//     bgColor: "bg-[#ffdde1]",
-//     textColor: "text-black",
-//     descriptionColor: "text-black",
-//   },
-//   {
-//     id: 4,
-//     title: "Insomnia",
-//     description: `Insomnia is difficulty falling, staying, or getting restful sleep.
-
-// Symptoms:
-// - Lying awake for hours
-// - Waking often at night
-// - Waking too early
-// - Daytime fatigue or irritability
-
-// Causes: Stress, anxiety, depression, poor habits, medical issues.  
-// Treatment: Sleep hygiene education, therapy, medication, lifestyle support.`,
-//     image: megaMenuImages.education,
-//     bgColor: "bg-[#553f99]",
-//     textColor: "text-white",
-//     descriptionColor: "text-white",
-//   },
-//   {
-//     id: 5,
-//     title: "Eating Disorders",
-//     description: `Eating disorders involve harmful relationships with food. Types: Anorexia, Bulimia, Binge Eating.
-
-// Signs:
-// - Extreme concern with weight/body shape
-// - Skipping meals or strict dieting
-// - Binge eating episodes
-// - Guilt or shame about eating
-
-// Treatment: Therapy, nutritional counseling, medical monitoring, support groups. Recovery is possible.`,
-//     image: megaMenuImages.followup,
-//     bgColor: "bg-[#2e3267]",
-//     textColor: "text-white",
-//     descriptionColor: "text-white",
-//   },
-//   {
-//     id: 6,
-//     title: "ADHD",
-//     description: `ADHD makes it hard to focus, stay organized, and control impulses.
-
-// Signs:
-// - Trouble paying attention
-// - Difficulty finishing tasks
-// - Restlessness
-// - Impulsiveness
-
-// Causes: Brain chemistry, genetics, environmental factors.  
-// Treatment: Medication, therapy, lifestyle changes.`,
-//     image: megaMenuImages.geriatrics,
-//     bgColor: "bg-[#ecd4c8]",
-//     textColor: "text-black",
-//     descriptionColor: "text-black",
-//   },
-//   {
-//     id: 7,
-//     title: "Smoking & Alcohol Cessation",
-//     description: `Smoking and heavy drinking affect body, mind, and relationships.
-
-// Challenges:
-// - Withdrawal symptoms
-// - Cravings
-// - Emotional triggers
-
-// Treatment: Nicotine replacement, medication-assisted treatment, therapy, support systems.  
-// Every day smoke- and alcohol-free is a victory.`,
-//     image: megaMenuImages.medication,
-//     bgColor: "bg-[#4d8e92]",
-//     textColor: "text-white",
-//     descriptionColor: "text-white",
-//   },
-//   {
-//     id: 8,
-//     title: "OCD",
-//     description: `OCD causes unwanted thoughts (obsessions) and repetitive actions (compulsions).
-
-// Examples:
-// - Fear of germs → excessive hand washing
-// - Worry about safety → constant checking
-
-// Causes: Brain imbalance, family history, stressful events.  
-// Treatment: CBT therapy, medication, healthy coping skills.  
-// OCD is treatable — you can take back control.`,
-//     image: megaMenuImages.refills,
-//     bgColor: "bg-black",
-//     textColor: "text-white",
-//     descriptionColor: "text-white",
-//   },
-// ];
-
-
-
 export const servicesData = [
   {
     id: 1,
-    title: "Addiction Treatment",
-    description:
-      "Addiction can negatively affect every aspect of your life, from relationships to overall well-being. We recognize that addiction is a deep personal struggle. That's why we provide you with comprehensive support, including evidence-based interventions, addiction tele-psychiatry services, and relapse prevention.",
-    image: cardImages.featOne,
-    icon: Pill,
-    bgColor: "bg-red-200 text-white", // light background for the big left illustration card
+    title: "Depression",
+    description: `Depression is more than just feeling sad. It’s a mental health condition that affects how you think, feel,
+    and live your daily life.`,
+    image: megaMenuImages.addiction,
+    bgColor: "bg-[#cb6c6e]",
+    textColor: "text-black",
+    descriptionColor: "text-black",
   },
   {
     id: 2,
-    title: "Child & Adolescent",
-    description:
-      "We provide specialized telepsychiatry for children and adolescents in a safe, nurturing environment. Our expert team offers personalized support for anxiety, depression, behavioral disorders, and ADHD.",
-    image: cardImages.featTwo,
-    icon: Baby,
-    bgColor: "bg-purple-200 text-white",
+    title: "Anxiety",
+    description: `Anxiety is your body’s natural response to stress — but when it becomes constant or overwhelming, it
+    can interfere with your life.`,
+    image: megaMenuImages.child,
+    bgColor: "bg-[#dad4ec]",
+    textColor: "text-black",
+    descriptionColor: "text-black",
   },
   {
     id: 3,
-    title: "Follow-Up & Monitoring",
-    description:
-      "Continuous support is vital for lasting mental wellness. We provide ongoing, accessible virtual psychiatry through regular check-ins and assessments, ensuring your progress and adjusting treatment as needed.",
-    image: cardImages.featThree,
-    icon: Activity,
-    bgColor: "bg-indigo-300 text-white",
+    title: "PTSD",
+    description: `PTSD is a condition that can develop after living through or witnessing a traumatic event — such as
+    abuse, violence, accidents, or combat.`,
+    image: megaMenuImages.crisis,
+    bgColor: "bg-[#ffdde1]",
+    textColor: "text-black",
+    descriptionColor: "text-black",
   },
   {
     id: 4,
-    title: "Support for Specific Conditions",
-    description:
-      "We offer personalized telepsychiatry services for diverse mental health conditions including depression, anxiety, mood disorders, ADHD, and PTSD. Using clinically proven techniques, we address your unique challenges in a safe, nurturing, and virtual environment.",
-    image: cardImages.featFour,
-    icon: HeartPulse,
-    bgColor: "bg-gray-900 text-white", // dark card
+    title: "Insomnia",
+    description: `Insomnia is when you have trouble falling asleep, staying asleep, or getting restful sleep.`,
+    image: megaMenuImages.education,
+    bgColor: "bg-[#553f99]",
+    textColor: "text-white",
+    descriptionColor: "text-white",
   },
+  {
+    id: 5,
+    title: "Eating Disorders",
+    description: `Eating disorders are serious conditions where a person’s relationship with food becomes harmful.`,
+    image: megaMenuImages.followup,
+    bgColor: "bg-[#2e3267]",
+    textColor: "text-white",
+    descriptionColor: "text-white",
+  },
+  {
+    id: 6,
+    title: "ADHD",
+    description: `ADHD is a brain condition that makes it hard to focus, stay organized, and control impulses.`,
+    image: megaMenuImages.geriatrics,
+    bgColor: "bg-[#ecd4c8]",
+    textColor: "text-black",
+    descriptionColor: "text-black",
+  },
+  {
+    id: 7,
+    title: "OCD",
+    description: `OCD is when a person has repeated, unwanted thoughts (obsessions) and feels the urge to do certain
+    actions (compulsions) to ease anxiety.`,
+    image: megaMenuImages.refills,
+    bgColor: "bg-black",
+    textColor: "text-white",
+    descriptionColor: "text-white",
+  },
+  {
+    id: 8,
+    title: "Smoking & Alcohol Cessation",
+    description: `Smoking and heavy drinking can harm your body, mind, and relationships`,
+    image: megaMenuImages.medication,
+    bgColor: "bg-[#4d8e92]",
+    textColor: "text-white",
+    descriptionColor: "text-white",
+  },
+ 
 ];
-
 
 
 export const megaMenuData = [
@@ -826,3 +713,41 @@ export const missionData = [
 
 
 
+// export const servicesData = [
+//   {
+//     id: 1,
+//     title: "Addiction Treatment",
+//     description:
+//       "Addiction can negatively affect every aspect of your life, from relationships to overall well-being. We recognize that addiction is a deep personal struggle. That's why we provide you with comprehensive support, including evidence-based interventions, addiction tele-psychiatry services, and relapse prevention.",
+//     image: cardImages.featOne,
+//     icon: Pill,
+//     bgColor: "bg-red-200 text-white", // light background for the big left illustration card
+//   },
+//   {
+//     id: 2,
+//     title: "Child & Adolescent",
+//     description:
+//       "We provide specialized telepsychiatry for children and adolescents in a safe, nurturing environment. Our expert team offers personalized support for anxiety, depression, behavioral disorders, and ADHD.",
+//     image: cardImages.featTwo,
+//     icon: Baby,
+//     bgColor: "bg-purple-200 text-white",
+//   },
+//   {
+//     id: 3,
+//     title: "Follow-Up & Monitoring",
+//     description:
+//       "Continuous support is vital for lasting mental wellness. We provide ongoing, accessible virtual psychiatry through regular check-ins and assessments, ensuring your progress and adjusting treatment as needed.",
+//     image: cardImages.featThree,
+//     icon: Activity,
+//     bgColor: "bg-indigo-300 text-white",
+//   },
+//   {
+//     id: 4,
+//     title: "Support for Specific Conditions",
+//     description:
+//       "We offer personalized telepsychiatry services for diverse mental health conditions including depression, anxiety, mood disorders, ADHD, and PTSD. Using clinically proven techniques, we address your unique challenges in a safe, nurturing, and virtual environment.",
+//     image: cardImages.featFour,
+//     icon: HeartPulse,
+//     bgColor: "bg-gray-900 text-white", // dark card
+//   },
+// ];

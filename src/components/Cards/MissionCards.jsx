@@ -25,13 +25,13 @@ export default function MissionCards() {
 
 
             {card.buttonText && (
-              <Link
-                to="/referral"
+              <a
+                href="/referral"
                 className="flex items-center gap-2 bg-white text-gray-900 font-medium px-4 py-2 rounded-full w-fit hover:bg-gray-100 transition relative z-10"
               >
                 <span>{card.buttonText}</span>
                 {Icon && <Icon className="w-4 h-4" />}
-              </Link>
+              </a>
             )}
           </div>
         );

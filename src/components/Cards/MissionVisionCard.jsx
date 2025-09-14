@@ -40,7 +40,7 @@ export default function MissionVisionCard({
 
         {/* TEXT CARD */}
         <Card className="rounded-2xl shadow-sm border-none flex-1 flex items-stretch relative">
-          <img
+          {/* <img
             src="/assets/about-card-top.png"
             alt=""
             aria-hidden="true"
@@ -52,7 +52,7 @@ export default function MissionVisionCard({
             alt=""
             aria-hidden="true"
             className="object-contain pointer-events-none select-none absolute -bottom-4 -right-4 w-[190px] sm:w-[228px] md:w-[380px] max-w-[40%] opacity-100 bg-[#91bfc61d]"
-          />
+          /> */}
 
           <CardContent
             className={cn(
@@ -69,14 +69,14 @@ export default function MissionVisionCard({
 
             {/* BUTTON HANDLING */}
             {buttonType === "internal" ? (
-              <Link to={buttonHref}>
+              <a href={buttonHref}>
                 <Button
                   variant={buttonVariant}
                   className="w-fit rounded-full gap-2"
                 >
                   {buttonLabel} <ArrowRight className="w-4 h-4" />
                 </Button>
-              </Link>
+              </a>
             ) : (
               <a
                 href={buttonHref}

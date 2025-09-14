@@ -48,7 +48,7 @@ export default function BlogFeaturedCards({ blogs }) {
               </p>
 
               <div className="mt-auto flex items-center justify-between text-sm text-gray-500">
-                <Link to={`/blog/${blog.id}`}>
+                <a href={`/blog/${blog.id}`}>
                   <Button
                     variant="outline"
                     size="sm"
@@ -56,7 +56,7 @@ export default function BlogFeaturedCards({ blogs }) {
                   >
                     Read More
                   </Button>
-                </Link>
+                </a>
 
                 <p className="text-[10px]">
                   Posted on {blog.date} by{" "}
