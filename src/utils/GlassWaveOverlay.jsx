@@ -22,7 +22,7 @@ export default function GlassWaveOverlay({
 
           {/* Denser dot pattern */}
           <pattern id="dotPattern" width="18" height="18" patternUnits="userSpaceOnUse">
-          <circle cx="6" cy="6" r="2.5" fill="#ffffff" fillOpacity="0.2" />
+          <circle cx="6" cy="6" r="2.5" fill="#ffffff" fillOpacity="0.1" />
 
           </pattern>
 
@@ -46,6 +46,7 @@ export default function GlassWaveOverlay({
         <path
           d="M244 24L604 114C840.363 173.091 1087.64 173.091 1324 114L1684 24L1904 409L1434 459C1125.61 537.737 802.387 537.737 494 459L24 409L244 24Z"
           fill="none"
+          fillOpacity="0.1"
           stroke="rgba(255,255,255,0.12)"
           strokeWidth="1"
           className="pointer-events-none"
