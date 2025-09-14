@@ -25,7 +25,7 @@ export default function ServiceForm() {
 
   return (
     <motion.div
-      // 🟢 Animate only on desktop using Tailwind’s hidden/show utilities
+      //  Animate only on desktop using Tailwind’s hidden/show utilities
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
