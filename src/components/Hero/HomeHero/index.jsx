@@ -44,12 +44,12 @@ export default function Hero() {
       {/* Hero Section */}
       <section className="mt-0 w-full relative flex flex-col items-center justify-center text-center min-h-[60vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8 pb-8">
         {/* Heading */}
-        <h1 className="mt-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-12">
+        <h1 className="mt-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-2">
           Embodying,
          
         </h1>
 
-        <div className="mt text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900">
+        <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900">
         <h1 className="text-teal-700 transition-all duration-300">
             {currentWord}
             <span className="animate-pulse mt-4">|</span>
