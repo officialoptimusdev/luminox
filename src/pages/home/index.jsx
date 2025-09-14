@@ -17,7 +17,7 @@ const Home = () => {
   //  3 rotating location sections
   const rotatingSections = [
     {
-      tagline: "Washington DC | Maryland | Virginia",
+      tagline: "Washington DC",
       title: "Mental Health Services.",
       description:
         "The core foundation of this movement exists with Luminox Healthcare Services which operates to revolutionize mental health service delivery throughout Washington DC.",
@@ -27,7 +27,7 @@ const Home = () => {
       bg: "#fff",
     },
     {
-      tagline: "New York | New Jersey",
+      tagline: "Maryland | Virginia",
       title: "Expanding Our Reach.",
       description:
         "We are proud to extend our innovative care approach to New York and New Jersey, making compassionate support more accessible.",
@@ -37,7 +37,7 @@ const Home = () => {
       bg: "#fff",
     },
     {
-      tagline: "California | Texas",
+      tagline: "Virginia",
       title: "Nationwide Support.",
       description:
         "Our mission continues across states like California and Texas, ensuring comprehensive services reach communities nationwide.",
