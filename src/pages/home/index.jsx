@@ -11,9 +11,13 @@ import ContactFormModal from "@/components/Modals/ContactFormModal";
 const Home = () => {
   const [showNewsletter, setShowNewsletter] = useState(false);
   const [showContact, setShowContact] = useState(false);
-  const sections = [
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  //  3 rotating location sections
+  const rotatingSections = [
     {
-      tagline: "Washington DC | Maryland | Virginia",
+      tagline: "Washington DC",
       title: "Mental Health Services.",
       description:
         "The core foundation of this movement exists with Luminox Healthcare Services which operates to revolutionize mental health service delivery throughout Washington DC.",
@@ -23,43 +27,74 @@ const Home = () => {
       bg: "#fff",
     },
     {
-      tagline: "Contact Us",
-      title: "Get In Touch.",
+      tagline: "Maryland | Virginia",
+      title: "Expanding Our Reach.",
       description:
-        "Have questions or ready to start your journey to better mental well-being? Reach out to Luminox Healthcare Services today—we look forward to connecting with you.",
-      buttonText: "Get In Touch",
-      modal: true,
-      image: "/assets/featsec-two.jpg",
-      bg: "#f9fafb",
+        "We are proud to extend our innovative care approach to New York and New Jersey, making compassionate support more accessible.",
+      buttonText: "Learn More",
+      href: "/services",
+      image: "/assets/luminox0.jpg",
+      bg: "#fff",
+    },
+    {
+      tagline: "Virginia",
+      title: "Nationwide Support.",
+      description:
+        "Our mission continues across states like California and Texas, ensuring comprehensive services reach communities nationwide.",
+      buttonText: "Learn More",
+      href: "/services",
+      image: "/assets/luminox3.jpg",
+      bg: "#fff",
     },
   ];
 
+  //  keep Contact Us section unchanged
+  const contactSection = {
+    tagline: "Contact Us",
+    title: "Get In Touch.",
+    description:
+      "Have questions or ready to start your journey to better mental well-being? Reach out to Luminox Healthcare Services today—we look forward to connecting with you.",
+    buttonText: "Get In Touch",
+    modal: true,
+    image: "/assets/featsec-two.jpg",
+    bg: "#f9fafb",
+  };
 
+  // ⏳ rotate only if not paused
   useEffect(() => {
-    // delay before showing
+    if (paused) return; // stop when hovered
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % rotatingSections.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [paused]); // re-run when paused changes
+
+  // ⏳ rotate the first section every 5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % rotatingSections.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Newsletter modal timer
+  useEffect(() => {
     const showTimer = setTimeout(() => {
       setShowNewsletter(true);
-  
-      // auto-close after 10s
-      const hideTimer = setTimeout(() => {
-        setShowNewsletter(false);
-      }, 10000);
-  
-      // cleanup hideTimer when unmounted
+      const hideTimer = setTimeout(() => setShowNewsletter(false), 10000);
       return () => clearTimeout(hideTimer);
-    }, 5000); //  delay before showing (5s here)
-  
-    // cleanup showTimer when unmounted
+    }, 5000);
     return () => clearTimeout(showTimer);
   }, []);
-  
 
+  // Contact modal handler
   useEffect(() => {
     const handler = () => setShowContact(true);
     window.addEventListener("open-contact-modal", handler);
     return () => window.removeEventListener("open-contact-modal", handler);
   }, []);
-
 
   const handleJoin = (email) => {
     console.log("Newsletter subscribed:", email);
@@ -73,7 +108,15 @@ const Home = () => {
       <div className="bg-black text-white">
         <FeaturedBlog limit={3} />
       </div>
-      <FeaturedSection sections={sections} />
+
+      {/*  Pass only current rotating section + contact section */}
+      <div
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <FeaturedSection sections={[rotatingSections[currentIndex], contactSection]} />
+      </div>
+
       <ReviewSection />
       <NewsLetterModal
         open={showNewsletter}
@@ -84,7 +127,6 @@ const Home = () => {
         }}
       />
       <ContactFormModal open={showContact} onOpenChange={setShowContact} />
-
     </main>
   );
 };
