@@ -24,6 +24,7 @@ const Navbar = ({ isDesktop }) => {
 
 
   const navItems = [
+    { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
     { name: "Forms", href: "/forms" },
     { name: "About Us", href: "/about" },
