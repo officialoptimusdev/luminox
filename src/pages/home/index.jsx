@@ -27,7 +27,7 @@ const Home = () => {
       bg: "#fff",
     },
     {
-      tagline: "Maryland | Virginia",
+      tagline: "Maryland",
       title: "Expanding Our Reach.",
       description:
         "We are proud to extend our innovative care approach to New York and New Jersey, making compassionate support more accessible.",
@@ -105,7 +105,7 @@ const Home = () => {
       <Hero />
       <FeaturedServices />
       <MissionStatement />
-      <div className="bg-black text-white">
+      <div className="bg-black text-white mb-20">
         <FeaturedBlog limit={3} />
       </div>
 
