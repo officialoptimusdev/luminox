@@ -13,6 +13,15 @@ const Navbar = ({ isDesktop }) => {
   const [contactOpen, setContactOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const timeoutRef = useRef(null); // ref for close delay
+  const [activePath, setActivePath] = useState("");
+
+  useEffect(() => {
+    setActivePath(window.location.pathname);
+    const handlePop = () => setActivePath(window.location.pathname);
+    window.addEventListener("popstate", handlePop);
+    return () => window.removeEventListener("popstate", handlePop);
+  }, []);
+
 
   const navItems = [
     { name: "Services", href: "/services" },
@@ -75,13 +84,19 @@ const Navbar = ({ isDesktop }) => {
                         as="a"
                         href={item.href}
                         onClick={(e) => {
+                          // keep original behavior so clicking reliably navigates even inside Popover
                           e.preventDefault();
                           window.location.href = item.href;
                         }}
-                        className="text-sm font-medium hover:text-[#007171] transition-colors px-4"
+                        className={`relative inline-block text-sm font-medium px-4 transition-colors ${activePath === item.href
+                          ? "text-[#007171] after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-[2px] after:bg-gray-400"
+                          : "text-gray-700 hover:text-[#007171]"
+                          }`}
                       >
                         {item.name}
                       </Popover.Button>
+
+
 
                       {servicesOpen && (
                         <Popover.Panel
@@ -100,10 +115,14 @@ const Navbar = ({ isDesktop }) => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-sm font-medium hover:text-[#007171] transition-colors px-4"
+                    className={`relative text-sm font-medium px-4 transition-colors
+                    ${activePath === item.href
+                        ? "text-[#007171] after:absolute after:left-4 after:right-4 after:-bottom-1 after:h-[2px] after:bg-gray-400"
+                        : "text-gray-700 hover:text-[#007171]"}`}
                   >
                     {item.name}
                   </a>
+
                 )
               )}
 
@@ -119,29 +138,29 @@ const Navbar = ({ isDesktop }) => {
 
           {/* RIGHT: Desktop buttons */}
           <div className="hidden md:flex items-center bg-white/70 rounded-full px-4 space-x-3">
-           <a href="https://portal.kareo.com/app/new/login"
-            target="_blank"
-            rel="noopener noreferrer"
-           >
-           <Button
-              variant="ghost"
-              className="rounded-full px-6 py-3 hover:bg-transparent text-[#004d4d] flex items-center"
+            <a href="https://portal.kareo.com/app/new/login"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Patient Portal
-              <GiHeartPlus className="w-4 h-4 ml-2" />
-            </Button>
-           </a>
+              <Button
+                variant="ghost"
+                className="rounded-full px-6 py-3 hover:bg-transparent text-[#004d4d] flex items-center"
+              >
+                Patient Portal
+                <GiHeartPlus className="w-4 h-4 ml-2" />
+              </Button>
+            </a>
 
-           <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680" 
-            target="_blank"
-            rel="noopener noreferrer"
-           >
-            <Button
-              className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-3 py-6 mt-2 mb-2"
+            <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Book Appointment
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+              <Button
+                className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-3 py-6 mt-2 mb-2"
+              >
+                Book Appointment
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
             </a>
           </div>
 
@@ -172,22 +191,31 @@ const Navbar = ({ isDesktop }) => {
                     </a>
                   </div>
 
-                  <button
-                    aria-label="Close menu"
-                    onClick={() => setOpen(false)}
-                    className="flex items-center justify-center h-10 w-10 rounded-full bg-black text-white focus:outline-none"
-                  >
-                    <X className="w-5 h-5" />
-                  </button>
+                  <div className="flex items-center gap-3">
+                    {/* Active item shown only when drawer is open */}
+                    {activePath && (
+                      <span className="bg-white text-[#2e6f73] rounded-md px-3 py-1 text-sm font-semibold">
+                        {navItems.find((item) => item.href === activePath)?.name}
+                      </span>
+                    )}
+
+                    <button
+                      aria-label="Close menu"
+                      onClick={() => setOpen(false)}
+                      className="flex items-center justify-center h-10 w-10 rounded-full bg-black text-white focus:outline-none"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
                 </div>
 
-                <nav className="space-y-1">
+                <nav className="space-y-0">
                   {navItems.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="block py-2 font-semibold text-2xl text-white"
                       onClick={() => setOpen(false)}
+                      className="block py-2 font-semibold text-md text-white transition-colors hover:text-gray-200"
                     >
                       {item.name}
                     </a>
@@ -199,14 +227,15 @@ const Navbar = ({ isDesktop }) => {
                       setOpen(false);
                       setTimeout(() => setContactOpen(true), 300);
                     }}
-                    className="block py-4 font-semibold text-2xl text-left w-full text-white"
+                    className="block py-0 font-semibold text-md text-left w-full text-white"
                   >
                     Contact Us
                   </button>
                 </nav>
 
+
                 {/* Other mobile items */}
-                <div className="pt-6 border-t border-white/10 space-y-4">
+                <div className="pt-6 border-t border-white/10 space-y-2">
                   <div className="rounded-xl bg-[#234e4f]/95 p-4">
                     <p className="text-xs uppercase opacity-80">Business Hours</p>
                     <div className="mt-2 text-sm">
@@ -236,25 +265,25 @@ const Navbar = ({ isDesktop }) => {
                   </div>
 
                   <a href="https://portal.kareo.com/app/new/login">
-                  <Button
-                    variant="outline"
-                    className="w-full rounded-md mt-3 mb-2 text-white"
-                    onClick={() => setOpen(false)}
-                  >
-                    Patient Portal
-                  </Button>
+                    <Button
+                      variant="outline"
+                      className="w-full rounded-md mt-3 mb-2 text-white"
+                      onClick={() => setOpen(false)}
+                    >
+                      Patient Portal
+                    </Button>
                   </a>
-                 
+
                   <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
-                  <Button
-                    className="w-full rounded-md flex items-center justify-center gap-2 bg-black/20 hover:bg-black/30"
-                    onClick={() => setOpen(false)}
-                  >
-                    Book Appointment
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
+                    <Button
+                      className="w-full rounded-md flex items-center justify-center gap-2 bg-black/20 hover:bg-black/30"
+                      onClick={() => setOpen(false)}
+                    >
+                      Book Appointment
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
                   </a>
-              
+
                 </div>
 
                 <div className="mt-6">
@@ -265,13 +294,13 @@ const Navbar = ({ isDesktop }) => {
                     <a href="#" className="h-10 w-10 bg-[#d53c6c] hover:bg-[#222425] flex items-center justify-center rounded-full text-white">
                       <FaInstagram />
                     </a>
-                    <a
+                    {/* <a
                       href="#"
                       aria-label="LinkedIn"
                       className="h-10 w-10 bg-[#2167a4] hover:bg-[#222425] flex items-center justify-center rounded-full text-white"
                     >
                       <FaLinkedinIn />
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </SheetContent>

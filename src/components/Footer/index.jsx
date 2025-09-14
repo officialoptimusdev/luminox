@@ -89,13 +89,13 @@ const Footer = () => {
                   </h4>
                   <ul className="space-y-2 text-gray-300 text-sm">
                     <li>
-                      <Link className="hover:underline" to="/services">Services</Link>
+                      <a className="hover:underline" href="/services">Services</a>
                     </li>
                     <li>
-                      <Link className="hover:underline" to="/forms">Forms</Link>
+                      <a className="hover:underline" href="/forms">Forms</a>
                     </li>
                     <li>
-                      <Link className="hover:underline" to="/about">About Us</Link>
+                      <a className="hover:underline" href="/about">About Us</a>
                     </li>
                     <li>
                       {/* Contact triggers modal */}
@@ -107,7 +107,7 @@ const Footer = () => {
                       </button>
                     </li>
                     <li>
-                      <Link className="hover:underline" to="/blog">Blog</Link>
+                      <a className="hover:underline" href="/blog">Blog</a>
                     </li>
                     {/* <li>
                       <Link className="hover:underline" to="/team">Meet The Team</Link>
@@ -180,16 +180,16 @@ const Footer = () => {
                     rel="noopener noreferrer" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
                     <FaInstagram size={14} />
                   </a>
-                  <a href="#" target="_blank"
+                  {/* <a href="#" target="_blank"
                     rel="noopener noreferrer" className="bg-[#ff2929] hover:bg-[#222425] p-2 rounded-full text-white">
                     <FaYoutube size={14} />
-                  </a>
+                  </a> */}
                 </div>
 
-                <div className="flex gap-2 items-center text-xs text-gray-400">
+                {/* <div className="flex gap-2 items-center text-xs text-gray-400">
                   <span className="px-3 py-2 bg-[#1b1c1d] rounded-full">Doxy</span>
                   <span className="px-3 py-2 bg-[#1b1c1d] rounded-full">Psychology Today</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
