@@ -181,7 +181,7 @@ const Navbar = ({ isDesktop }) => {
                 side="left"
                 className="fixed inset-0 left-0 top-0 z-50 w-full max-w-none h-screen bg-[#2e6f73] text-white p-6 rounded-none overflow-y-auto [&>button:first-of-type]:hidden"
               >
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <a href="/" className="flex items-center h-20 shrink-0">
                       <img
@@ -216,7 +216,7 @@ const Navbar = ({ isDesktop }) => {
                       key={item.name}
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="block py-2 font-semibold text-md text-white transition-colors hover:text-gray-200"
+                      className="block py-1 font-semibold text-md text-white transition-colors hover:text-gray-200"
                     >
                       {item.name}
                     </a>

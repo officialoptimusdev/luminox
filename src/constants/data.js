@@ -694,7 +694,8 @@ export const missionData = [
     description:
       "Luminox Mental Health is committed to accessible, affordable care, accepting a wide range of insurance plans across VA, MD, and D.C. We continuously expand our accepted plans. If you have questions about coverage, contact us; our staff will help you understand your options and avoid financial burden.",
     image: missionImages.missionOne,
- 
+    buttonText: "See more",
+    icon: ArrowRight
   },
   {
     id: 2,
