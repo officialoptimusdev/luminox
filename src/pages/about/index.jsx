@@ -8,7 +8,9 @@ const About = () => {
       <main className="w-full">
          <AboutHero />
          <FeaturedAbout />
-         <BrandsSection />
+         <section id="brands">
+            <BrandsSection />
+         </section>
          <MeetTheTeam />
       </main>
    );

@@ -6,10 +6,10 @@ import MissionCards from "../../Cards/MissionCards";
 
 const team = [
    {
-      name: "Dr. Olayemi Adurota, FNP-C",
+      name: "About Dr. Olayemi Adurota, FNP-C",
       role: "Nurse Practitioner / 11yrs",
       description:
-         "Dedicated to providing compassionate care with over 11 years of clinical experience. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+         "As a highly accomplished Doctor of Nursing Practice with dual certification in family and psychiatry, I possess a wealth of experience that sets me apart as a healthcare provider. With a career that dates back to 2012, I began my journey at the prestigious Johns Hopkins Hospital, where I dedicated myself to the specialized fields of eating disorders and affective disorders. In my practice, I bring not only intelligence and expertise but also a genuine sense of empathy. Your well-being and recovery are paramount to me, and I am fully committed to providing you with exceptional care rooted in understanding and compassion. When you choose me as your provider, you can have confidence that your care will be personalized to meet your unique needs. I will guide you through your journey to health and well-being, ensuring that you feel heard, supported, and empowered at every step. Let us embark on this transformative journey together, where your health and happiness are our top priorities.",
       image: "/assets/team1.jpeg",
    },
    {
@@ -43,10 +43,9 @@ export default function MeetTheTeam() {
          <div className="max-w-7xl mx-auto px-6 lg:px-12">
             {/* Section Header */}
             <div className="justify-center lg:justify-start space-y-4 mb-12">
-               <h2 className="text-4xl font-bold tracking-tight">Need a licensed medical practitioner?</h2>
+               <h2 className="text-4xl font-bold tracking-tight">Behind the Care: Dr. Olayemi Adurota</h2>
                <p className="text-gray-600 max-w-2xl text-start">
-                  Get to know the dedicated professionals at Luminox Mental Health
-                  who are committed to supporting your well-being.
+               Here to listen, guide, and support.
                </p>
             </div>
 

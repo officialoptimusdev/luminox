@@ -15,10 +15,13 @@ import TelehealthConsentContract from "./pages/TelehealthConsentContract";
 import AuthorizationConsentContract from "./pages/AuthorizationConsentContract";
 import Blog from "./pages/blog";
 import BlogPost from "./pages/BlogPost";
+import useScrollToHash from "./hooks/useScrollToHash";
 
 const App = () => {
   return (
     <Router>
+      {/*  Now the hook runs within Router context */}
+      <ScrollToHashHandler />
 
       <NavbarWithMegaMenu />
       <div className="flex flex-col min-h-screen bg-transparent">
@@ -40,5 +43,10 @@ const App = () => {
     </Router>
   );
 };
+
+function ScrollToHashHandler() {
+  useScrollToHash();
+  return null; // this component just runs the hook
+}
 
 export default App;
