@@ -15,11 +15,11 @@ export default function FeaturedServices() {
          Our care is grounded in evidence-based practices but delivered with compassion and cultural sensitivity, 
          ensuring that each visit feels like a step toward clarity, balance, and lasting wellness.
         </p>
-        <Link to="/services">
+        <a href="/services">
           <Button className="rounded-full bg-black text-white hover:bg-gray-800">
             See Services <ArrowRight className="ml-2 w-4 h-4" />
           </Button>
-        </Link>
+        </a>
       </div>
     </section>
   );
