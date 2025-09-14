@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Eye } from "lucide-react";
 import FadeSlider from "../../Atoms/FadeSlider";
 import heroImages from "@/constants/heroImages";
-import { Link } from "react-router-dom";
+
 
 export default function Hero() {
   const words = ["Connection", "Compassion", "Care"];
@@ -42,15 +42,21 @@ export default function Hero() {
   return (
     <>
       {/* Hero Section */}
-      <section className="-mt-6 w-full relative flex flex-col items-center justify-center text-center min-h-[50vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8 pb-8">
+      <section className="mt-0 w-full relative flex flex-col items-center justify-center text-center min-h-[60vh] bg-[#e6f0ef] px-4 sm:px-6 lg:px-8 pb-8">
         {/* Heading */}
-        <h1 className="mt-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-10">
-          Embodying,{" "}
-          <span className="text-teal-700 transition-all duration-300">
-            {currentWord}
-          </span>
-          <span className="animate-pulse">|</span>
+        <h1 className="mt-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-12">
+          Embodying,
+         
         </h1>
+
+        <div className="mt text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900">
+        <h1 className="text-teal-700 transition-all duration-300">
+            {currentWord}
+            <span className="animate-pulse mt-4">|</span>
+          </h1>
+        
+
+        </div>
 
         {/* Subtext */}
         <p className="max-w-2xl text-gray-600 text-sm sm:text-base md:text-lg mt-10 mb-8">
