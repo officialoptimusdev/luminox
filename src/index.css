@@ -19,3 +19,34 @@
   -ms-overflow-style: none; /* IE/Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* ✨ Shimmer effect for Skeleton loaders */
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+}
+
+.skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  height: 100%;
+  width: 150%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(209, 213, 219, 0.8),  /* Tailwind gray-300 with stronger opacity */
+    rgba(156, 163, 175, 0.6),  /* Tailwind gray-400 for more contrast */
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 150%;
+  }
+}
+
