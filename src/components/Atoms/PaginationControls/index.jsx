@@ -1,15 +1,35 @@
-// src/components/ui/PaginationControls.jsx
 import { Tab } from "@headlessui/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function PaginationControls({ page, setPage, totalPages, goPrev, goNext }) {
   if (totalPages <= 1) return null;
 
+  // helper to scroll top smoothly
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // wrap the page change with scroll
+  const handleChangePage = (newPage) => {
+    setPage(newPage);
+    scrollToTop();
+  };
+
+  const handleGoPrev = () => {
+    goPrev();
+    scrollToTop();
+  };
+
+  const handleGoNext = () => {
+    goNext();
+    scrollToTop();
+  };
+
   return (
-    <div className="flex items-center justify-end gap-6 mt-8">
+    <div className="flex items-center justify-center gap-6 mt-8">
       {/* Left Arrow */}
       <button
-        onClick={goPrev}
+        onClick={handleGoPrev}
         disabled={page === 0}
         className={`p-2 rounded-full border ${
           page === 0
@@ -20,8 +40,8 @@ export default function PaginationControls({ page, setPage, totalPages, goPrev, 
         <ArrowLeft size={18} />
       </button>
 
-      {/* Pagination dots */}
-      <Tab.Group selectedIndex={page} onChange={setPage}>
+      {/* Pagination numbers */}
+      <Tab.Group selectedIndex={page} onChange={handleChangePage}>
         <Tab.List className="flex gap-3">
           {Array.from({ length: totalPages }).map((_, idx) => (
             <Tab
@@ -42,7 +62,7 @@ export default function PaginationControls({ page, setPage, totalPages, goPrev, 
 
       {/* Right Arrow */}
       <button
-        onClick={goNext}
+        onClick={handleGoNext}
         disabled={page === totalPages - 1}
         className={`p-2 rounded-full border ${
           page === totalPages - 1
