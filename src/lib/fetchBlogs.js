@@ -1,4 +1,22 @@
 // src/lib/fetchBlogs.js
+const fallbackImages = [
+  "/assets/therapy-1.jpg",
+  "/assets/therapy-2.jpg",
+  "/assets/nature-calm-1.jpeg",
+  "/assets/support-group-1.jpg",
+  "/assets/meditation-1.jpeg",
+  "/assets/self-care-1.jpg",
+  "/assets/dark-room-reflection-1.jpeg",
+  "/assets/walking-nature-1.jpg",
+  "/assets/abstract-light-1.jpeg",
+  "/assets/hopeful-face-1.jpg",
+  "/assets/office-therapy-1.jpeg",
+  "/assets/comfort-hands-1.jpg",
+  "/assets/counselor-notes-1.jpeg",
+  "/assets/journal-calm-1.jpg",
+  "/assets/yoga-outdoors-1.jpg",
+];
+
 export async function fetchBlogs() {
   const res = await fetch("https://oresamsub.com/api/luminox");
   const json = await res.json();
@@ -35,45 +53,36 @@ export async function fetchBlogs() {
   // ✅ helper function to strip unwanted Gutenberg + inline tags
   const cleanText = (text = "") =>
     text
-      // remove ALL Gutenberg comments like <!-- wp:paragraph -->, <!-- /wp:paragraph -->
-      .replace(/<!--.*?-->/g, "")
-      // remove <p> and </p>
-      .replace(/<\/?p>/gi, "")
-      // remove leftover whitespace
+      .replace(/<!--.*?-->/g, "") // remove Gutenberg comments
+      .replace(/<\/?p>/gi, "") // remove <p> tags
       .trim();
 
   const filtered = json.data
-    .map((item) => ({
+    .map((item, index) => ({
       id: item.ID,
       title: cleanText(item.post_title?.trim() || ""),
       description: cleanText(
         item.post_excerpt ||
           (item.post_content ? item.post_content.slice(0, 200) + "..." : "")
       ),
-      image: item.featured_image || "/assets/blogfeat-five.png",
+      // ✅ use API image OR a unique fallback image by index
+      image: item.featured_image || fallbackImages[index % fallbackImages.length],
       date: item.post_date
         ? new Date(item.post_date).toLocaleDateString()
         : "Unknown date",
-      author: "Dr. Adurota", // fallback if author info missing
+      author: "Dr. Adurota",
       content: cleanText(item.post_content || ""),
     }))
     .filter((post) => {
       const title = post.title?.toLowerCase() || "";
 
-      // skip if no title
-      if (!title) return false;
-
-      // skip duplicates
-      if (seenTitles.has(title)) return false;
+      if (!title) return false; // skip if no title
+      if (seenTitles.has(title)) return false; // skip duplicates
       seenTitles.add(title);
 
-      // skip if starts with excluded words
-      if (excluded.some((word) => title.startsWith(word))) return false;
+      if (excluded.some((word) => title.startsWith(word))) return false; // skip excluded
+      if (/^\d/.test(title)) return false; // skip numbers
 
-      // skip if starts with a number
-      if (/^\d/.test(title)) return false;
-
-      // skip if starts with disallowed prefixes
       if (
         title.startsWith("thumb") ||
         title.startsWith("images (4)") ||
@@ -96,6 +105,6 @@ export async function fetchBlogs() {
       return true;
     });
 
-  // ✅ Only return the first 15 posts
+  // ✅ Return only 15 posts, each with its own image
   return filtered.slice(0, 15);
 }
