@@ -111,63 +111,50 @@ const BlogPost = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-  <div className="max-w-4xl w-full">
-    <BlogPostSkeleton />
-  </div>
-</div>
-
-
-
-    ); //  show reusable skeleton
+        <div className="max-w-4xl w-full">
+          <BlogPostSkeleton />
+        </div>
+      </div>
+    );
   }
 
   if (!blog) {
     return (
       <main className="max-w-4xl mx-auto px-6 py-20">
-        <Breadcrumb
-        items={[{ label: "Blog", href: "/blog" }, { label: blog.title }]}
-      />
+        <Breadcrumb items={[{ label: "Blog", href: "/blog" }, { label: "Not Found" }]} />
         <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="text-gray-500 text-center py-40 font-bold text-[40px]"
-          >
-            Blog post not found.
-          </motion.p>
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="text-gray-500 text-center py-40 font-bold text-[40px]"
+        >
+          Blog post not found.
+        </motion.p>
       </main>
     );
   }
 
   return (
     <main className="max-w-6xl mx-auto px-6 py-10">
-      <Breadcrumb
-        items={[{ label: "Blog", href: "/blog" }, { label: blog.title }]}
-      />
+      <Breadcrumb items={[{ label: "Blog", href: "/blog" }, { label: blog.title }]} />
 
-      {/* Title */}
       <h1 className="font-bold mb-4 text-4xl">{blog.title}</h1>
 
-      {/* Author + Date */}
       <p className="text-gray-500 mb-6 text-sm">
-        Posted on {blog.date} by{" "}
-        <span className="text-sky-600">{blog.author}</span>
+        Posted on {blog.date} by <span className="text-sky-600">{blog.author}</span>
       </p>
 
-      {/* Featured Image */}
       <img
         src={blog.image}
         alt={blog.title}
         className="w-full object-cover rounded-2xl mb-8 shadow h-[400px]"
       />
 
-      {/* Blog Content */}
       <article
         className="prose prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: blog.content }}
       />
 
-      {/* Related Posts */}
       <RelatedPosts currentId={blog.id} />
     </main>
   );

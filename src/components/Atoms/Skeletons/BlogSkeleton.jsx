@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function BlogSkeleton({ count = 6 }) {
   return (
-    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto mb-10">
       {Array.from({ length: count }).map((_, idx) => (
         <Card
           key={idx}

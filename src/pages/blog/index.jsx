@@ -26,6 +26,7 @@
 
 // export default Blog;
 
+
 import { useEffect, useState } from "react";
 import FeaturedBlog from "@/components/Featured/FeaturedBlog";
 import BlogHero from "@/components/Hero/BlogHero";
@@ -54,17 +55,13 @@ const Blog = () => {
   const { page, setPage, totalPages, currentData, goPrev, goNext } =
     usePagination(filteredBlogs, 6);
 
-  // handle page change with skeleton
   const handleSetPage = (newPage) => {
     setPageLoading(true);
     setTimeout(() => {
       setPage(newPage);
       setPageLoading(false);
-    }, 500); // half-second skeleton delay
+    }, 500);
   };
-
-  const handleGoPrev = () => handleSetPage(page - 1);
-  const handleGoNext = () => handleSetPage(page + 1);
 
   return (
     <main className="w-full">
@@ -83,10 +80,10 @@ const Blog = () => {
 
             <PaginationControls
               page={page}
-              setPage={handleSetPage} // wrap with skeleton effect
+              setPage={handleSetPage}
               totalPages={totalPages}
-              goPrev={handleGoPrev}
-              goNext={handleGoNext}
+              goPrev={() => handleSetPage(page - 1)}
+              goNext={() => handleSetPage(page + 1)}
             />
           </>
         )}
