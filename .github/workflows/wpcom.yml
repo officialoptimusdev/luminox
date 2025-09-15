@@ -27,7 +27,9 @@ jobs:
       - name: Prepare theme package
         run: |
           mkdir luminox-react
-          cp -r dist/* luminox-react/
+          # copy everything from dist EXCEPT index.html
+          rsync -av dist/ luminox-react/ --exclude=index.html
+          # copy theme files
           cp index.php luminox-react/
           cp style.css luminox-react/
           cp .htaccess luminox-react/ || true
