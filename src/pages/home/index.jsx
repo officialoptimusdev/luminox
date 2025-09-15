@@ -7,6 +7,8 @@ import MissionStatement from "@/components/Sections/MissionStatement";
 import ReviewSection from "@/components/Sections/ReviewSection";
 import NewsLetterModal from "@/components/Modals/NewsLetterModal";
 import ContactFormModal from "@/components/Modals/ContactFormModal";
+import { fetchBlogs } from "@/lib/fetchBlogs";
+import BlogSkeleton from "@/components/Atoms/Skeletons/BlogSkeleton";
 
 const Home = () => {
   const [showNewsletter, setShowNewsletter] = useState(false);
@@ -14,7 +16,18 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  //  3 rotating location sections
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // fetch latest blogs for homepage
+  useEffect(() => {
+    fetchBlogs()
+      .then((data) => setBlogs(data))
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, []);
+
+  // rotating sections
   const rotatingSections = [
     {
       tagline: "Washington DC",
@@ -48,7 +61,6 @@ const Home = () => {
     },
   ];
 
-  //  keep Contact Us section unchanged
   const contactSection = {
     tagline: "Contact Us",
     title: "Get In Touch.",
@@ -60,26 +72,16 @@ const Home = () => {
     bg: "#f9fafb",
   };
 
-  // ⏳ rotate only if not paused
+  // rotating logic
   useEffect(() => {
-    if (paused) return; // stop when hovered
-
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % rotatingSections.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [paused]); // re-run when paused changes
-
-  // ⏳ rotate the first section every 5s
-  useEffect(() => {
+    if (paused) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % rotatingSections.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [paused]);
 
-  // Newsletter modal timer
+  // newsletter modal
   useEffect(() => {
     const showTimer = setTimeout(() => {
       setShowNewsletter(true);
@@ -89,7 +91,7 @@ const Home = () => {
     return () => clearTimeout(showTimer);
   }, []);
 
-  // Contact modal handler
+  // contact modal handler
   useEffect(() => {
     const handler = () => setShowContact(true);
     window.addEventListener("open-contact-modal", handler);
@@ -105,19 +107,26 @@ const Home = () => {
       <Hero />
       <FeaturedServices />
       <MissionStatement />
+
       <div className="bg-black text-white mb-20">
-        <FeaturedBlog limit={3} />
+        {loading ? (
+          <BlogSkeleton count={3} />
+        ) : (
+          <FeaturedBlog blogs={blogs} limit={3} />
+        )}
       </div>
 
-      {/*  Pass only current rotating section + contact section */}
       <div
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <FeaturedSection sections={[rotatingSections[currentIndex], contactSection]} />
+        <FeaturedSection
+          sections={[rotatingSections[currentIndex], contactSection]}
+        />
       </div>
 
       <ReviewSection />
+
       <NewsLetterModal
         open={showNewsletter}
         onClose={() => setShowNewsletter(false)}
@@ -126,6 +135,7 @@ const Home = () => {
           setShowNewsletter(false);
         }}
       />
+
       <ContactFormModal open={showContact} onOpenChange={setShowContact} />
     </main>
   );
