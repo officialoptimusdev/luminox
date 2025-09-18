@@ -125,7 +125,11 @@ const Home = () => {
         />
       </div>
 
-      <ReviewSection />
+      {/* <ReviewSection /> */}
+
+      {/* Elfsight Google Reviews | Untitled Google Reviews  */}
+     
+      <div class="elfsight-app-69750553-1868-4fd5-b5dd-fd4fd6bfc806" data-elfsight-app-lazy></div>
 
       <NewsLetterModal
         open={showNewsletter}
