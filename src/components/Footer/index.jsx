@@ -123,8 +123,8 @@ const Footer = () => {
                       <div className="text-gray-400">9am - 5pm</div>
                     </div>
                     <div>
-                      <strong className="text-white">Saturday & Sunday</strong>
-                      <div className="text-gray-400">9am - 5pm</div>
+                      <strong className="text-white">Saturday</strong>
+                      <div className="text-gray-400">9am - 2pm</div>
                     </div>
                   </div>
                 </div>
@@ -141,7 +141,7 @@ const Footer = () => {
                     <Phone className="text-teal-300 mt-1" size={18} />
                     <div>
                       <a href="tel:+12405537970" className="text-white font-medium cursor-pointer">
-                        +1 (240)-553-7970
+                        +1 (240)-553-7970 
                       </a>
                     </div>
                   </div>

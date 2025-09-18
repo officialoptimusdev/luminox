@@ -242,11 +242,11 @@ const Navbar = ({ isDesktop }) => {
                     <div className="mt-2 text-sm">
                       <div className="flex justify-between">
                         <span className="text-sm">Monday - Friday</span>
-                        <span className="text-sm font-semibold">10AM - 8PM</span>
+                        <span className="text-sm font-semibold">9am - 5pm</span>
                       </div>
                       <div className="flex justify-between mt-1">
-                        <span className="text-sm">Saturday & Sunday</span>
-                        <span className="text-sm font-semibold">8AM - 8PM</span>
+                        <span className="text-sm">Saturday</span>
+                        <span className="text-sm font-semibold">9am - 2pm</span>
                       </div>
                     </div>
                   </div>
@@ -261,7 +261,7 @@ const Navbar = ({ isDesktop }) => {
                       href="tel:+12405537970"
                       className="mt-3 block w-full text-center bg-white/10 py-3 rounded-md font-semibold"
                     >
-                      +1 (240)-553-7970
+                       +1 (240)-553-7970 
                     </a>
                   </div>
 
