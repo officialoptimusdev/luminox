@@ -182,37 +182,50 @@ export default function InformedConsentForm() {
           {/* Right: Contact card */}
           <aside className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-5 shadow-inner">
             <div className="flex items-center justify-between mb-4">
-              <div>
+              {/* <div>
                 <p className="text-sm text-gray-400">Contact Info</p>
                 <div className="flex items-center gap-2 mt-2">
-                  <div className="text-sm font-medium">240-553-7970</div>
+                  <div> <a href="tel:+12405537970" className="text-sm font-medium cursor-pointer"> +1 (240)-553-7970</a>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <a href="#" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
-                  <FaFacebookF size={14} />
-                </a>
-                <a href="#" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
-                  <FaInstagram size={14} />
-                </a>
-              </div>
+              </div> */}
+             
             </div>
 
             <div className="bg-white rounded-lg p-4 border border-gray-100">
               <p className="text-xs text-slate-400 uppercase tracking-wide">Contact Info</p>
-              <p className="mt-2 text-sm">luminoxhealth@gmail.com</p>
+
+              <a
+                href="mailto:contact@luminoxmentalhealth.com"
+
+              >
+                <p className="mt-2 text-sm cursor-pointer"> contact@luminoxmentalhealth.com</p>
+              </a>
+
 
               <div className="mt-3 text-xs text-slate-400">Phone Number</div>
-              <div className="text-sm mt-1">240-553-7970</div>
+              <div> <a href="tel:+12405537970" className="text-sm mt-1 cursor-pointer">
+                +1 (240)-553-7970
+              </a></div>
 
               <div className="mt-3 text-xs text-slate-400">Assistance hours</div>
-              <div className="text-sm mt-1">Monday - Friday 6 am to 8 pm EST</div>
+              <div className="text-sm mt-1">Monday - Friday 9am - 5pm</div>
 
               <div className="mt-3 text-xs text-slate-400">Address</div>
               <div className="text-sm mt-1">
                 3900 Westerre Parkway, Richmond, VA 23233
                 <br />
                 16701 Melford Blvd, Bowie MD 20715
+              </div>
+              <div className="flex items-center gap-4 mt-4">
+                <a href="https://www.facebook.com/share/1FUdebEzjS/" target="_blank"
+                  rel="noopener noreferrer" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <FaFacebookF size={14} />
+                </a>
+                <a href="https://www.instagram.com/luminox.mentalhealth/" target="_blank"
+                  rel="noopener noreferrer" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <FaInstagram size={14} />
+                </a>
               </div>
             </div>
 

@@ -44,12 +44,20 @@ export default function NewsLetterModal({ open = true, onClose, onJoin }) {
                {/* Slightly taller white card area with subtle pattern-like background */}
                <div className="bg-white rounded-2xl shadow-2xl">
                   {/* Pass the form as a child; supply a callback for when the user joins */}
+
                   <NewsLetterForm
                      onJoin={(email) => {
                         if (onJoin) onJoin(email);
-                        if (onClose) onClose();
+                        // Delay closing after success
+                        if (onClose) {
+                           setTimeout(() => {
+                              onClose();
+                           }, 2000); // stays open for 2s after success
+                        }
                      }}
                   />
+
+
                </div>
             </div>
          </div>
