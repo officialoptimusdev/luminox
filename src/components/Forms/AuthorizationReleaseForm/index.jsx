@@ -163,8 +163,9 @@ export default function AuthorizationReleaseForm() {
                   Luminox Healthcare Services.<br />
                   8665 Sudley Rd., Ste. 228<br />
                   Manassas, Virginia 20110<br />
-                  <a href="tel:+12405537970" className="text-sm mt-1 cursor-pointer">
-                +1 (240)-553-7970</a>
+                  <a href="tel:+ +12407547276" className="text-sm mt-1 cursor-pointer">
+                +1 (240)-754-7276
+              </a>
                 </p>
               </div>
 
@@ -251,8 +252,8 @@ export default function AuthorizationReleaseForm() {
 
 
               <div className="mt-3 text-xs text-slate-400">Phone Number</div>
-              <div> <a href="tel:+12405537970" className="text-sm mt-1 cursor-pointer">
-                +1 (240)-553-7970
+              <div> <a href="tel:+ +12407547276" className="text-sm mt-1 cursor-pointer">
+                +1 (240)-754-7276
               </a></div>
 
               <div className="mt-3 text-xs text-slate-400">Assistance hours</div>

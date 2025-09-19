@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { toast } from "sonner"; // ✅ Sonner import
+import { toast } from "sonner"; // Sonner import
 
 const SERVICE_ID = "service_tmqmou9";
 const TEMPLATE_ID = "template_hvlqhar";

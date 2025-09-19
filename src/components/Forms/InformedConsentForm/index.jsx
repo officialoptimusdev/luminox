@@ -83,31 +83,31 @@ export default function InformedConsentForm() {
                 <li>I understand that I can print this consent form at will.</li>
               </ul>
 
-            {/* Patient Info */}
-<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-  {/* Patient Name */}
-  <div className="flex items-center">
-    <label className="w-40 text-sm font-medium mr-2">Patient’s Name</label>
-    <input
-      name="patientName"
-      value={form.patientName}
-      onChange={handleChange}
-      placeholder="Enter name"
-      className="flex-1 border px-4 py-2 rounded-md bg-gray-50 focus:ring-2 focus:ring-cyan-200"
-    />
-  </div>
+              {/* Patient Info */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Patient Name */}
+                <div className="flex items-center">
+                  <label className="w-40 text-sm font-medium mr-2">Patient’s Name</label>
+                  <input
+                    name="patientName"
+                    value={form.patientName}
+                    onChange={handleChange}
+                    placeholder="Enter name"
+                    className="flex-1 border px-4 py-2 rounded-md bg-gray-50 focus:ring-2 focus:ring-cyan-200"
+                  />
+                </div>
 
-  {/* Date of Birth */}
-  <div className="flex items-center">
-    <label className="w-40 text-sm font-medium mr-2">Date of Birth (DOB)</label>
-    <div className="flex-1">
-      <DatePicker
-        value={form.date}
-        onChange={(d) => setForm((f) => ({ ...f, date: d }))}
-      />
-    </div>
-  </div>
-</div>
+                {/* Date of Birth */}
+                <div className="flex items-center">
+                  <label className="w-40 text-sm font-medium mr-2">Date of Birth (DOB)</label>
+                  <div className="flex-1">
+                    <DatePicker
+                      value={form.date}
+                      onChange={(d) => setForm((f) => ({ ...f, date: d }))}
+                    />
+                  </div>
+                </div>
+              </div>
 
 
               {/* Signature */}
@@ -189,7 +189,7 @@ export default function InformedConsentForm() {
                   </div>
                 </div>
               </div> */}
-             
+
             </div>
 
             <div className="bg-white rounded-lg p-4 border border-gray-100">
@@ -204,8 +204,8 @@ export default function InformedConsentForm() {
 
 
               <div className="mt-3 text-xs text-slate-400">Phone Number</div>
-              <div> <a href="tel:+12405537970" className="text-sm mt-1 cursor-pointer">
-                +1 (240)-553-7970
+              <div> <a href="tel:+ +12407547276" className="text-sm mt-1 cursor-pointer">
+                +1 (240)-754-7276
               </a></div>
 
               <div className="mt-3 text-xs text-slate-400">Assistance hours</div>
