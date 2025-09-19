@@ -81,9 +81,9 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
                 <span className="block font-semibold text-xs text-gray-500 mb-1 cursor-pointer">
                   Phone Number
                 </span>
-                <a href="tel:+12405537970">
-                  +1 (240)-553-7970
-                </a>
+                <a href="tel:+ +12407547276">
+                +1 (240)-754-7276
+              </a>
 
                 <br />
                 <span className="text-xs text-gray-500">

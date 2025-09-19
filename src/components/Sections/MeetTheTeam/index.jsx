@@ -6,7 +6,7 @@ import MissionCards from "../../Cards/MissionCards";
 
 const team = [
    {
-      name: "About Dr. Olayemi Adurota, FNP-C",
+      name: "About Dr. Olayemi Adurota, DNP, PMHNP-BC, FNP-C",
       role: "Nurse Practitioner / 11yrs",
       description:
          "As a highly accomplished Doctor of Nursing Practice with dual certification in family and psychiatry, I possess a wealth of experience that sets me apart as a healthcare provider. With a career that dates back to 2012, I began my journey at the prestigious Johns Hopkins Hospital, where I dedicated myself to the specialized fields of eating disorders and affective disorders. In my practice, I bring not only intelligence and expertise but also a genuine sense of empathy. Your well-being and recovery are paramount to me, and I am fully committed to providing you with exceptional care rooted in understanding and compassion. When you choose me as your provider, you can have confidence that your care will be personalized to meet your unique needs. I will guide you through your journey to health and well-being, ensuring that you feel heard, supported, and empowered at every step. Let us embark on this transformative journey together, where your health and happiness are our top priorities.",
@@ -45,7 +45,7 @@ export default function MeetTheTeam() {
             <div className="justify-center lg:justify-start space-y-4 mb-12">
                <h2 className="text-4xl font-bold tracking-tight">Behind the Care: Dr. Olayemi Adurota</h2>
                <p className="text-gray-600 max-w-2xl text-start">
-               Here to listen, guide, and support.
+                  Here to listen, guide, and support.
                </p>
             </div>
 

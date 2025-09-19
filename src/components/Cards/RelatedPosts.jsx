@@ -176,7 +176,7 @@ export default function RelatedPosts({ currentId }) {
         </AnimatePresence>
       )}
 
-      {totalPages > 1 && (
+      {/* {totalPages > 1 && (
         <div className="flex items-center justify-end gap-6 mt-8">
           <button
             onClick={() => handleSetPage(page - 1)}
@@ -221,7 +221,7 @@ export default function RelatedPosts({ currentId }) {
             <ArrowRight size={18} />
           </button>
         </div>
-      )}
+      )} */}
     </section>
   );
 }

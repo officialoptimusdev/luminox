@@ -2,8 +2,18 @@
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import React, { useState, useRef } from "react";
 import { Listbox } from "@headlessui/react";
-import SignatureCanvas from "react-signature-canvas";
 import { DatePicker } from "@/components/Atoms/DatePicker";
+import { toast } from "sonner";
+import emailjs from "@emailjs/browser";
+import { Loader2Icon } from "lucide-react";
+
+const SERVICE_ID = "service_tmqmou9";
+const TEMPLATE_ID = "template_utd93se";
+const PUBLIC_KEY = "lyUt_nZqd8b7ZhhZV";
+
+
+const CLOUD_NAME = "dannybizman101";
+const UPLOAD_PRESET = "client_safet_ysignature";
 
 const countries = [
   { code: "+1", flag: "🇺🇸" },
@@ -12,7 +22,12 @@ const countries = [
 ];
 
 export default function ClientSafetyForm() {
-  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+  const [contactCountry, setContactCountry] = useState(countries[0]);
+  const [hospitalCountry, setHospitalCountry] = useState(countries[0]);
+  const [loading, setLoading] = useState(false);
+  const [uploadingSignature, setUploadingSignature] = useState(false);
+
+
   const [form, setForm] = useState({
     clientName: "",
     contactName: "",
@@ -32,35 +47,116 @@ export default function ClientSafetyForm() {
     setForm((f) => ({ ...f, [name]: value }));
   };
 
-  // Signature pad functions
-  const clearSignature = () => {
-    sigCanvas.current.clear();
-    setForm((f) => ({ ...f, signature: "" }));
-  };
 
-  const saveSignature = () => {
-    if (!sigCanvas.current.isEmpty()) {
-      const dataUrl = sigCanvas.current.getTrimmedCanvas().toDataURL("image/png");
-      setForm((f) => ({ ...f, signature: dataUrl }));
-    }
-  };
 
   // File upload for signature
   const handleFileUpload = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      setForm((f) => ({ ...f, signature: ev.target.result }));
-    };
-    reader.readAsDataURL(file);
+
+    setForm((f) => ({
+      ...f,
+      signature: file, // keep raw file for Cloudinary upload
+      signaturePreview: URL.createObjectURL(file), // preview
+    }));
   };
 
-  const handleSubmit = (e) => {
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitting", form);
-    alert("Form submitted with signature!");
+
+    setLoading(true);
+    let signatureUrl = "";
+
+    try {
+      // Step 1: Upload signature to Cloudinary
+      if (form.signature && form.signature instanceof File) {
+        setUploadingSignature(true);
+
+        const formDataUpload = new FormData();
+        formDataUpload.append("file", form.signature);
+        formDataUpload.append("upload_preset", UPLOAD_PRESET);
+        formDataUpload.append("folder", "clientsaftysignature");
+
+        const res = await fetch(
+          `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+          {
+            method: "POST",
+            body: formDataUpload,
+          }
+        );
+
+        const data = await res.json();
+        if (!res.ok) {
+          console.error("Cloudinary error:", data);
+          throw new Error("Cloudinary upload failed");
+        }
+
+        signatureUrl = data.secure_url;
+
+        // Update state so preview persists after reset
+        setForm((f) => ({ ...f, signature: signatureUrl }));
+      }
+
+      // 🔹 Shorten long Cloudinary link for display
+      const shortenUrl = (url) => {
+        try {
+          const u = new URL(url);
+          // Show only domain + last file segment
+          return `${u.hostname}/.../${u.pathname.split("/").pop()}`;
+        } catch {
+          return url;
+        }
+      };
+
+      // Step 2: Send email via EmailJS
+      const templateParams = {
+        clientName: form.clientName,
+        contactName: form.contactName,
+        contactPhone: `${contactCountry.code} ${form.contactPhone}`,
+        hospitalName: form.hospitalName,
+        hospitalPhone: `${hospitalCountry.code} ${form.hospitalPhone}`,
+        hospitalAddress: form.hospitalAddress,
+        signature: signatureUrl, // full clickable Cloudinary link
+        signatureDisplay: signatureUrl ? shortenUrl(signatureUrl) : "", // shortened fallback
+        date: form.date ? form.date.toLocaleDateString() : "",
+      };
+
+      await toast.promise(
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY),
+        {
+          loading: "Sending form...",
+          success: "Form submitted successfully!",
+          error: "Failed to submit form. Please try again.",
+        }
+      );
+
+      // Step 3: Reset form
+      setForm({
+        clientName: "",
+        contactName: "",
+        contactPhone: "",
+        hospitalName: "",
+        hospitalPhone: "",
+        hospitalAddress: "",
+        signature: "",
+        signaturePreview: "",
+        date: new Date(),
+      });
+      setContactCountry(countries[0]);
+      setHospitalCountry(countries[0]);
+
+    } catch (err) {
+      console.error("Upload/Email error:", err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setUploadingSignature(false);
+      setLoading(false);
+    }
   };
+
+
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -154,11 +250,11 @@ export default function ClientSafetyForm() {
                 <div>
                   <label className="block text-sm font-medium">Enter Phone Number</label>
                   <div className="flex gap-2">
-                    <Listbox value={selectedCountry} onChange={setSelectedCountry}>
+                    <Listbox value={contactCountry} onChange={setContactCountry}>
                       <div className="relative">
                         <Listbox.Button className="flex items-center gap-2 border bg-gray-50 px-4 py-2 rounded-md">
-                          <span>{selectedCountry.flag}</span>
-                          <span>{selectedCountry.code}</span>
+                          <span>{contactCountry.flag}</span>
+                          <span>{contactCountry.code}</span>
                         </Listbox.Button>
                         <Listbox.Options className="absolute mt-1 bg-white border shadow rounded-md z-10 text-sm">
                           {countries.map((c) => (
@@ -205,20 +301,20 @@ export default function ClientSafetyForm() {
                     className="border px-4 py-2 rounded-md bg-white focus:ring-2 focus:ring-cyan-200"
                   />
                   <div className="flex gap-2">
-                    <Listbox value={selectedCountry} onChange={setSelectedCountry}>
+                    <Listbox value={hospitalCountry} onChange={setHospitalCountry}>
                       <div className="relative">
                         <Listbox.Button className="flex items-center gap-2 border bg-gray-50 px-4 py-2 rounded-md">
-                          <span>{selectedCountry.flag}</span>
-                          <span>{selectedCountry.code}</span>
+                          <span>{hospitalCountry.flag}</span>
+                          <span>{hospitalCountry.code}</span>
                         </Listbox.Button>
                         <Listbox.Options className="absolute mt-1 bg-white border shadow rounded-md z-10 text-sm">
-                          {countries.map((c) => (
+                          {countries.map((h) => (
                             <Listbox.Option
-                              key={c.code}
-                              value={c}
+                              key={h.code}
+                              value={h}
                               className="cursor-pointer px-3 py-2 hover:bg-gray-100"
                             >
-                              {c.flag} {c.code}
+                              {h.flag} {h.code}
                             </Listbox.Option>
                           ))}
                         </Listbox.Options>
@@ -263,18 +359,19 @@ export default function ClientSafetyForm() {
 
                 </div>
 
-
                 <div>
                   <label className="block text-sm font-medium">Signature</label>
 
-                  {/* If signature is saved or uploaded, show preview */}
-                  {form.signature ? (
-                    <div className="border rounded-md bg-white p-2 flex flex-col items-center">
+                  {uploadingSignature ? (
+                    <p className="text-sm text-gray-500 mt-2">Uploading signature...</p>
+                  ) : form.signature ? (
+                    <div className="border rounded-md bg-white flex flex-col items-center">
                       <img
-                        src={form.signature}
+                        src={form.signaturePreview}
                         alt="Signature preview"
                         className="max-h-32 object-contain"
                       />
+
                       <div className="flex gap-2 mt-2">
                         <button
                           type="button"
@@ -287,58 +384,53 @@ export default function ClientSafetyForm() {
                     </div>
                   ) : (
                     <>
-                      <SignatureCanvas
-                        ref={sigCanvas}
-                        penColor="black"
-                        canvasProps={{
-                          className:
-                            "border border-gray-300 rounded-md w-full h-32 bg-white",
-                        }}
-                        onEnd={saveSignature}
+                      <button
+                        type="button"
+                        className="text-sm text-gray-700 border px-3 py-2 mt-6 rounded-md"
+                        onClick={() => fileInputRef.current.click()}
+                      >
+                        Upload Signature
+                      </button>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        ref={fileInputRef}
+                        className="hidden"
+                        onChange={handleFileUpload}
                       />
-                      <div className="flex gap-2 mt-2">
-                        <button
-                          type="button"
-                          className="text-sm text-red-500 border px-3 py-1 rounded-md"
-                          onClick={clearSignature}
-                        >
-                          Clear
-                        </button>
-                        <button
-                          type="button"
-                          className="text-sm text-gray-700 border px-3 py-1 rounded-md"
-                          onClick={() => fileInputRef.current.click()}
-                        >
-                          Upload Signature
-                        </button>
-                        <input
-                          type="file"
-                          accept="image/*"
-                          ref={fileInputRef}
-                          className="hidden"
-                          onChange={handleFileUpload}
-                        />
-                      </div>
                     </>
                   )}
                 </div>
+
+
               </div>
 
               {/* Submit */}
               <div>
                 <button
                   type="submit"
-                  className="bg-gray-200 text-gray-700 px-6 py-2 rounded-full flex items-center gap-2"
+                  disabled={loading || uploadingSignature}
+                  className={`px-6 py-2 rounded-full flex items-center gap-2 ${loading || uploadingSignature
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-[#4d8e92] text-white"
+                    }`}
                 >
-                  Submit Form →
+                  {loading || uploadingSignature ? (
+                    <>
+                      <Loader2Icon className="h-4 w-4 animate-spin" />
+                      Processing...
+                    </>
+                  ) : (
+                    "Submit Form →"
+                  )}
                 </button>
               </div>
             </form>
           </div>
 
           {/* Right: Contact card */}
-       
-        <aside className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-5 shadow-inner">
+
+          <aside className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-5 shadow-inner">
             <div className="flex items-center justify-between mb-4">
               {/* <div>
                 <p className="text-sm text-gray-400">Contact Info</p>
@@ -347,7 +439,7 @@ export default function ClientSafetyForm() {
                   </div>
                 </div>
               </div> */}
-             
+
             </div>
 
             <div className="bg-white rounded-lg p-4 border border-gray-100">
@@ -362,8 +454,8 @@ export default function ClientSafetyForm() {
 
 
               <div className="mt-3 text-xs text-slate-400">Phone Number</div>
-              <div> <a href="tel:+12405537970" className="text-sm mt-1 cursor-pointer">
-                +1 (240)-553-7970
+              <div> <a href="tel:+ +12407547276" className="text-sm mt-1 cursor-pointer">
+                +1 (240)-754-7276
               </a></div>
 
               <div className="mt-3 text-xs text-slate-400">Assistance hours</div>
