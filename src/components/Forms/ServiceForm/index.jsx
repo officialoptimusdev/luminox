@@ -4,7 +4,13 @@ import { ChevronDown, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner"; // ✅ Sonner import
+
+const SERVICE_ID = "service_tmqmou9";
+const TEMPLATE_ID = "template_hvlqhar";
+const PUBLIC_KEY = "lyUt_nZqd8b7ZhhZV";
 
 const services = [
   { id: 1, name: "Addiction Treatment" },
@@ -22,15 +28,52 @@ const countries = [
 export default function ServiceForm() {
   const [selectedService, setSelectedService] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  // Handle form input updates
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  // Submit via EmailJS
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const templateParams = {
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: `${selectedCountry.code} ${formData.phone}`,
+      service: selectedService ? selectedService.name : "Not selected",
+    };
+
+    emailjs
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(() => {
+        toast.success("Message sent successfully!");
+        setFormData({ fullName: "", email: "", phone: "" });
+        setSelectedService(null);
+        setSelectedCountry(countries[0]);
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        toast.error("Failed to send message. Please try again.");
+      })
+      .finally(() => setLoading(false));
+  };
 
   return (
-    <motion.div
-      //  Animate only on desktop using Tailwind’s hidden/show utilities
+    <motion.form
+      onSubmit={handleSubmit}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="max-w-lg mx-auto rounded-2xl bg-white shadow-sm p-4 space-y-4
-                 md:block" // visible on desktop
+      className="max-w-lg mx-auto rounded-2xl bg-white shadow-sm p-4 space-y-4 md:block"
     >
       <div>
         <h2 className="text-lg font-semibold">Have Questions or an Enquiry?</h2>
@@ -43,7 +86,14 @@ export default function ServiceForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="fullName">Full Name</Label>
-          <Input id="fullName" placeholder="John Smith" className="mt-1" />
+          <Input
+            id="fullName"
+            placeholder="John Smith"
+            className="mt-1"
+            value={formData.fullName}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <Label htmlFor="email">Email Address</Label>
@@ -52,6 +102,9 @@ export default function ServiceForm() {
             type="email"
             placeholder="example@gmail.com"
             className="mt-1"
+            value={formData.email}
+            onChange={handleChange}
+            required
           />
         </div>
       </div>
@@ -82,9 +135,13 @@ export default function ServiceForm() {
             </div>
           </Listbox>
           <input
+            id="phone"
             type="tel"
             placeholder="000-000-0000"
             className="flex-1 px-4 py-3 rounded-r-lg bg-gray-100 focus:outline-none"
+            value={formData.phone}
+            onChange={handleChange}
+            required
           />
         </div>
       </div>
@@ -111,8 +168,7 @@ export default function ServiceForm() {
                   key={service.id}
                   value={service}
                   className={({ active }) =>
-                    `px-4 py-2 cursor-pointer ${
-                      active ? "bg-gray-100" : "bg-white"
+                    `px-4 py-2 cursor-pointer ${active ? "bg-gray-100" : "bg-white"
                     }`
                   }
                 >
@@ -126,15 +182,19 @@ export default function ServiceForm() {
 
       {/* Submit Button */}
       <Button
-        disabled
-        className="w-full rounded-xl bg-gradient-to-r from-gray-200 to-gray-300 text-gray-500"
+        type="submit"
+        disabled={loading}
+        className={`w-full rounded-xl ${loading
+            ? "bg-gray-300 text-gray-500"
+            : "bg-[#4d8e92] text-white"
+          }`}
       >
-        Send
+        {loading ? "Sending..." : "Send"}
       </Button>
 
       <p className="text-xs text-center text-gray-400">
         By subscribing you agree to our Privacy Policies.
       </p>
-    </motion.div>
+    </motion.form>
   );
 }
