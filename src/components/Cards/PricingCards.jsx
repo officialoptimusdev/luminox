@@ -21,7 +21,10 @@ const PricingCards = ({ pricing, variant = "default" }) => {
           <p className="mt-2 text-sm">{pricing.description}</p>
         )}
       </div>
-      <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
+      <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+       target="_blank"
+       rel="noopener noreferrer"
+      >
       <button className="mt-4 inline-flex items-center text-sm font-medium underline hover:text-gray-700">
         Book Session <ArrowRight className="ml-2 w-4 h-4" />
       </button>

@@ -52,33 +52,48 @@ const ServicesCards = ({ service, variant }) => {
     );
   }
 
-// Compact list row (only show intro paragraph)
-return (
-  <>
-    <div className="flex justify-between items-center border-b border-gray-200 py-4">
-      <div>
-        <h3 className="font-semibold text-lg">{service.title}</h3>
-        <p className="text-sm text-gray-600">
-          {
-            service.description.includes("-")
-              ? service.description.split("\n-")[0].trim()
-              : service.description
-          }
-        </p>
+  return (
+    <>
+      <div className="flex justify-between items-center border-b border-gray-200 py-4">
+        <div>
+          <h3 className="font-semibold text-lg">{service.title}</h3>
+  
+          {/* Render full description with support for bullet points & line breaks */}
+          {service.description.includes("-") ? (
+            <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
+              {service.description.split("\n-").map((item, idx) =>
+                idx === 0 ? (
+                  // First part is usually intro text before bullets
+                  <p key={idx} className="mb-1">
+                    {item.trim()}
+                  </p>
+                ) : (
+                  <li key={idx}>{item.trim()}</li>
+                )
+              )}
+            </ul>
+          ) : (
+            <div className="text-sm text-gray-600 space-y-1">
+              {service.description.split("\n").map((line, idx) => (
+                <p key={idx}>{line.trim()}</p>
+              ))}
+            </div>
+          )}
+        </div>
+  
+        <a
+          href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="inline-flex items-center text-[13px] whitespace-nowrap font-medium hover:underline">
+            Book Session <ArrowRight className="ml-2 w-4 h-4" />
+          </button>
+        </a>
       </div>
-      <a
-        href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <button className="inline-flex items-center text-[13px] whitespace-nowrap font-medium hover:underline">
-          Book Session <ArrowRight className="ml-2 w-4 h-4" />
-        </button>
-      </a>
-    </div>
-  </>
-);
-
+    </>
+  );
+  
 
 };
 

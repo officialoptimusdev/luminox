@@ -88,9 +88,9 @@ const ServicesTabsMenu = () => {
                      </div>
 
                      {/* Locations */}
-                  
-                   
-<LocationsCard />
+
+
+                     <LocationsCard />
                   </Tab.Panel>
 
                   {/* Pricing Panel */}
@@ -123,12 +123,13 @@ const ServicesTabsMenu = () => {
                                        <h3 className="text-base font-semibold">{pricing.price}</h3>
                                        <p className="text-sm text-gray-600">{pricing.title}</p>
                                     </div>
-                                    <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680">
-                                    <button className="inline-flex items-center text-sm font-medium hover:underline">
-                                       Book Session <ArrowRight className="ml-2 w-4 h-4" />
-                                    </button>
+                                    <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680" target="_blank"
+                                       rel="noopener noreferrer">
+                                       <button className="inline-flex items-center text-sm font-medium hover:underline">
+                                          Book Session <ArrowRight className="ml-2 w-4 h-4" />
+                                       </button>
                                     </a>
-                                  
+
                                  </div>
                               ))}
                         </div>

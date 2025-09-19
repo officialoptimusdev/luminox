@@ -32,7 +32,12 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
               </h2>
             </div>
 
-            <ContactForm />
+            <ContactForm onSuccess={() => {
+  if (typeof onOpenChange === "function") {
+    onOpenChange(false);
+  }
+}} />
+
           </div>
 
           {/* Right: Contact info */}
@@ -45,18 +50,18 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
               <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full gap-2">
                 <Phone className="h-4 w-4 text-gray-600" />
                 <span className="font-semibold cursor-pointer"> <a href="tel:+12405537970">
-                  240-553-7970
+                  +1 (240)-553-7970
                 </a></span>
               </div>
               <div className="flex items-center gap-3 text-xl">
-              <a href="https://www.facebook.com/share/1FUdebEzjS/" target="_blank"
-                    rel="noopener noreferrer" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
-                    <FaFacebookF size={14} />
-                  </a>
-                  <a href="https://www.instagram.com/luminox.mentalhealth/" target="_blank"
-                    rel="noopener noreferrer" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
-                    <FaInstagram size={14} />
-                  </a>
+                <a href="https://www.facebook.com/share/1FUdebEzjS/" target="_blank"
+                  rel="noopener noreferrer" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <FaFacebookF size={14} />
+                </a>
+                <a href="https://www.instagram.com/luminox.mentalhealth/" target="_blank"
+                  rel="noopener noreferrer" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <FaInstagram size={14} />
+                </a>
               </div>
             </div>
 
@@ -77,12 +82,12 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
                   Phone Number
                 </span>
                 <a href="tel:+12405537970">
-                  240-553-7970
+                  +1 (240)-553-7970
                 </a>
 
                 <br />
                 <span className="text-xs text-gray-500">
-                  Assistance hours: Monday - Friday 9am to 6pm
+                  Assistance hours: Monday - Friday 9am - 5pm
                 </span>
               </p>
 

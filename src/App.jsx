@@ -16,6 +16,7 @@ import AuthorizationConsentContract from "./pages/AuthorizationConsentContract";
 import Blog from "./pages/blog";
 import BlogPost from "./pages/BlogPost";
 import useScrollToHash from "./hooks/useScrollToHash";
+import { Toaster } from "sonner";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
 
       <NavbarWithMegaMenu />
       <div className="flex flex-col min-h-screen bg-transparent">
+      <Toaster richColors position="top-right" />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
