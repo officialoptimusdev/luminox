@@ -198,8 +198,8 @@ const Footer = () => {
                   <div className="flex items-start gap-3">
                     <Phone className="text-teal-300 mt-1" size={18} />
                     <div>
-                      <a href="tel:+12405537970" className="text-white font-medium cursor-pointer">
-                        +1 (240)-553-7970
+                      <a href="tel:+ +12407547276" className="text-white font-medium cursor-pointer">
+                      +1 (240)-754-7276
                       </a>
                     </div>
                   </div>
@@ -258,7 +258,7 @@ const Footer = () => {
               <div className="flex items-center gap-4">
                 {/* <div className="bg-[#1b1c1d] rounded-full px-4 py-2 text-sm text-gray-200 flex items-center gap-3">
                   <Phone size={14} className="text-teal-300 cursor-pointer" />
-                  <span className="font-sm sm:text-[10px]"> <a href="tel:+12405537970">
+                  <span className="font-sm sm:text-[10px]"> <a href="tel:+ +12407547276">
                     240-553-7970
                   </a></span>
                 </div> */}
