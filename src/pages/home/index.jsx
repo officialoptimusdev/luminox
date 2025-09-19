@@ -81,15 +81,16 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [paused]);
 
-  // newsletter modal
-  useEffect(() => {
-    const showTimer = setTimeout(() => {
-      setShowNewsletter(true);
-      const hideTimer = setTimeout(() => setShowNewsletter(false), 10000);
-      return () => clearTimeout(hideTimer);
-    }, 5000);
-    return () => clearTimeout(showTimer);
-  }, []);
+  
+// newsletter modal
+useEffect(() => {
+  const showTimer = setTimeout(() => {
+    setShowNewsletter(true);
+  }, 5000);
+
+  return () => clearTimeout(showTimer);
+}, []);
+
 
   // contact modal handler
   useEffect(() => {

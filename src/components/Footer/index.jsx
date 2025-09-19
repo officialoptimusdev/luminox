@@ -1,12 +1,51 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import ContactFormModal from "../Modals/ContactFormModal";
-
+import { toast } from "sonner";
 
 const Footer = () => {
   const [showContact, setShowContact] = useState(false);
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // 🔥 Mailchimp form action (same as NewsletterForm)
+      const formData = new FormData();
+      formData.append("EMAIL", email);
+
+      await fetch(
+        "https://luminoxmentalhealth.us9.list-manage.com/subscribe/post?u=cd904721bffa081f0beb50882&id=e738859bda&f_id=00edc2e1f0",
+        {
+          method: "POST",
+          body: formData,
+          mode: "no-cors", // Mailchimp requires no-cors
+        }
+      );
+
+      //Show success toast
+      toast.success("🎉 You're subscribed to our newsletter!");
+      setEmail("");
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
+
   return (
     <footer className="bg-[#111115] text-gray-200">
       {/* Top curved decoration (approx) */}
@@ -57,27 +96,46 @@ const Footer = () => {
               {/* Newsletter */}
               <div className="space-y-2">
                 <p className="text-sm text-gray-300 font-medium">Newsletter</p>
-                <p className="text-xs text-gray-400">Subscribe to our newsletter for the latest updates.</p>
+                <p className="text-xs text-gray-400">
+                  Subscribe to our newsletter for the latest updates.
+                </p>
 
-                <form className="flex gap-2 items-center max-w-md">
-                  {/* Replace input/button with shadcn/ui <Input> and <Button> if desired */}
-                  <label htmlFor="footer-email" className="sr-only">Email</label>
+                {/*  Enhanced form with same logic as NewsLetterForm */}
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex gap-2 items-center max-w-md"
+                >
+                  <label htmlFor="footer-email" className="sr-only">
+                    Email
+                  </label>
                   <input
                     id="footer-email"
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter email address"
                     className="flex-1 bg-[#171718] border border-transparent text-gray-200 placeholder:text-gray-500 rounded-full py-3 px-4 focus:outline-none focus:ring-2 focus:ring-teal-400"
                   />
                   <button
                     type="submit"
-                    className="rounded-full bg-teal-600 hover:bg-teal-500 px-4 py-2 text-white text-sm"
+                    disabled={loading}
+                    className={`rounded-full px-4 py-2 text-white text-sm transition ${loading
+                        ? "bg-teal-800 cursor-not-allowed"
+                        : "bg-teal-600 hover:bg-teal-500"
+                      }`}
                   >
-                    Subscribe
+                    {loading ? "Subscribing..." : "Subscribe"}
                   </button>
                 </form>
 
-                <p className="text-xs text-gray-500">By subscribing you agree to our Privacy Policies.</p>
+                <p className="text-xs text-gray-500">
+                  By subscribing you agree to our Privacy Policies.
+                </p>
               </div>
+
+
+
+
             </div>
 
             {/* Middle column: Quick Links */}
@@ -141,7 +199,7 @@ const Footer = () => {
                     <Phone className="text-teal-300 mt-1" size={18} />
                     <div>
                       <a href="tel:+12405537970" className="text-white font-medium cursor-pointer">
-                        +1 (240)-553-7970 
+                        +1 (240)-553-7970
                       </a>
                     </div>
                   </div>
