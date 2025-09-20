@@ -13,10 +13,9 @@ const TEMPLATE_ID = "template_hvlqhar";
 const PUBLIC_KEY = "lyUt_nZqd8b7ZhhZV";
 
 const services = [
-  { id: 1, name: "Addiction Treatment" },
-  { id: 2, name: "Child & Adolescent" },
-  { id: 3, name: "Crisis Intervention" },
-  { id: 4, name: "Follow-Up & Monitoring" },
+  { id: 1, name: "Med Management" },
+  { id: 2, name: "Psychotherapy" },
+  { id: 3, name: "Others" },
 ];
 
 const countries = [
@@ -185,8 +184,8 @@ export default function ServiceForm() {
         type="submit"
         disabled={loading}
         className={`w-full rounded-xl ${loading
-            ? "bg-gray-300 text-gray-500"
-            : "bg-[#4d8e92] text-white"
+          ? "bg-gray-300 text-gray-500"
+          : "bg-[#4d8e92] text-white"
           }`}
       >
         {loading ? "Sending..." : "Send"}
