@@ -60,7 +60,7 @@ const Navbar = ({ isDesktop }) => {
             </a>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center bg-white/70 rounded-full gap-4 px-4 py-4 ml-4">
+            <div className="hidden md:flex items-center bg-white/70 rounded-full gap-3 px-3 py-4 ml-3">
               {navItems.map((item) =>
                 item.name === "Services" && isDesktop ? (
                   <Popover
@@ -117,7 +117,7 @@ const Navbar = ({ isDesktop }) => {
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`relative text-sm font-medium px-4 py-2 transition-colors rounded-full
+                    className={`relative text-sm font-medium px-4 py-2 transition-colors rounded-full text-nowrap
           ${activePath === item.href
                         ? "bg-[#007171] text-white"
                         : "text-gray-700 hover:bg-[#abcdcb] hover:text-white"
@@ -130,7 +130,7 @@ const Navbar = ({ isDesktop }) => {
 
               <ContactFormModal
                 trigger={
-                  <button className="text-sm text-gray-700 font-medium hover:bg-[#abcdcb] hover:text-white transition-colors px-4 py-2 rounded-full">
+                  <button className="text-sm text-gray-700 font-medium hover:bg-[#abcdcb] hover:text-white transition-colors px-4 py-2 rounded-full text-nowrap">
                     Contact Us
                   </button>
                 }
@@ -231,7 +231,7 @@ const Navbar = ({ isDesktop }) => {
                       setOpen(false);
                       setTimeout(() => setContactOpen(true), 300);
                     }}
-                    className="block py-0 font-semibold text-md text-left w-full text-white"
+                    className="block py-0 font-semibold text-md text-left w-full text-white text-nowrap"
                   >
                     Contact Us
                   </button>
