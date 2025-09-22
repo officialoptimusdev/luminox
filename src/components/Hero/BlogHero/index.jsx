@@ -1,7 +1,6 @@
 import SearchBar from "@/components/Atoms/SearchBar";
 import { blogHeroData } from "@/constants/data";
 import * as Icons from "lucide-react";
-import { useState } from "react";
 
 
 export default function BlogHero({
@@ -55,39 +54,7 @@ export default function BlogHero({
           </div>
         </div>
       </section>
-      {/* Curved bottom (SVG) */}
-      {/* <div
-        aria-hidden="true"
-        className="hidden sm:block"
-        style={{
-          position: "absolute",
-          bottom: 40,
-          left: 0,
-          overflow: "hidden",
-          width: "100%",
-          zIndex: 2,
-          lineHeight: 0,
-        }}
-      >
-        <svg
-          width="100%"
-          height="120"
-          viewBox="0 0 1440 375"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <defs>
-            <linearGradient id="glassGradient" x1="0" y1="1" x2="0" y2="0">
-              <stop offset="0%" stopColor="rgba(227,252,251,0.85)" />
-              <stop offset="100%" stopColor="rgba(255,255,255,0)" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0 0L360 90C596.363 149.091 843.637 149.091 1080 90L1440 0L1660 265L1190 315C881.613 393.737 558.387 393.737 250 315L-220 265L0 0Z"
-            fill="url(#glassGradient)"
-          />
-        </svg>
-      </div> */}
+
     </>
   );
 }

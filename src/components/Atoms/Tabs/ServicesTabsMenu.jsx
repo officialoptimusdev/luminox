@@ -42,10 +42,11 @@ const ServicesTabsMenu = () => {
                </Tab.List>
 
                {/* Tab Panels */}
+               {/* Tab Panels */}
                <Tab.Panels className="mt-8">
                   <Tab.Panel>
                      <div className="grid grid-cols-1 gap-3 md:grid-cols-5">
-                        {/* Big left card */}
+                        {/* Big left card (first service) */}
                         <div className="col-span-1 md:col-span-2 md:row-span-2">
                            <ServicesCards
                               service={categories["Services"][0]}
@@ -53,21 +54,16 @@ const ServicesTabsMenu = () => {
                            />
                         </div>
 
-                        {/* Three smaller cards (top-right) */}
-                        <ServicesCards
-                           service={categories["Services"][1]}
-                           variant="card"
-                        />
-                        <ServicesCards
-                           service={categories["Services"][4]}
-                           variant="card"
-                        />
-                        <ServicesCards
-                           service={categories["Services"][7]}
-                           variant="card"
-                        />
+                        {/* Three smaller cards (services 2,3,4) */}
+                        {categories["Services"].slice(1, 4).map((service) => (
+                           <ServicesCards
+                              key={service.id}
+                              service={service}
+                              variant="card"
+                           />
+                        ))}
 
-                        {/* Compact list */}
+                        {/* Compact list (skip first 4, start from 5th service) */}
                         <div className="col-span-1 md:col-span-3 bg-white rounded-2xl p-6 max-h-60 overflow-y-auto">
                            <h4 className="text-sm font-semibold text-gray-500 mb-4">
                               Services{" "}
@@ -76,7 +72,7 @@ const ServicesTabsMenu = () => {
                               </span>
                            </h4>
                            {categories["Services"]
-                              .slice(0, 8)
+                              .slice(4) // skip first 4
                               .map((service) => (
                                  <ServicesCards
                                     key={service.id}
@@ -88,14 +84,12 @@ const ServicesTabsMenu = () => {
                      </div>
 
                      {/* Locations */}
-
-
                      <LocationsCard />
                   </Tab.Panel>
 
                   {/* Pricing Panel */}
                   <Tab.Panel>
-                     <div className="grid grid-cols-1  md:grid-cols-5 md:grid-rows-1 gap-3">
+                     <div className="grid grid-cols-1 md:grid-cols-5 md:grid-rows-1 gap-3">
                         {/* Featured Big Left Card */}
                         <div className="col-span-1 md:col-span-2 md:row-span-2">
                            <PricingCards
@@ -104,46 +98,66 @@ const ServicesTabsMenu = () => {
                            />
                         </div>
 
-                        {/* Others / Compact Pricing List */}
-                        <div className="md:col-span-3 col-span-1 bg-white rounded-2xl p-6 max-h-60 overflow-y-auto">
-                           <h4 className="text-sm font-semibold text-gray-500 mb-4">
+                        {/* Three Smaller Cards (items 2-4) */}
+                        {categories["Pricing List"].slice(1, 4).map((pricing) => (
+                           <PricingCards key={pricing.id} pricing={pricing} />
+                        ))}
+
+                        {/* Compact Pricing List - only items from 5th onward */}
+                        <div className="col-span-1 md:col-span-3 bg-white rounded-2xl p-6 max-h-60 overflow-y-auto order-last md:order-none">
+                           {/* <h4 className="text-sm font-semibold text-gray-500 mb-4">
                               Others{" "}
                               <span className="ml-2 text-xs text-gray-400">
                                  Scroll to reveal more pricing.
                               </span>
-                           </h4>
+                           </h4> */}
                            {categories["Pricing List"]
-                              .slice(0, 5) // adjust indexes for your data
+                              .slice(4) // Start from the 5th item onward
                               .map((pricing) => (
                                  <div
                                     key={pricing.id}
-                                    className="flex justify-between items-center border-b border-gray-200 py-3"
+                                    className="flex flex-col md:flex-row md:justify-between md:items-center border-b border-gray-200 py-3"
                                  >
                                     <div>
                                        <h3 className="text-base font-semibold">{pricing.price}</h3>
                                        <p className="text-sm text-gray-600">{pricing.title}</p>
+                                       {/* Book Session under description on mobile only */}
+                                       <a
+                                          href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="block mt-2 md:hidden"
+                                       >
+                                          <button className="inline-flex items-center text-sm font-medium hover:underline">
+                                             Book Session <ArrowRight className="ml-2 w-4 h-4" />
+                                          </button>
+                                       </a>
                                     </div>
-                                    <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680" target="_blank"
-                                       rel="noopener noreferrer">
+
+                                    {/* Desktop button (aligned right) */}
+                                    <a
+                                       href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       className="hidden md:block"
+                                    >
                                        <button className="inline-flex items-center text-sm font-medium hover:underline">
                                           Book Session <ArrowRight className="ml-2 w-4 h-4" />
                                        </button>
                                     </a>
-
                                  </div>
                               ))}
                         </div>
-                        {/* Three Smaller Cards */}
-                        {categories["Pricing List"].slice(1, 4).map((pricing) => (
-                           <PricingCards key={pricing.id} pricing={pricing} />
-                        ))}
                      </div>
 
                      {/* Extra Note Underneath */}
                      <ExtraPricingNoteCard />
                   </Tab.Panel>
 
+
+
                </Tab.Panels>
+
             </Tab.Group>
          </div>
       </div>

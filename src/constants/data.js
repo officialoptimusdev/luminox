@@ -23,6 +23,286 @@ import { Pill, Baby, Activity, HeartPulse, ArrowRight, SlidersHorizontal } from 
 import downloadFormImages from "./downloadFormImages";
 
 
+
+
+export const pricingData = [
+  {
+    id: 1,
+    title: "Initial Assessment",
+    price: "$375",
+    description: "Click 'Book Session' to get assessment.",
+    image: pricingImages.assessment,
+    bgColor: "bg-[#ffe2be]",
+    textColor: "text-black",
+  },
+  {
+    id: 2,
+    title: "Suboxone Induction",
+    price: "$350",
+    description: "Comprehensive induction session for Suboxone treatment.",
+    image: pricingImages.suboxone,
+    bgColor: "bg-[#F5E4E6]",
+    textColor: "text-black",
+  },
+  {
+    id: 3,
+    title: "Suboxone Maintenance Therapy/Routine Follow-up visits",
+    price: "$275",
+    description: "Ongoing therapy and regular follow-up visits.",
+    image: pricingImages.maintenance,
+    bgColor: "bg-[#a2b9e1]",
+    textColor: "text-black",
+  },
+  {
+    id: 4,
+    title: "Telephone Consultation Calls",
+    price: "$225/20 mins",
+    description: "Quick telephonic consultations for follow-ups and support.",
+    image: pricingImages.call,
+    bgColor: "bg-[#1b2745]",
+    textColor: "text-white",
+  },
+  {
+    id: 5,
+    title: "Others",
+    price: "$50 - $100",
+    description: "Paperwork, forms, and temporary disability support.",
+    image: null,
+    bgColor: "bg-white",
+    textColor: "text-black",
+  },
+];
+
+
+
+export const megaMenuData = [
+  {
+    id: 1,
+    title: "Depression",
+    description: `Depression is more than just feeling sad. It affects how you think, feel, and live your daily life.
+
+     Signs:
+    - Feeling sad, empty, or hopeless
+    - Losing interest in hobbies
+    - Trouble sleeping or oversleeping
+    - Low energy or fatigue
+    - Difficulty concentrating
+    - Changes in appetite/weight
+    - Thoughts of self-harm
+    
+     Causes: 
+     - Brain chemical changes, stressful life events, family history, chronic conditions.  
+    
+     Treatment: 
+     -Therapy, medication, lifestyle support, mindfulness.
+
+     Remember: 
+     - Depression is treatable — you’re not alone.`,
+
+    image: megaMenuImages.addiction,
+    bgColor: "bg-[#cb6c6e]",
+    textColor: "text-black",       
+    descriptionColor: "text-black",
+  },
+  {
+    id: 2,
+    title: "Anxiety",
+    description: `Anxiety is your body’s response to stress — but when constant, it interferes with life.
+
+     Signs:
+     - Constant worry or fear
+     - Restlessness or on edge
+     - Racing heartbeat
+     - Sweating or shaking
+     - Trouble sleeping
+     - Difficulty concentrating
+    
+     Causes: Stressful/traumatic experiences, family history, brain imbalance.  
+    Treatment: Therapy, medication, relaxation techniques, lifestyle changes.`,
+    image: megaMenuImages.child,
+    bgColor: "bg-[#dad4ec]",
+    textColor: "text-black",     
+    descriptionColor: "text-black",
+  },
+
+  {
+    id: 3,
+    title: "PTSD",
+    
+    description: `PTSD can develop after trauma — abuse, violence, accidents, or combat.
+
+     Signs:
+     - Flashbacks or nightmares
+     - Avoiding reminders
+     - Feeling jumpy or easily startled
+     - Emotional numbness
+     - Trouble sleeping or concentrating
+    
+     Causes: 
+     -Abuse, disasters, combat, accidents.
+
+    Treatment: 
+    -Trauma-focused therapy, medication, coping strategies, supportive environment.`,
+    image: megaMenuImages.education,
+    bgColor: "bg-[#553f99]",
+    textColor: "text-white",     
+    descriptionColor: "text-white",
+  },
+  {
+    id: 4,
+    title: "OCD",
+    description: `OCD causes unwanted thoughts (obsessions) and repetitive actions (compulsions).
+
+Examples:
+- Fear of germs → excessive hand washing
+- Worry about safety → constant checking
+
+Causes: 
+- Brain imbalance, family history, stressful events. 
+
+Treatment: 
+- CBT therapy, medication, healthy coping skills.  
+- OCD is treatable — you can take back control.`,
+    image: megaMenuImages.refills,
+    bgColor: "bg-black",
+    textColor: "text-white",     
+    descriptionColor: "text-white",
+  },
+ 
+  {
+    id: 5,
+  title: "Eating Disorders",
+  description: `Eating disorders involve harmful relationships with food. 
+  
+  Types: 
+  - Anorexia, Bulimia, Binge Eating.
+
+ Signs:
+ - Extreme concern with weight/body shape
+ - Skipping meals or strict dieting
+ - Binge eating episodes
+ - Guilt or shame about eating
+
+ Treatment: 
+ - Therapy, nutritional counseling, medical monitoring, support groups. 
+ Recovery is possible.`,
+    textColor: "text-white",     
+    descriptionColor: "text-white",
+  },
+  {
+    id: 6,
+  title: "ADHD",
+  description: `ADHD makes it hard to focus, stay organized, and control impulses.
+
+Signs:
+ - Trouble paying attention
+ - Difficulty finishing tasks
+ - Restlessness
+ - Impulsiveness
+
+ Causes: 
+ - Brain chemistry, genetics, environmental factors.  
+  Treatment: 
+ - Medication, therapy, lifestyle changes.`,
+    textColor: "text-black",     
+    descriptionColor: "text-black",
+  },
+  {
+    id: 7,
+   title: "Smoking & Alcohol Cessation",
+  description: `Smoking and heavy drinking affect body, mind, and relationships.
+
+ Challenges:
+ - Withdrawal symptoms
+ - Cravings
+ - Emotional triggers
+
+ Treatment: 
+ - Nicotine replacement, medication-assisted treatment, therapy, support systems.  
+ - Every day smoke- and alcohol-free is a victory.`,
+    textColor: "text-white",     
+    descriptionColor: "text-white",
+  },
+  {
+    id: 8,
+ title: "Insomnia",
+  description: `Insomnia is difficulty falling, staying, or getting restful sleep.
+
+ Symptoms:
+ - Lying awake for hours
+ - Waking often at night
+ - Waking too early
+ - Daytime fatigue or irritability
+
+ Causes: 
+ - Stress, anxiety, depression, poor habits, medical issues.  
+ Treatment: 
+ - Sleep hygiene education, therapy, medication, lifestyle support.`,
+    textColor: "text-black",     
+    descriptionColor: "text-black",
+  },
+  {
+    id: 9,
+    title: "Provider Collaboration",
+    description:
+      "We coordinate with your healthcare providers to ensure holistic and integrated care.",
+    textColor: "text-white",     
+    descriptionColor: "text-white",
+  },
+
+  {
+    id: 10,
+    title: "Psychiatric Assessments",
+    description:
+      "Comprehensive assessments to accurately diagnose and guide personalized care.",
+    textColor: "text-white",     
+    descriptionColor: "text-white",
+  },
+  {
+    id: 11,
+    title: "Psychotherapy (Individual, Group, Family)",
+    description:
+      "Our therapy services address diverse needs through tailored sessions for individuals, families, or groups.",
+    textColor: "text-black",     
+    descriptionColor: "text-black",
+  },
+  {
+    id: 12,
+    title: "Second Opinion",
+    description:
+      "We provide a second opinion to help you feel confident about your diagnosis and treatment options.",
+    textColor: "text-black",     
+    descriptionColor: "text-black",
+  },
+  {
+    id: 13,
+    title: "Stress Management",
+    description:
+      "Guidance and coping strategies to help manage stress effectively in daily life.",
+    textColor: "text-black",     
+    descriptionColor: "text-black",
+  },
+  {
+    id: 14,
+    title: "Support for Specific Conditions",
+    description:
+      "Personalized telepsychiatry for depression, anxiety, mood disorders, ADHD, and PTSD.",
+    textColor: "text-white",     
+    descriptionColor: "text-white",
+  },
+  {
+    id: 15,
+    title: "Treatment Planning",
+    description:
+      "Collaborative treatment plans tailored to your needs, goals, and lifestyle.",
+    textColor: "text-black",     
+    descriptionColor: "text-black",
+  },
+];
+
+
+
+
 export const onlineFormsData = [
   {
     id: 1,
@@ -144,238 +424,15 @@ export const servicesData = [
 ];
 
 
-export const megaMenuData = [
-  {
-    id: 1,
-    title: "Depression",
-    description: `Depression is more than just feeling sad. It affects how you think, feel, and live your daily life.
 
-     Signs:
-    - Feeling sad, empty, or hopeless
-    - Losing interest in hobbies
-     - Trouble sleeping or oversleeping
-    - Low energy or fatigue
-    - Difficulty concentrating
-    - Changes in appetite/weight
-    - Thoughts of self-harm
-    
-     Causes: Brain chemical changes, stressful life events, family history, chronic conditions.  
-    Treatment: Therapy, medication, lifestyle support, mindfulness.  
-     Remember: Depression is treatable — you’re not alone.`,
-    image: megaMenuImages.addiction,
-    bgColor: "bg-[#cb6c6e]",
-    textColor: "text-black",       
-    descriptionColor: "text-black",
-  },
-  {
-    id: 2,
-    title: "Anxiety",
-    description: `Anxiety is your body’s response to stress — but when constant, it interferes with life.
-
-     Signs:
-    - Constant worry or fear
-     - Restlessness or on edge
-     - Racing heartbeat
-     - Sweating or shaking
-    - Trouble sleeping
-   - Difficulty concentrating
-    
-     Causes: Stressful/traumatic experiences, family history, brain imbalance.  
-    Treatment: Therapy, medication, relaxation techniques, lifestyle changes.`,
-    image: megaMenuImages.child,
-    bgColor: "bg-[#dad4ec]",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
-
-  {
-    id: 3,
-    title: "PTSD",
-    
-    description: `PTSD can develop after trauma — abuse, violence, accidents, or combat.
-
-     Signs:
-     - Flashbacks or nightmares
-     - Avoiding reminders
-     - Feeling jumpy or easily startled
-     - Emotional numbness
-     - Trouble sleeping or concentrating
-    
-     Causes: Abuse, disasters, combat, accidents.  
-    Treatment: Trauma-focused therapy, medication, coping strategies, supportive environment.`,
-    image: megaMenuImages.education,
-    bgColor: "bg-[#553f99]",
-    textColor: "text-white",     
-    descriptionColor: "text-white",
-  },
-  {
-    id: 4,
- title: "Insomnia",
-  description: `Insomnia is difficulty falling, staying, or getting restful sleep.
-
- Symptoms:
-- Lying awake for hours
- - Waking often at night
-- Waking too early
-- Daytime fatigue or irritability
-
- Causes: Stress, anxiety, depression, poor habits, medical issues.  
- Treatment: Sleep hygiene education, therapy, medication, lifestyle support.`,
-    image: megaMenuImages.crisis,
-    bgColor: "bg-[#ffdde1]",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
-
-  {
-    id: 5,
-  title: "Eating Disorders",
-  description: `Eating disorders involve harmful relationships with food. Types: Anorexia, Bulimia, Binge Eating.
-
- Signs:
-- Extreme concern with weight/body shape
- - Skipping meals or strict dieting
- - Binge eating episodes
- - Guilt or shame about eating
-
- Treatment: Therapy, nutritional counseling, medical monitoring, support groups. Recovery is possible.`,
-    image: megaMenuImages.followup,
-    bgColor: "bg-[#2e3267]",
-    textColor: "text-white",     
-    descriptionColor: "text-white",
-  },
-  {
-    id: 6,
-  title: "ADHD",
-  description: `ADHD makes it hard to focus, stay organized, and control impulses.
-
-Signs:
- - Trouble paying attention
-- Difficulty finishing tasks
-- Restlessness
- - Impulsiveness
-
-Causes: Brain chemistry, genetics, environmental factors.  
- Treatment: Medication, therapy, lifestyle changes.`,
-    image: megaMenuImages.geriatrics,
-    bgColor: "bg-[#ecd4c8]",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
-  {
-    id: 7,
-   title: "Smoking & Alcohol Cessation",
-  description: `Smoking and heavy drinking affect body, mind, and relationships.
-
- Challenges:
- - Withdrawal symptoms
- - Cravings
- - Emotional triggers
-
- Treatment: Nicotine replacement, medication-assisted treatment, therapy, support systems.  
- Every day smoke- and alcohol-free is a victory.`,
-    image: megaMenuImages.medication,
-    bgColor: "bg-[#4d8e92]",
-    textColor: "text-white",     
-    descriptionColor: "text-white",
-  },
-  {
-    id: 8,
-    title: "OCD",
-    description: `OCD causes unwanted thoughts (obsessions) and repetitive actions (compulsions).
-
-Examples:
-- Fear of germs → excessive hand washing
-- Worry about safety → constant checking
-
-Causes: Brain imbalance, family history, stressful events.  
-Treatment: CBT therapy, medication, healthy coping skills.  
-OCD is treatable — you can take back control.`,
-    image: megaMenuImages.refills,
-    bgColor: "bg-black",
-    textColor: "text-white",     
-    descriptionColor: "text-white",
-  },
-  {
-    id: 9,
-    title: "Provider Collaboration",
-    description:
-      "We coordinate with your healthcare providers to ensure holistic and integrated care.",
-    image: megaMenuImages.provider,
-    bgColor: "bg-[#292f8c]",
-    textColor: "text-white",     
-    descriptionColor: "text-white",
-  },
-
-  {
-    id: 10,
-    title: "Psychiatric Assessments",
-    description:
-      "Comprehensive assessments to accurately diagnose and guide personalized care.",
-    image: megaMenuImages.assessments,
-    bgColor: "bg-[#4d8e92]",
-    textColor: "text-white",     
-    descriptionColor: "text-white",
-  },
-  {
-    id: 11,
-    title: "Psychotherapy (Individual, Group, Family)",
-    description:
-      "Our therapy services address diverse needs through tailored sessions for individuals, families, or groups.",
-    image: megaMenuImages.psychotherapy,
-    bgColor: "bg-white",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
-  {
-    id: 12,
-    title: "Second Opinion",
-    description:
-      "We provide a second opinion to help you feel confident about your diagnosis and treatment options.",
-    image: megaMenuImages.secondOpinion,
-    bgColor: "bg-[#dbe8ea]",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
-  {
-    id: 13,
-    title: "Stress Management",
-    description:
-      "Guidance and coping strategies to help manage stress effectively in daily life.",
-    image: megaMenuImages.stress,
-    bgColor: "bg-white",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
-  {
-    id: 14,
-    title: "Support for Specific Conditions",
-    description:
-      "Personalized telepsychiatry for depression, anxiety, mood disorders, ADHD, and PTSD.",
-    image: megaMenuImages.support,
-    bgColor: "bg-[#000]",
-    textColor: "text-white",     
-    descriptionColor: "text-white",
-  },
-  {
-    id: 15,
-    title: "Treatment Planning",
-    description:
-      "Collaborative treatment plans tailored to your needs, goals, and lifestyle.",
-    image: megaMenuImages.treatment,
-    bgColor: "bg-[#ffe6d1]",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
-];
 
 
 export const blogHeroData = {
   icon: "BookOpen",
   label: "Read Our Blog",
-  title: "Explore Our Insights.",
+  title: "The Wellness Journal.",
   description:
-    "Dive into our latest articles for expert advice, industry trends, and valuable perspectives.",
+    "Practical advice and compassionate insights for everyday well-being.",
 };
 
 
@@ -519,7 +576,7 @@ export const downloadFormsData = [
   },
   {
     id: 2,
-    title: "Client Safety Contrac",
+    title: "Client Safety Contract",
     description: "Click “Fill form” to fill and submit the form below with.",
     image: downloadFormImages.informed,
     bgColor: "bg-[#ebe2f8]",
@@ -585,53 +642,6 @@ export const formHeroData = {
   imageMobile: formHeroImages.formHero,  
 };
 
-export const pricingData = [
-  {
-    id: 1,
-    title: "Initial Assessment",
-    price: "$375",
-    description: "Click 'Book Session' to get assessment.",
-    image: pricingImages.assessment,
-    bgColor: "bg-[#ffe2be]",
-    textColor: "text-black",
-  },
-  {
-    id: 2,
-    title: "Suboxone Induction",
-    price: "$350",
-    description: "Comprehensive induction session for Suboxone treatment.",
-    image: pricingImages.suboxone,
-    bgColor: "bg-[#F5E4E6]",
-    textColor: "text-black",
-  },
-  {
-    id: 3,
-    title: "Suboxone Maintenance Therapy/Routine Follow-up visits",
-    price: "$275",
-    description: "Ongoing therapy and regular follow-up visits.",
-    image: pricingImages.maintenance,
-    bgColor: "bg-[#a2b9e1]",
-    textColor: "text-black",
-  },
-  {
-    id: 4,
-    title: "Telephone Consultation Calls",
-    price: "$225/20 mins",
-    description: "Quick telephonic consultations for follow-ups and support.",
-    image: pricingImages.call,
-    bgColor: "bg-[#1b2745]",
-    textColor: "text-white",
-  },
-  {
-    id: 5,
-    title: "Others",
-    price: "$50 - $100",
-    description: "Paperwork, forms, and temporary disability support.",
-    image: null,
-    bgColor: "bg-white",
-    textColor: "text-black",
-  },
-];
 
 
 

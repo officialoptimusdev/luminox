@@ -40,8 +40,8 @@ const OnlineFormsCards = ({ onlineForms, variant = "default" }) => {
           )}
 
  
-          <Link
-            to={onlineForms.url}
+          <a
+            href={onlineForms.url}
             className={`mt-3 inline-flex items-center font-medium ${
               variant === "featured"
                 ? "text-sm bg-white/20 px-4 py-2 rounded-full hover:bg-white/30"
@@ -49,7 +49,7 @@ const OnlineFormsCards = ({ onlineForms, variant = "default" }) => {
             }`}
           >
             Fill Form <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
+          </a>
         </div>
 
         {/* Right-side Image for Normal Cards */}

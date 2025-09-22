@@ -2,7 +2,7 @@ import { servicesData } from "@/constants/data";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Skeleton } from "@/components/ui/skeleton";
-import { MapPin } from "lucide-react";
+import { LayoutDashboard, MapPinned, ArrowRight } from "lucide-react";
 
 const MegaMenuCard = () => {
   const [activeItem, setActiveItem] = useState(servicesData[0]);
@@ -44,41 +44,86 @@ const MegaMenuCard = () => {
       ref={containerRef}
       onMouseEnter={handleMouseEnterContainer}
       onMouseLeave={handleMouseLeaveContainer}
-      className="bg-white absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[900px] px-4 rounded-md shadow-lg z-50"
+      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-5 w-[900px] px-4 rounded-md z-50"
     >
       {/* Grid content */}
       <div className="grid grid-cols-3 rounded-md overflow-hidden">
         {/* Left menu */}
-        <div className="col-span-2 bg-white p-4 grid grid-cols-3 gap-4">
-          {servicesData.map((item) => (
-            <motion.div
-              key={item.id}
-              className={`py-6 px-6 rounded-lg cursor-mouse ${
-                activeItem.id === item.id ? "bg-gray-100" : ""
-              }`}
-              onMouseEnter={() => {
-                if (hoverTimeoutRef.current) {
-                  clearTimeout(hoverTimeoutRef.current);
-                  hoverTimeoutRef.current = null;
-                }
-                setActiveItem(item);
-              }}
-            >
-              <motion.h4
-                whileHover={{ backgroundColor: "#bfdbfe" }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="inline-block text-sm font-medium text-gray-800 whitespace-nowrap px-2 py-3 rounded cursor"
+        <div className="col-span-2 bg-white p-4 flex flex-col gap-2">
+          {/* Our Service Title section */}
+          <div className="border-b border-gray-200 pb-2 mt-4">
+            <h3 className="flex items-center gap-2 text-sm font-semibold text-gray-800">
+
+              <LayoutDashboard className="w-4 h-4" />
+              Our Services
+            </h3>
+          </div>
+
+          {/* Service items grid */}
+
+          <div className="grid grid-cols-3 gap-4">
+            {servicesData.map((item) => (
+              <motion.div
+                key={item.id}
+                className="py-3 px-3 rounded-lg cursor-pointer"
+                onMouseEnter={() => {
+                  if (hoverTimeoutRef.current) {
+                    clearTimeout(hoverTimeoutRef.current);
+                    hoverTimeoutRef.current = null;
+                  }
+                  setActiveItem(item);
+                }}
               >
-                {item.title}
-              </motion.h4>
-            </motion.div>
-          ))}
+                <motion.div
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                  className={`flex items-center gap-2 text-sm font-medium whitespace-nowrap px-2 py-3 rounded cursor
+          ${activeItem.id === item.id
+                      ? "text-[#2e6f73]"
+                      : "text-gray-800 hover:text-[#2e6f73]"
+                    }`}
+                >
+                  {/* Bullet point */}
+                  <span className="w-1 h-1 bg-[#2e6f73] rounded-full flex-shrink-0" />
+
+                  {/* Title */}
+                  <span>{item.title}</span>
+
+                  {/* Arrow Right icon */}
+                  <ArrowRight className="w-2 h-2 flex-shrink-0" />
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Location section */}
+          <div className="mt-4 bg-[#f9fafb] w-full rounded-md shadow-inner p-6">
+            <h4 className="text-sm font-semibold text-gray-800 mb-4">Locations</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {[
+                { name: "Mental Health Services", place: "Washington DC" },
+                { name: "Mental Health Services", place: "Maryland" },
+                { name: "Luminox Health Care", place: "Virginia" },
+              ].map((loc, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col items-start gap-4 text-gray-700 border-l-2 border-[#dde9ea] pl-4"
+                >
+                  <p className="text-sm font-medium text-nowrap">{loc.name}</p>
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <MapPinned className="w-4 h-4" />
+                    <span>{loc.place}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
 
         {/* Right preview */}
         <div className="col-span-1 flex flex-col justify-center border-l-4 border-[#dde9ea]">
           <div
-            className={`rounded-md h-full w-full p-6 flex flex-col justify-between ${activeItem.bgColor}`}
+            className={`rounded-md h-full w-full p-2 flex flex-col justify-center ${activeItem.bgColor}`}
           >
             <motion.h3
               key={`title-${activeItem.id}`}
@@ -86,9 +131,8 @@ const MegaMenuCard = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className={`text-lg font-semibold mb-2 ${
-                activeItem.textColor || "text-white"
-              }`}
+              className={`text-lg font-semibold mb-2 ${activeItem.textColor || "text-white"
+                }`}
             >
               {activeItem.title}
             </motion.h3>
@@ -99,9 +143,8 @@ const MegaMenuCard = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className={`text-sm space-y-2 ${
-                activeItem.descriptionColor || "text-white/90"
-              }`}
+              className={`text-sm space-y-2 ${activeItem.descriptionColor || "text-white/90"
+                }`}
             >
               {activeItem.description.split("\n").map((line, index) =>
                 line.trim().startsWith("-") ? (
@@ -137,29 +180,6 @@ const MegaMenuCard = () => {
               </AnimatePresence>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Full-width Location section */}
-      <div className="mt-6 bg-[#f9fafb] w-full rounded-md shadow-inner p-6">
-        <h4 className="text-lg font-semibold text-gray-800 mb-4">Locations</h4>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {[
-            { name: "Mental Health Services", place: "Washington DC" },
-            { name: "Mental Health Services", place: "Maryland" },
-            { name: "Luminox Health Care", place: "Virginia" },
-          ].map((loc, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-start gap-1 text-gray-700"
-            >
-              <p className="text-base font-medium">{loc.name}</p>
-              <div className="flex items-center gap-2 text-sm text-gray-500">
-                <MapPin className="w-4 h-4" />
-                <span>{loc.place}</span>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </div>

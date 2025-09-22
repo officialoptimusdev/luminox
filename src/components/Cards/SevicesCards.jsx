@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import LocationsCard from "./LocationsCard";
+
 
 const ServicesCards = ({ service, variant }) => {
   // Big Image Card (default)
@@ -54,46 +54,62 @@ const ServicesCards = ({ service, variant }) => {
 
   return (
     <>
-      <div className="flex justify-between items-center border-b border-gray-200 py-4">
-        <div>
-          <h3 className="font-semibold text-lg">{service.title}</h3>
-  
-          {/* Render full description with support for bullet points & line breaks */}
-          {service.description.includes("-") ? (
-            <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
-              {service.description.split("\n-").map((item, idx) =>
-                idx === 0 ? (
-                  // First part is usually intro text before bullets
-                  <p key={idx} className="mb-1">
-                    {item.trim()}
-                  </p>
-                ) : (
-                  <li key={idx}>{item.trim()}</li>
-                )
-              )}
-            </ul>
-          ) : (
-            <div className="text-sm text-gray-600 space-y-1">
-              {service.description.split("\n").map((line, idx) => (
-                <p key={idx}>{line.trim()}</p>
-              ))}
-            </div>
-          )}
-        </div>
-  
-        <a
-          href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <button className="inline-flex items-center text-[13px] whitespace-nowrap font-medium hover:underline">
-            Book Session <ArrowRight className="ml-2 w-4 h-4" />
-          </button>
-        </a>
+     <div className="flex justify-between items-start border-b border-gray-200 py-4">
+  <div className="flex-1">
+    <h3 className="font-semibold text-lg">{service.title}</h3>
+
+    {/* Render full description with support for bullet points & line breaks */}
+    {service.description.includes("-") ? (
+      <div className="text-sm text-gray-600 space-y-1">
+        {service.description.split("\n").map((line, idx) => {
+          if (line.trim().startsWith("-")) {
+            return (
+              <ul key={idx} className="list-disc list-inside space-y-1">
+                <li>{line.replace("-", "").trim()}</li>
+              </ul>
+            );
+          }
+          return <p key={idx}>{line.trim()}</p>;
+        })}
       </div>
+    ) : (
+      <div className="text-sm text-gray-600 space-y-1">
+        {service.description.split("\n").map((line, idx) => (
+          <p key={idx}>{line.trim()}</p>
+        ))}
+      </div>
+    )}
+
+    {/* Book Session button only on mobile (below description) */}
+    <a
+      href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block mt-3 md:hidden"
+    >
+      <button className="inline-flex items-center text-[13px] font-medium hover:underline">
+        Book Session <ArrowRight className="ml-2 w-4 h-4" />
+      </button>
+    </a>
+  </div>
+
+  {/* Book Session button only on desktop (right side) */}
+  <a
+    href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hidden md:block ml-4"
+  >
+    <button className="inline-flex items-center text-[13px] whitespace-nowrap font-medium hover:underline">
+      Book Session <ArrowRight className="ml-2 w-4 h-4" />
+    </button>
+  </a>
+</div>
+
+
     </>
   );
-  
+
 
 };
 

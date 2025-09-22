@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ArrowRight } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { Menu, X, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Popover } from "@headlessui/react";
@@ -21,7 +21,6 @@ const Navbar = ({ isDesktop }) => {
     window.addEventListener("popstate", handlePop);
     return () => window.removeEventListener("popstate", handlePop);
   }, []);
-
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -61,7 +60,7 @@ const Navbar = ({ isDesktop }) => {
             </a>
 
             {/* Desktop nav */}
-            <div className="hidden md:flex items-center bg-white/70 rounded-full px-4 py-4 ml-4">
+            <div className="hidden md:flex items-center bg-white/70 rounded-full gap-4 px-4 py-4 ml-4">
               {navItems.map((item) =>
                 item.name === "Services" && isDesktop ? (
                   <Popover
@@ -85,19 +84,22 @@ const Navbar = ({ isDesktop }) => {
                         as="a"
                         href={item.href}
                         onClick={(e) => {
-                          // keep original behavior so clicking reliably navigates even inside Popover
                           e.preventDefault();
                           window.location.href = item.href;
                         }}
-                        className={`relative inline-block text-sm font-medium px-4 transition-colors ${activePath === item.href
-                          ? "text-[#007171] after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-[2px] after:bg-gray-400"
-                          : "text-gray-700 hover:text-[#007171]"
+                        className={`relative inline-flex items-center gap-1 text-sm font-medium px-4 py-2 transition-colors rounded-full
+              ${activePath === item.href
+                            ? "bg-[#007171] text-white"
+                            : "text-gray-700 hover:bg-[#abcdcb] hover:text-white"
                           }`}
                       >
                         {item.name}
+                        {servicesOpen ? (
+                          <ChevronUp className="w-4 h-4" />
+                        ) : (
+                          <ChevronDown className="w-4 h-4" />
+                        )}
                       </Popover.Button>
-
-
 
                       {servicesOpen && (
                         <Popover.Panel
@@ -111,35 +113,36 @@ const Navbar = ({ isDesktop }) => {
                       )}
                     </>
                   </Popover>
-
                 ) : (
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`relative text-sm font-medium px-4 transition-colors
-                    ${activePath === item.href
-                        ? "text-[#007171] after:absolute after:left-4 after:right-4 after:-bottom-1 after:h-[2px] after:bg-gray-400"
-                        : "text-gray-700 hover:text-[#007171]"}`}
+                    className={`relative text-sm font-medium px-4 py-2 transition-colors rounded-full
+          ${activePath === item.href
+                        ? "bg-[#007171] text-white"
+                        : "text-gray-700 hover:bg-[#abcdcb] hover:text-white"
+                      }`}
                   >
                     {item.name}
                   </a>
-
                 )
               )}
 
               <ContactFormModal
                 trigger={
-                  <button className="text-sm font-medium hover:text-[#007171] transition-colors px-4">
+                  <button className="text-sm text-gray-700 font-medium hover:bg-[#abcdcb] hover:text-white transition-colors px-4 py-2 rounded-full">
                     Contact Us
                   </button>
                 }
               />
             </div>
+
           </div>
 
           {/* RIGHT: Desktop buttons */}
           <div className="hidden md:flex items-center bg-white/70 rounded-full px-4 space-x-3">
-            <a href="https://portal.kareo.com/app/new/login"
+            <a
+              href="https://portal.kareo.com/app/new/login"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -152,13 +155,12 @@ const Navbar = ({ isDesktop }) => {
               </Button>
             </a>
 
-            <a href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
+            <a
+              href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button
-                className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-3 py-6 mt-2 mb-2"
-              >
+              <Button className="rounded-full flex items-center gap-2 bg-[#2e6f73] hover:bg-[#265b5e] text-white px-3 py-6 mt-2 mb-2">
                 Book Appointment
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
@@ -193,10 +195,12 @@ const Navbar = ({ isDesktop }) => {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    {/* Active item shown only when drawer is open */}
                     {activePath && (
                       <span className="bg-white text-[#2e6f73] rounded-md px-3 py-1 text-sm font-semibold">
-                        {navItems.find((item) => item.href === activePath)?.name}
+                        {
+                          navItems.find((item) => item.href === activePath)
+                            ?.name
+                        }
                       </span>
                     )}
 
@@ -222,7 +226,6 @@ const Navbar = ({ isDesktop }) => {
                     </a>
                   ))}
 
-                  {/* Mobile Contact Us */}
                   <button
                     onClick={() => {
                       setOpen(false);
@@ -234,11 +237,11 @@ const Navbar = ({ isDesktop }) => {
                   </button>
                 </nav>
 
-
-                {/* Other mobile items */}
                 <div className="pt-6 border-t border-white/10 space-y-2">
                   <div className="rounded-xl bg-[#234e4f]/95 p-4">
-                    <p className="text-xs uppercase opacity-80">Business Hours</p>
+                    <p className="text-xs uppercase opacity-80">
+                      Business Hours
+                    </p>
                     <div className="mt-2 text-sm">
                       <div className="flex justify-between">
                         <span className="text-sm">Monday - Friday</span>
@@ -252,7 +255,9 @@ const Navbar = ({ isDesktop }) => {
                   </div>
 
                   <div className="rounded-xl bg-[#234e4f]/95 p-4">
-                    <p className="text-xs uppercase opacity-80">Email Address</p>
+                    <p className="text-xs uppercase opacity-80">
+                      Email Address
+                    </p>
                     <p className="mt-2 text-sm">
                       contact@luminoxmentalhealth.com
                     </p>
@@ -261,7 +266,7 @@ const Navbar = ({ isDesktop }) => {
                       href="tel:+12405537970"
                       className="mt-3 block w-full text-center bg-white/10 py-3 rounded-md font-semibold"
                     >
-                       +1 (240)-553-7970 
+                      +1 (240)-553-7970
                     </a>
                   </div>
 
@@ -284,24 +289,22 @@ const Navbar = ({ isDesktop }) => {
                       <ArrowRight className="w-4 h-4" />
                     </Button>
                   </a>
-
                 </div>
 
-                <div className="mt-6">
+                <div className="mt-2">
                   <div className="flex items-center justify-center gap-3">
-                    <a href="#" className="h-10 w-10 bg-[#0866ff] hover:bg-[#222425] flex items-center justify-center rounded-full text-white">
+                    <a
+                      href="#"
+                      className="h-10 w-10 bg-[#0866ff] hover:bg-[#222425] flex items-center justify-center rounded-full text-white"
+                    >
                       <FaFacebookF size={14} />
                     </a>
-                    <a href="#" className="h-10 w-10 bg-[#d53c6c] hover:bg-[#222425] flex items-center justify-center rounded-full text-white">
+                    <a
+                      href="#"
+                      className="h-10 w-10 bg-[#d53c6c] hover:bg-[#222425] flex items-center justify-center rounded-full text-white"
+                    >
                       <FaInstagram />
                     </a>
-                    {/* <a
-                      href="#"
-                      aria-label="LinkedIn"
-                      className="h-10 w-10 bg-[#2167a4] hover:bg-[#222425] flex items-center justify-center rounded-full text-white"
-                    >
-                      <FaLinkedinIn />
-                    </a> */}
                   </div>
                 </div>
               </SheetContent>
@@ -310,7 +313,6 @@ const Navbar = ({ isDesktop }) => {
         </div>
       </nav>
 
-      {/* Contact modal outside */}
       <ContactFormModal open={contactOpen} onOpenChange={setContactOpen} />
     </>
   );
