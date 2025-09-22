@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import NewsLetterForm from "../Forms/NewsLetterForm";
 
-
 export default function NewsLetterModal({ open = true, onClose, onJoin }) {
    // close when Escape pressed
    useEffect(() => {
@@ -16,6 +15,9 @@ export default function NewsLetterModal({ open = true, onClose, onJoin }) {
    // listen to "maybe later" from the form
    useEffect(() => {
       const handler = () => {
+         // 📝 Save "maybe later" timestamp for debugging
+         localStorage.setItem("newsletterMaybeLaterAt", new Date().toISOString());
+
          if (onClose) onClose();
       };
       window.addEventListener("newsletter:maybe-later", handler);
@@ -43,11 +45,11 @@ export default function NewsLetterModal({ open = true, onClose, onJoin }) {
             <div className="rounded-2xl overflow-hidden">
                {/* Slightly taller white card area with subtle pattern-like background */}
                <div className="bg-white rounded-2xl shadow-2xl">
-                  {/* Pass the form as a child; supply a callback for when the user joins */}
-
+                  {/* Newsletter form */}
                   <NewsLetterForm
                      onJoin={(email) => {
                         if (onJoin) onJoin(email);
+
                         // Delay closing after success
                         if (onClose) {
                            setTimeout(() => {
@@ -56,8 +58,6 @@ export default function NewsLetterModal({ open = true, onClose, onJoin }) {
                         }
                      }}
                   />
-
-
                </div>
             </div>
          </div>

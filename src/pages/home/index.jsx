@@ -81,16 +81,39 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [paused]);
 
-  
-// newsletter modal
-useEffect(() => {
-  const showTimer = setTimeout(() => {
-    setShowNewsletter(true);
-  }, 5000);
+  // newsletter modal logic
+  useEffect(() => {
+    // if already subscribed, never show
+    if (localStorage.getItem("newsletterSubscribed") === "true") return;
 
-  return () => clearTimeout(showTimer);
-}, []);
+    const timer = setTimeout(() => {
+      setShowNewsletter(true);
+    }, 90000); // 90s
 
+    return () => clearTimeout(timer);
+  }, []);
+
+  // listen to "maybe later"
+  useEffect(() => {
+    const handler = () => {
+      setShowNewsletter(false);
+      // show again after 90s
+      const laterTimer = setTimeout(() => {
+        if (localStorage.getItem("newsletterSubscribed") !== "true") {
+          setShowNewsletter(true);
+        }
+      }, 90000);
+      return () => clearTimeout(laterTimer);
+    };
+
+    window.addEventListener("newsletter:maybe-later", handler);
+    return () => window.removeEventListener("newsletter:maybe-later", handler);
+  }, []);
+
+  const handleJoin = (email) => {
+    console.log("Newsletter subscribed:", email);
+    localStorage.setItem("newsletterSubscribed", "true");
+  };
 
   // contact modal handler
   useEffect(() => {
@@ -98,10 +121,6 @@ useEffect(() => {
     window.addEventListener("open-contact-modal", handler);
     return () => window.removeEventListener("open-contact-modal", handler);
   }, []);
-
-  const handleJoin = (email) => {
-    console.log("Newsletter subscribed:", email);
-  };
 
   return (
     <main className="w-full">
@@ -128,9 +147,10 @@ useEffect(() => {
 
       {/* <ReviewSection /> */}
 
-      {/* Elfsight Google Reviews | Untitled Google Reviews  */}
-     
-      <div class="elfsight-app-69750553-1868-4fd5-b5dd-fd4fd6bfc806" data-elfsight-app-lazy></div>
+      <div
+        className="elfsight-app-69750553-1868-4fd5-b5dd-fd4fd6bfc806"
+        data-elfsight-app-lazy
+      ></div>
 
       <NewsLetterModal
         open={showNewsletter}

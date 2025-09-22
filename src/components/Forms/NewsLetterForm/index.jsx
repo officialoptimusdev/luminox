@@ -32,8 +32,12 @@ export default function NewsLetterForm({ onJoin }) {
             }
          );
 
-         //  Even with no-cors (opaque response), assume success
+         // ✅ Even with no-cors (opaque response), assume success
          toast.success("🎉 You're subscribed to our newsletter!");
+         
+         // Save subscription so popup never shows again
+         localStorage.setItem("newsletterSubscribed", "true");
+
          if (onJoin) onJoin(email);
          setEmail("");
       } catch (err) {

@@ -241,63 +241,63 @@ Signs:
     textColor: "text-black",     
     descriptionColor: "text-black",
   },
-  {
-    id: 9,
-    title: "Provider Collaboration",
-    description:
-      "We coordinate with your healthcare providers to ensure holistic and integrated care.",
-    textColor: "text-white",     
-    descriptionColor: "text-white",
-  },
+  // {
+  //   id: 9,
+  //   title: "Provider Collaboration",
+  //   description:
+  //     "We coordinate with your healthcare providers to ensure holistic and integrated care.",
+  //   textColor: "text-white",     
+  //   descriptionColor: "text-white",
+  // },
 
-  {
-    id: 10,
-    title: "Psychiatric Assessments",
-    description:
-      "Comprehensive assessments to accurately diagnose and guide personalized care.",
-    textColor: "text-white",     
-    descriptionColor: "text-white",
-  },
-  {
-    id: 11,
-    title: "Psychotherapy (Individual, Group, Family)",
-    description:
-      "Our therapy services address diverse needs through tailored sessions for individuals, families, or groups.",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
-  {
-    id: 12,
-    title: "Second Opinion",
-    description:
-      "We provide a second opinion to help you feel confident about your diagnosis and treatment options.",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
-  {
-    id: 13,
-    title: "Stress Management",
-    description:
-      "Guidance and coping strategies to help manage stress effectively in daily life.",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
-  {
-    id: 14,
-    title: "Support for Specific Conditions",
-    description:
-      "Personalized telepsychiatry for depression, anxiety, mood disorders, ADHD, and PTSD.",
-    textColor: "text-white",     
-    descriptionColor: "text-white",
-  },
-  {
-    id: 15,
-    title: "Treatment Planning",
-    description:
-      "Collaborative treatment plans tailored to your needs, goals, and lifestyle.",
-    textColor: "text-black",     
-    descriptionColor: "text-black",
-  },
+  // {
+  //   id: 10,
+  //   title: "Psychiatric Assessments",
+  //   description:
+  //     "Comprehensive assessments to accurately diagnose and guide personalized care.",
+  //   textColor: "text-white",     
+  //   descriptionColor: "text-white",
+  // },
+  // {
+  //   id: 11,
+  //   title: "Psychotherapy (Individual, Group, Family)",
+  //   description:
+  //     "Our therapy services address diverse needs through tailored sessions for individuals, families, or groups.",
+  //   textColor: "text-black",     
+  //   descriptionColor: "text-black",
+  // },
+  // {
+  //   id: 12,
+  //   title: "Second Opinion",
+  //   description:
+  //     "We provide a second opinion to help you feel confident about your diagnosis and treatment options.",
+  //   textColor: "text-black",     
+  //   descriptionColor: "text-black",
+  // },
+  // {
+  //   id: 13,
+  //   title: "Stress Management",
+  //   description:
+  //     "Guidance and coping strategies to help manage stress effectively in daily life.",
+  //   textColor: "text-black",     
+  //   descriptionColor: "text-black",
+  // },
+  // {
+  //   id: 14,
+  //   title: "Support for Specific Conditions",
+  //   description:
+  //     "Personalized telepsychiatry for depression, anxiety, mood disorders, ADHD, and PTSD.",
+  //   textColor: "text-white",     
+  //   descriptionColor: "text-white",
+  // },
+  // {
+  //   id: 15,
+  //   title: "Treatment Planning",
+  //   description:
+  //     "Collaborative treatment plans tailored to your needs, goals, and lifestyle.",
+  //   textColor: "text-black",     
+  //   descriptionColor: "text-black",
+  // },
 ];
 
 
