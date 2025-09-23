@@ -291,7 +291,7 @@ const Navbar = ({ isDesktop }) => {
                   </a>
                 </div>
 
-                <div className="mt-2">
+                <div className="mt-1 mb-2">
                   <div className="flex items-center justify-center gap-3">
                     <a
                       href="#"

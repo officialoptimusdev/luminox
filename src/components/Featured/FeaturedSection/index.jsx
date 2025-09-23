@@ -29,7 +29,7 @@ export default function FeaturedSection({ sections = [] }) {
                     <img
                       src={section.image}
                       alt={section.title}
-                      className="w-[400px] h-[400px] md:w-[500px] md:h-[500px] object-cover block relative z-10 rounded-xl"
+                      className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] object-cover block relative z-10 rounded-xl"
                     />
                   </div>
 

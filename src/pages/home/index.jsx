@@ -96,7 +96,7 @@ const Home = () => {
   // listen to "maybe later"
   useEffect(() => {
     const handler = () => {
-      setShowNewsletter(false);
+      setShowNewsletter(false); 
       // show again after 90s
       const laterTimer = setTimeout(() => {
         if (localStorage.getItem("newsletterSubscribed") !== "true") {
@@ -147,10 +147,12 @@ const Home = () => {
 
       {/* <ReviewSection /> */}
 
-      <div
+     <div className="mt-4 mb-4 w-[400px] md:w-full">
+     <div
         className="elfsight-app-69750553-1868-4fd5-b5dd-fd4fd6bfc806"
         data-elfsight-app-lazy
       ></div>
+     </div>
 
       <NewsLetterModal
         open={showNewsletter}

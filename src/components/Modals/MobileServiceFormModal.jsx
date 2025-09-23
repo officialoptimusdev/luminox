@@ -14,7 +14,7 @@ export default function MobileServiceFormModal() {
       // Auto close after 20s
       const timer = setTimeout(() => {
         setOpen(false);
-      }, 20000);
+      }, 90000);
 
       return () => clearTimeout(timer);
     }
