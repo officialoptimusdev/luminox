@@ -220,8 +220,8 @@ const Footer = () => {
                   <div className="flex items-start gap-3">
                     <MapPin className="text-teal-300 mt-1" size={18} />
                     <div className="text-gray-400 text-sm">
-                      3900 Westerre Parkway, Richmond, VA 23233<br />
-                      16701 Melford Blvd, Bowie MD 20715
+                    3900 Westerre Pkwy, Suite 300 Richmond, VA 23233<br />
+                    16701 Melford Blvd, Bowie MD 20715
                     </div>
                   </div>
                 </div>

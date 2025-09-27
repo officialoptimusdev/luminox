@@ -263,10 +263,10 @@ const Navbar = ({ isDesktop }) => {
                     </p>
 
                     <a
-                      href="tel:+12405537970"
+                      href="tel:+124075472760"
                       className="mt-3 block w-full text-center bg-white/10 py-3 rounded-md font-semibold"
                     >
-                      +1 (240)-553-7970
+                      +1 (240)-754-7276
                     </a>
                   </div>
 

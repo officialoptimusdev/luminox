@@ -4,7 +4,7 @@ import { SlidersHorizontal } from "lucide-react";
 export default function AuthorizationConsentBanner() {
   return (
     <section
-    className="relative bg-[#fff9ec] text-black rounded-xl overflow-hidden -mt-2"
+    className="relative bg-[#fff9ec] text-black rounded-xl overflow-hidden mt-0 sm:-mt-5"
       style={{
         backgroundImage: `url('/assets/release-info.png')`,
         backgroundPosition: "right center",

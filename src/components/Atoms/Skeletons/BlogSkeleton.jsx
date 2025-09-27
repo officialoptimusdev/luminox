@@ -8,7 +8,7 @@ export default function BlogSkeleton({ count = 6 }) {
       {Array.from({ length: count }).map((_, idx) => (
         <Card
           key={idx}
-          className="rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col"
+          className="rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col mb-10"
         >
           {/* Image skeleton */}
           <div className="relative w-full h-48">

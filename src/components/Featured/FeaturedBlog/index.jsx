@@ -40,7 +40,7 @@ export default function FeaturedBlog({ blogs = [], limit, loading = false }) {
   const blogsToRender = limit ? blogs.slice(0, limit) : blogs;
 
   return (
-    <section className="relative bg-transparent overflow-hidden mb-10">
+    <section className="relative bg-transparent overflow-hidden mb-20">
       <div className="relative pt-10 pb-12 px-6 md:px-12 max-w-6xl mx-auto z-10">
         <h2 className="text-4xl md:text-5xl font-bold mb-10 mt-10">Blog Posts</h2>
 

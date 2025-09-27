@@ -50,7 +50,7 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
               <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full gap-2">
                 <Phone className="h-4 w-4 text-gray-600" />
                 <span className="font-semibold cursor-pointer"> <a href="tel:+12407547276">
-                  +1 (240)-754-7276
+                +1 (240)-754-7276
                 </a></span>
               </div>
               <div className="flex items-center gap-3 text-xl">

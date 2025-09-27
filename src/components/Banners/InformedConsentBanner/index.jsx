@@ -4,7 +4,7 @@ import { SlidersHorizontal } from "lucide-react";
 export default function InformedConsentBanner() {
   return (
     <section
-    className="relative bg-[#ebe2f8] text-black rounded-xl overflow-hidden -mt-2"
+    className="relative bg-[#ebe2f8] text-black rounded-xl overflow-hidden mt-0 sm:-mt-5"
       style={{
         backgroundImage: `url('/assets/informed-consent.png')`,
         backgroundPosition: "right center",

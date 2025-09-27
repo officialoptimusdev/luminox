@@ -3,7 +3,7 @@ import React from "react";
 export default function ReferralBanner() {
   return (
     <section
-    className="relative bg-[#6d6a76] text-white rounded-xl overflow-hidden -mt-5"
+    className="relative bg-[#6d6a76] text-white rounded-xl overflow-hidden mt-0 sm:-mt-5"
       style={{
         backgroundImage: `linear-gradient(rgba(55, 53, 59, 0.75), rgba(55,53,59,0.75)), url('/assets/mission-two.png')`,
         backgroundPosition: "right center",

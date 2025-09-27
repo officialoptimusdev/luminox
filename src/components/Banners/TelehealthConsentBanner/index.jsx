@@ -4,7 +4,7 @@ import { SlidersHorizontal } from "lucide-react";
 export default function TelehealthConsentBanner() {
   return (
     <section
-    className="relative bg-[#000] text-white rounded-xl overflow-hidden -mt-2"
+    className="relative bg-[#000] text-white rounded-xl overflow-hidden mt-0 sm:-mt-5"
       style={{
         backgroundImage: `url('/assets/telehealth-consent.png')`,
         backgroundPosition: "right center",

@@ -4,7 +4,7 @@ import { SlidersHorizontal } from "lucide-react";
 export default function ClientSafteyBanner() {
   return (
     <section
-    className="relative bg-[#1743ff] text-white rounded-xl overflow-hidden -mt-2"
+    className="relative bg-[#1743ff] text-white rounded-xl overflow-hidden mt-0 sm:-mt-5"
       style={{
         backgroundImage: `url('/assets/safety-contract.png')`,
         backgroundPosition: "right center",

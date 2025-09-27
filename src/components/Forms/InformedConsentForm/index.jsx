@@ -213,9 +213,8 @@ export default function InformedConsentForm() {
 
               <div className="mt-3 text-xs text-slate-400">Address</div>
               <div className="text-sm mt-1">
-                3900 Westerre Parkway, Richmond, VA 23233
-                <br />
-                16701 Melford Blvd, Bowie MD 20715
+              3900 Westerre Pkwy, Suite 300 Richmond, VA 23233<br />
+                    16701 Melford Blvd, Bowie MD 20715
               </div>
               <div className="flex items-center gap-4 mt-4">
                 <a href="https://www.facebook.com/share/1FUdebEzjS/" target="_blank"

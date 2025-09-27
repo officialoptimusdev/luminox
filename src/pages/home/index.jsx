@@ -139,6 +139,7 @@ const Home = () => {
       <div
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
+        
       >
         <FeaturedSection
           sections={[rotatingSections[currentIndex], contactSection]}
