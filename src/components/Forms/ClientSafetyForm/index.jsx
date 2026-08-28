@@ -454,8 +454,8 @@ export default function ClientSafetyForm() {
 
 
               <div className="mt-3 text-xs text-slate-400">Phone Number</div>
-              <div> <a href="tel:+ +12407547276" className="text-sm mt-1 cursor-pointer">
-                +1 (240)-754-7276
+              <div> <a href="tel:+ +12407537276" className="text-sm mt-1 cursor-pointer">
+                +1 (240)-753-7276
               </a></div>
 
               <div className="mt-3 text-xs text-slate-400">Assistance hours</div>

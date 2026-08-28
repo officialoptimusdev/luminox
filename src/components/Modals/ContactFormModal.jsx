@@ -49,8 +49,8 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
             <div className="flex items-center gap-4 mb-6">
               <div className="flex items-center bg-gray-100 px-4 py-2 rounded-full gap-2">
                 <Phone className="h-4 w-4 text-gray-600" />
-                <span className="font-semibold cursor-pointer"> <a href="tel:+12407547276">
-                +1 (240)-754-7276
+                <span className="font-semibold cursor-pointer"> <a href="tel:+12407537276">
+                +1 (240)-753-7276
                 </a></span>
               </div>
               <div className="flex items-center gap-3 text-xl">
@@ -81,8 +81,8 @@ export default function ContactFormModal({ trigger, open, onOpenChange }) {
                 <span className="block font-semibold text-xs text-gray-500 mb-1 cursor-pointer">
                   Phone Number
                 </span>
-                <a href="tel: +12407547276">
-                  +1 (240)-754-7276
+                <a href="tel: +12407537276">
+                  +1 (240)-753-7276
                 </a>
 
                 <br />
