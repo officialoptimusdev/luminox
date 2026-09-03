@@ -102,7 +102,7 @@ const BlogPost = () => {
     setLoading(true);
     fetchBlogs()
       .then((blogs) => {
-        const found = blogs.find((b) => b.id === parseInt(id));
+        const found = blogs.find((b) => String(b.id) === String(id));
         setBlog(found || null);
       })
       .finally(() => setLoading(false));
@@ -147,7 +147,7 @@ const BlogPost = () => {
       <img
         src={blog.image}
         alt={blog.title}
-        className="w-full object-cover rounded-2xl mb-8 shadow h-[400px]"
+        className="w-full h-auto max-h-[600px] object-contain rounded-2xl mb-8 shadow-sm bg-slate-50"
       />
 
       <article

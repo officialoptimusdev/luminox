@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from "react-icons/fa";
 import React, { useRef, useState } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import { DatePicker } from "@/components/Atoms/DatePicker";
@@ -156,17 +156,20 @@ export default function AuthorizationReleaseForm() {
 
               {/* Organization Highlight */}
               <div className="p-4 border-l-4 border-cyan-400 bg-cyan-50 rounded text-sm">
-                <p className="text-gray-700">
+                <p className="text-gray-700 font-medium mb-2">
                   This information may be disclosed to and used by the following organization for continuity of healthcare:
                 </p>
-                <p className="mt-2 text-cyan-700 font-medium">
-                  Luminox Healthcare Services.<br />
-                  8665 Sudley Rd., Ste. 228<br />
-                  Manassas, Virginia 20110<br />
-                  <a href="tel:+ +12407537276" className="text-sm mt-1 cursor-pointer">
-                +1 (240)-753-7276
-              </a>
-                </p>
+                <div className="mt-2 text-cyan-800 space-y-2">
+                  <p className="font-semibold text-cyan-900">Luminox Healthcare Services</p>
+                  <div className="text-xs space-y-1 text-cyan-900">
+                    <p><strong className="font-semibold">Richmond, VA:</strong> 3900 Westerre Pkwy, Suite 300, Richmond, VA 23233</p>
+                    <p><strong className="font-semibold">Bowie, MD:</strong> 16701 Melford Blvd, Bowie, MD 20715</p>
+                    <p><strong className="font-semibold">Washington, DC:</strong> 2001 L St NW, STE 500, Washington, DC 20036</p>
+                  </div>
+                  <a href="tel:+12407537276" className="text-sm mt-1 inline-block cursor-pointer text-cyan-800 font-medium hover:underline">
+                    +1 (240)-753-7276
+                  </a>
+                </div>
               </div>
 
               {/* Signature Section */}
@@ -240,38 +243,66 @@ export default function AuthorizationReleaseForm() {
 
             </div>
 
-            <div className="bg-white rounded-lg p-4 border border-gray-100">
-              <p className="text-xs text-slate-400 uppercase tracking-wide">Contact Info</p>
+            <div className="bg-white rounded-lg p-4 border border-gray-100 space-y-3">
+              <p className="text-xs text-slate-400 uppercase tracking-wide font-semibold">Contact Info</p>
 
-              <a
-                href="mailto:contact@luminoxmentalhealth.com"
-
-              >
-                <p className="mt-2 text-sm cursor-pointer"> contact@luminoxmentalhealth.com</p>
-              </a>
-
-
-              <div className="mt-3 text-xs text-slate-400">Phone Number</div>
-              <div> <a href="tel:+ +12407537276" className="text-sm mt-1 cursor-pointer">
-                +1 (240)-753-7276
-              </a></div>
-
-              <div className="mt-3 text-xs text-slate-400">Assistance hours</div>
-              <div className="text-sm mt-1">Monday - Friday 9am - 5pm</div>
-
-              <div className="mt-3 text-xs text-slate-400">Address</div>
-              <div className="text-sm mt-1">
-              3900 Westerre Pkwy, Suite 300 Richmond, VA 23233 <br />
-                    16701 Melford Blvd, Bowie MD 20715
+              <div>
+                <div className="text-xs text-slate-400">Email Address</div>
+                <a href="mailto:contact@luminoxmentalhealth.com" className="text-sm cursor-pointer hover:underline text-slate-700 font-medium">
+                  contact@luminoxmentalhealth.com
+                </a>
               </div>
-              <div className="flex items-center gap-4 mt-4">
-                <a href="https://www.facebook.com/share/1FUdebEzjS/" target="_blank"
-                  rel="noopener noreferrer" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
+
+              <div>
+                <div className="text-xs text-slate-400">Phone Number</div>
+                <a href="tel:+12407537276" className="text-sm mt-1 cursor-pointer hover:underline text-slate-700 font-medium block">
+                  +1 (240)-753-7276
+                </a>
+              </div>
+
+              <div>
+                <div className="text-xs text-slate-400 mb-1">Assistance hours</div>
+                <div className="text-sm text-slate-700">Monday - Friday 9am - 5pm</div>
+              </div>
+
+              <div>
+                <div className="text-xs text-slate-400 mb-1">Locations / Addresses</div>
+                <div className="space-y-2 text-xs text-slate-700">
+                  <div>
+                    <span className="block font-semibold text-[#007171]">Richmond, VA:</span>
+                    3900 Westerre Pkwy, Suite 300, Richmond, VA 23233
+                  </div>
+                  <div>
+                    <span className="block font-semibold text-[#007171]">Bowie, MD:</span>
+                    16701 Melford Blvd, Bowie, MD 20715
+                  </div>
+                  <div>
+                    <span className="block font-semibold text-[#007171]">Washington, DC:</span>
+                    2001 L St NW, STE 500, Washington, DC 20036
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 mt-4 flex-wrap pt-2 border-t border-gray-100">
+                <a href="https://www.facebook.com/share/19RjinXcf8/" target="_blank"
+                  rel="noopener noreferrer" title="Facebook" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white transition-colors">
                   <FaFacebookF size={14} />
                 </a>
-                <a href="https://www.instagram.com/luminox.mentalhealth/" target="_blank"
-                  rel="noopener noreferrer" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
+                <a href="https://www.instagram.com/luminox_mental_health?igsi=Z3FwdnNsODFhNHUw" target="_blank"
+                  rel="noopener noreferrer" title="Instagram" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white transition-colors">
                   <FaInstagram size={14} />
+                </a>
+                <a href="https://www.linkedin.com/company/luminox-healthcare-services-llc/" target="_blank"
+                  rel="noopener noreferrer" title="LinkedIn" className="bg-[#0077b5] hover:bg-[#222425] p-2 rounded-full text-white transition-colors">
+                  <FaLinkedinIn size={14} />
+                </a>
+                <a href="https://www.tiktok.com/@luminox_mental_he0?_r=1&_t=ZT-99NFrDEiVf3" target="_blank"
+                  rel="noopener noreferrer" title="TikTok" className="bg-[#000000] border border-gray-200 hover:bg-[#222425] p-2 rounded-full text-white transition-colors">
+                  <FaTiktok size={14} />
+                </a>
+                <a href="https://www.youtube.com/@luminoxmentalhealth" target="_blank"
+                  rel="noopener noreferrer" title="YouTube" className="bg-[#ff0000] hover:bg-[#222425] p-2 rounded-full text-white transition-colors">
+                  <FaYoutube size={14} />
                 </a>
               </div>
             </div>

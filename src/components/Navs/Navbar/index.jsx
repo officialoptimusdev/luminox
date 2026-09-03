@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Popover } from "@headlessui/react";
@@ -263,7 +263,7 @@ const Navbar = ({ isDesktop }) => {
                     </p>
 
                     <a
-                      href="tel:+124075372760"
+                      href="tel:+12407537276"
                       className="mt-3 block w-full text-center bg-white/10 py-3 rounded-md font-semibold"
                     >
                       +1 (240)-753-7276
@@ -291,19 +291,52 @@ const Navbar = ({ isDesktop }) => {
                   </a>
                 </div>
 
-                <div className="mt-1 mb-2">
-                  <div className="flex items-center justify-center gap-3">
+                <div className="mt-3 mb-2">
+                  <div className="flex items-center justify-center gap-2 flex-wrap">
                     <a
-                      href="#"
-                      className="h-10 w-10 bg-[#0866ff] hover:bg-[#222425] flex items-center justify-center rounded-full text-white"
+                      href="https://www.facebook.com/share/19RjinXcf8/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Facebook"
+                      className="h-9 w-9 bg-[#0866ff] hover:bg-black/40 flex items-center justify-center rounded-full text-white transition-colors"
                     >
                       <FaFacebookF size={14} />
                     </a>
                     <a
-                      href="#"
-                      className="h-10 w-10 bg-[#d53c6c] hover:bg-[#222425] flex items-center justify-center rounded-full text-white"
+                      href="https://www.instagram.com/luminox_mental_health?igsi=Z3FwdnNsODFhNHUw"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="Instagram"
+                      className="h-9 w-9 bg-[#d53c6c] hover:bg-black/40 flex items-center justify-center rounded-full text-white transition-colors"
                     >
-                      <FaInstagram />
+                      <FaInstagram size={14} />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/company/luminox-healthcare-services-llc/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="LinkedIn"
+                      className="h-9 w-9 bg-[#0077b5] hover:bg-black/40 flex items-center justify-center rounded-full text-white transition-colors"
+                    >
+                      <FaLinkedinIn size={14} />
+                    </a>
+                    <a
+                      href="https://www.tiktok.com/@luminox_mental_he0?_r=1&_t=ZT-99NFrDEiVf3"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="TikTok"
+                      className="h-9 w-9 bg-[#000000] border border-white/20 hover:bg-black/40 flex items-center justify-center rounded-full text-white transition-colors"
+                    >
+                      <FaTiktok size={14} />
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@luminoxmentalhealth"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="YouTube"
+                      className="h-9 w-9 bg-[#ff0000] hover:bg-black/40 flex items-center justify-center rounded-full text-white transition-colors"
+                    >
+                      <FaYoutube size={14} />
                     </a>
                   </div>
                 </div>

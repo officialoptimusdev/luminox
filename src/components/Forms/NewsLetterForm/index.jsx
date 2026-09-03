@@ -23,7 +23,7 @@ export default function NewsLetterForm({ onJoin }) {
          const formData = new FormData();
          formData.append("EMAIL", email);
 
-         const response = await fetch(
+         await fetch(
             "https://luminoxmentalhealth.us9.list-manage.com/subscribe/post?u=cd904721bffa081f0beb50882&id=e738859bda&f_id=00edc2e1f0",
             {
                method: "POST",

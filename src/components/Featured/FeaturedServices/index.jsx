@@ -1,7 +1,5 @@
-import { servicesData } from "@/constants/data";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 
 export default function FeaturedServices() {

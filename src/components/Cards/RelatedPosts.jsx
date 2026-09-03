@@ -122,8 +122,6 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Tab } from "@headlessui/react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import BlogFeaturedCards from "./BlogFeaturedCards";
 import { usePagination } from "@/hooks/usePagination";
@@ -132,27 +130,19 @@ import { fetchBlogs } from "@/lib/fetchBlogs";
 
 export default function RelatedPosts({ currentId }) {
   const [loading, setLoading] = useState(true);
-  const [pageLoading, setPageLoading] = useState(false);
+  const [pageLoading] = useState(false);
   const [related, setRelated] = useState([]);
 
   useEffect(() => {
     setLoading(true);
     fetchBlogs()
       .then((blogs) => {
-        setRelated(blogs.filter((b) => b.id !== currentId));
+        setRelated(blogs.filter((b) => String(b.id) !== String(currentId)));
       })
       .finally(() => setLoading(false));
   }, [currentId]);
 
-  const { page, setPage, totalPages, currentData } = usePagination(related, 3);
-
-  const handleSetPage = (newPage) => {
-    setPageLoading(true);
-    setTimeout(() => {
-      setPage(newPage);
-      setPageLoading(false);
-    }, 500);
-  };
+  const { page, currentData } = usePagination(related, 3);
 
   return (
     <section className="mt-20">

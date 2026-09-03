@@ -23,7 +23,7 @@ const Blog = () => {
     blog.title.toLowerCase().includes(query.toLowerCase())
   );
 
-  const { page, setPage, totalPages, currentData, goPrev, goNext } =
+  const { page, setPage, totalPages, currentData } =
     usePagination(filteredBlogs, 6);
 
   const handleSetPage = (newPage) => {

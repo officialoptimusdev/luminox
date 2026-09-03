@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from "react-icons/fa";
 import ContactFormModal from "../Modals/ContactFormModal";
 import { toast } from "sonner";
 
@@ -196,58 +196,70 @@ const Footer = () => {
 
                 <div className="space-y-3 text-sm text-gray-300">
                   <div className="flex items-start gap-3">
-                    <Phone className="text-teal-300 mt-1" size={18} />
+                    <Phone className="text-teal-300 mt-1 shrink-0" size={18} />
                     <div>
-                      <a href="tel:+ +12407537276" className="text-white font-medium cursor-pointer">
-                      +1 (240)-753-7276
+                      <a href="tel:+12407537276" className="text-white font-medium cursor-pointer hover:underline">
+                        +1 (240)-753-7276
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Mail className="text-teal-300 mt-1" size={18} />
+                    <Mail className="text-teal-300 mt-1 shrink-0" size={18} />
                     <div>
                       <a
                         href="mailto:contact@luminoxmentalhealth.com"
-                        className="text-gray-400 text-sm cursor-pointer"
+                        className="text-gray-400 text-sm cursor-pointer hover:underline"
                       >
                         contact@luminoxmentalhealth.com
                       </a>
                     </div>
                   </div>
 
-
                   <div className="flex items-start gap-3">
-                    <MapPin className="text-teal-300 mt-1" size={18} />
-                    <div className="text-gray-400 text-sm">
-                    3900 Westerre Pkwy, Suite 300 Richmond, VA 23233<br />
-                    16701 Melford Blvd, Bowie MD 20715
+                    <MapPin className="text-teal-300 mt-1 shrink-0" size={18} />
+                    <div className="text-gray-300 text-sm space-y-3">
+                      <div>
+                        <span className="block font-semibold text-teal-300 text-xs uppercase tracking-wider">Richmond, VA</span>
+                        <span className="text-gray-400">3900 Westerre Pkwy, Suite 300, Richmond, VA 23233</span>
+                      </div>
+                      <div>
+                        <span className="block font-semibold text-teal-300 text-xs uppercase tracking-wider">Bowie, MD</span>
+                        <span className="text-gray-400">16701 Melford Blvd, Bowie, MD 20715</span>
+                      </div>
+                      <div>
+                        <span className="block font-semibold text-teal-300 text-xs uppercase tracking-wider">Washington, DC</span>
+                        <span className="text-gray-400">2001 L St NW, STE 500, Washington, DC 20036</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Social & badges */}
+              {/* Social links */}
               <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <a href="https://www.facebook.com/share/1FUdebEzjS/" target="_blank"
-                    rel="noopener noreferrer" className="bg-[#0866ff] hover:bg-[#222425] p-2 rounded-full text-white">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <a href="https://www.facebook.com/share/19RjinXcf8/" target="_blank"
+                    rel="noopener noreferrer" title="Facebook" className="bg-[#0866ff] hover:bg-teal-600 p-2.5 rounded-full text-white transition-colors">
                     <FaFacebookF size={14} />
                   </a>
-                  <a href="https://www.instagram.com/luminox.mentalhealth/" target="_blank"
-                    rel="noopener noreferrer" className="bg-[#d53c6c] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <a href="https://www.instagram.com/luminox_mental_health?igsi=Z3FwdnNsODFhNHUw" target="_blank"
+                    rel="noopener noreferrer" title="Instagram" className="bg-[#d53c6c] hover:bg-teal-600 p-2.5 rounded-full text-white transition-colors">
                     <FaInstagram size={14} />
                   </a>
-                  {/* <a href="#" target="_blank"
-                    rel="noopener noreferrer" className="bg-[#ff2929] hover:bg-[#222425] p-2 rounded-full text-white">
+                  <a href="https://www.linkedin.com/company/luminox-healthcare-services-llc/" target="_blank"
+                    rel="noopener noreferrer" title="LinkedIn" className="bg-[#0077b5] hover:bg-teal-600 p-2.5 rounded-full text-white transition-colors">
+                    <FaLinkedinIn size={14} />
+                  </a>
+                  <a href="https://www.tiktok.com/@luminox_mental_he0?_r=1&_t=ZT-99NFrDEiVf3" target="_blank"
+                    rel="noopener noreferrer" title="TikTok" className="bg-[#000000] border border-gray-700 hover:bg-teal-600 p-2.5 rounded-full text-white transition-colors">
+                    <FaTiktok size={14} />
+                  </a>
+                  <a href="https://www.youtube.com/@luminoxmentalhealth" target="_blank"
+                    rel="noopener noreferrer" title="YouTube" className="bg-[#ff0000] hover:bg-teal-600 p-2.5 rounded-full text-white transition-colors">
                     <FaYoutube size={14} />
-                  </a> */}
+                  </a>
                 </div>
-
-                {/* <div className="flex gap-2 items-center text-xs text-gray-400">
-                  <span className="px-3 py-2 bg-[#1b1c1d] rounded-full">Doxy</span>
-                  <span className="px-3 py-2 bg-[#1b1c1d] rounded-full">Psychology Today</span>
-                </div> */}
               </div>
             </div>
           </div>
