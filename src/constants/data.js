@@ -78,26 +78,8 @@ export const megaMenuData = [
   {
     id: 1,
     title: "Depression",
-    description: `Depression is more than just feeling sad. It affects how you think, feel, and live your daily life.
-
-     Signs:
-    - Feeling sad, empty, or hopeless
-    - Losing interest in hobbies
-    - Trouble sleeping or oversleeping
-    - Low energy or fatigue
-    - Difficulty concentrating
-    - Changes in appetite/weight
-    - Thoughts of self-harm
-    
-     Causes: 
-     - Brain chemical changes, stressful life events, family history, chronic conditions.  
-    
-     Treatment: 
-     -Therapy, medication, lifestyle support, mindfulness.
-
-     Remember: 
-     - Depression is treatable — you’re not alone.`,
-
+    slug: "depression",
+    description: `At Luminox Healthcare Services LLC, we provide personalized, evidence-based depression treatment through secure telepsychiatry services — serving eligible patients in Maryland, Washington D.C., and Virginia.`,
     image: megaMenuImages.addiction,
     bgColor: "bg-[#cb6c6e]",
     textColor: "text-black",       
@@ -106,42 +88,18 @@ export const megaMenuData = [
   {
     id: 2,
     title: "Anxiety",
-    description: `Anxiety is your body’s response to stress — but when constant, it interferes with life.
-
-     Signs:
-     - Constant worry or fear
-     - Restlessness or on edge
-     - Racing heartbeat
-     - Sweating or shaking
-     - Trouble sleeping
-     - Difficulty concentrating
-    
-     Causes: Stressful/traumatic experiences, family history, brain imbalance.  
-    Treatment: Therapy, medication, relaxation techniques, lifestyle changes.`,
+    slug: "anxiety",
+    description: `Anxiety can make everyday life feel overwhelming. At Luminox Healthcare Services LLC, we provide personalized anxiety evaluation, treatment, and medication management through convenient telepsychiatry.`,
     image: megaMenuImages.child,
     bgColor: "bg-[#dad4ec]",
     textColor: "text-black",     
     descriptionColor: "text-black",
   },
-
   {
     id: 3,
     title: "PTSD",
-    
-    description: `PTSD can develop after trauma — abuse, violence, accidents, or combat.
-
-     Signs:
-     - Flashbacks or nightmares
-     - Avoiding reminders
-     - Feeling jumpy or easily startled
-     - Emotional numbness
-     - Trouble sleeping or concentrating
-    
-     Causes: 
-     -Abuse, disasters, combat, accidents.
-
-    Treatment: 
-    -Trauma-focused therapy, medication, coping strategies, supportive environment.`,
+    slug: "ptsd",
+    description: `Traumatic experiences can continue affecting your thoughts, emotions, and sleep long after the event. We provide compassionate, individualized PTSD evaluation, treatment, and medication management.`,
     image: megaMenuImages.education,
     bgColor: "bg-[#553f99]",
     textColor: "text-white",     
@@ -150,96 +108,46 @@ export const megaMenuData = [
   {
     id: 4,
     title: "OCD",
-    description: `OCD causes unwanted thoughts (obsessions) and repetitive actions (compulsions).
-
-Examples:
-- Fear of germs → excessive hand washing
-- Worry about safety → constant checking
-
-Causes: 
-- Brain imbalance, family history, stressful events. 
-
-Treatment: 
-- CBT therapy, medication, healthy coping skills.  
-- OCD is treatable — you can take back control.`,
+    slug: "ocd",
+    description: `Unwanted thoughts, persistent fears, and repetitive behaviors can become exhausting. We provide comprehensive OCD evaluation, treatment planning, and medication management through telepsychiatry.`,
     image: megaMenuImages.refills,
     bgColor: "bg-black",
     textColor: "text-white",     
     descriptionColor: "text-white",
   },
- 
   {
     id: 5,
-  title: "Eating Disorders",
-  description: `Eating disorders involve harmful relationships with food. 
-  
-  Types: 
-  - Anorexia, Bulimia, Binge Eating.
-
- Signs:
- - Extreme concern with weight/body shape
- - Skipping meals or strict dieting
- - Binge eating episodes
- - Guilt or shame about eating
-
- Treatment: 
- - Therapy, nutritional counseling, medical monitoring, support groups. 
- Recovery is possible.`,
+    title: "Eating Disorders",
+    slug: "eating-disorders",
+    description: `Eating disorders are serious mental and physical health conditions that can affect people of different ages and backgrounds. We provide psychiatric evaluation and mental health treatment for eating-related concerns.`,
     textColor: "text-white",     
     descriptionColor: "text-white",
   },
   {
     id: 6,
-  title: "ADHD",
-  description: `ADHD makes it hard to focus, stay organized, and control impulses.
-
-Signs:
- - Trouble paying attention
- - Difficulty finishing tasks
- - Restlessness
- - Impulsiveness
-
- Causes: 
- - Brain chemistry, genetics, environmental factors.  
-  Treatment: 
- - Medication, therapy, lifestyle changes.`,
+    title: "ADHD",
+    slug: "adhd",
+    description: `We provide comprehensive ADHD evaluation, treatment, and medication management through telepsychiatry for children, adolescents, and adults — helping identify whether ADHD or another condition contributes to your difficulties.`,
     textColor: "text-black",     
     descriptionColor: "text-black",
   },
   {
     id: 7,
-   title: "Smoking & Alcohol Cessation",
-  description: `Smoking and heavy drinking affect body, mind, and relationships.
-
- Challenges:
- - Withdrawal symptoms
- - Cravings
- - Emotional triggers
-
- Treatment: 
- - Nicotine replacement, medication-assisted treatment, therapy, support systems.  
- - Every day smoke- and alcohol-free is a victory.`,
+    title: "Smoking & Alcohol Cessation",
+    slug: "smoking-alcohol-cessation",
+    description: `We provide individualized psychiatric support for patients who want to quit smoking, stop nicotine use, reduce alcohol consumption, or better understand the role substances play in their mental health.`,
     textColor: "text-white",     
     descriptionColor: "text-white",
   },
   {
     id: 8,
- title: "Insomnia",
-  description: `Insomnia is difficulty falling, staying, or getting restful sleep.
-
- Symptoms:
- - Lying awake for hours
- - Waking often at night
- - Waking too early
- - Daytime fatigue or irritability
-
- Causes: 
- - Stress, anxiety, depression, poor habits, medical issues.  
- Treatment: 
- - Sleep hygiene education, therapy, medication, lifestyle support.`,
+    title: "Insomnia",
+    slug: "insomnia",
+    description: `We evaluate and treat insomnia and sleep difficulties that may be associated with psychiatric conditions, medications, stress, or lifestyle factors — developing a treatment plan based on your individual needs.`,
     textColor: "text-black",     
     descriptionColor: "text-black",
   },
+];
   // {
   //   id: 9,
   //   title: "Provider Collaboration",
@@ -297,7 +205,7 @@ Signs:
   //   textColor: "text-black",     
   //   descriptionColor: "text-black",
   // },
-];
+// ];
 
 
 
@@ -346,8 +254,8 @@ export const servicesData = [
   {
     id: 1,
     title: "Depression",
-    description: `Depression is more than just feeling sad. It’s a mental health condition that affects how you think, feel,
-    and live your daily life.`,
+    slug: "depression",
+    description: `At Luminox Healthcare Services LLC, we provide personalized, evidence-based depression treatment through secure telepsychiatry services — serving eligible patients in Maryland, Washington D.C., and Virginia.`,
     image: megaMenuImages.addiction,
     bgColor: "bg-[#cb6c6e]",
     textColor: "text-black",
@@ -356,8 +264,8 @@ export const servicesData = [
   {
     id: 2,
     title: "Anxiety",
-    description: `Anxiety is your body’s natural response to stress — but when it becomes constant or overwhelming, it
-    can interfere with your life.`,
+    slug: "anxiety",
+    description: `Anxiety can make everyday life feel overwhelming. At Luminox Healthcare Services LLC, we provide personalized anxiety evaluation, treatment, and medication management through convenient telepsychiatry.`,
     image: megaMenuImages.child,
     bgColor: "bg-[#dad4ec]",
     textColor: "text-black",
@@ -366,8 +274,8 @@ export const servicesData = [
   {
     id: 3,
     title: "PTSD",
-    description: `PTSD is a condition that can develop after living through or witnessing a traumatic event — such as
-    abuse, violence, accidents, or combat.`,
+    slug: "ptsd",
+    description: `Traumatic experiences can continue affecting your thoughts, emotions, and sleep long after the event. We provide compassionate, individualized PTSD evaluation, treatment, and medication management.`,
     image: megaMenuImages.crisis,
     bgColor: "bg-[#ffdde1]",
     textColor: "text-black",
@@ -376,7 +284,8 @@ export const servicesData = [
   {
     id: 4,
     title: "Insomnia",
-    description: `Insomnia is when you have trouble falling asleep, staying asleep, or getting restful sleep.`,
+    slug: "insomnia",
+    description: `We evaluate and treat insomnia and sleep difficulties that may be associated with psychiatric conditions, medications, stress, or lifestyle factors — developing a treatment plan based on your individual needs.`,
     image: megaMenuImages.education,
     bgColor: "bg-[#553f99]",
     textColor: "text-white",
@@ -385,7 +294,8 @@ export const servicesData = [
   {
     id: 5,
     title: "Eating Disorders",
-    description: `Eating disorders are serious conditions where a person’s relationship with food becomes harmful.`,
+    slug: "eating-disorders",
+    description: `Eating disorders are serious mental and physical health conditions that can affect people of different ages and backgrounds. We provide psychiatric evaluation and mental health treatment for eating-related concerns.`,
     image: megaMenuImages.followup,
     bgColor: "bg-[#2e3267]",
     textColor: "text-white",
@@ -394,7 +304,8 @@ export const servicesData = [
   {
     id: 6,
     title: "ADHD",
-    description: `ADHD is a brain condition that makes it hard to focus, stay organized, and control impulses.`,
+    slug: "adhd",
+    description: `We provide comprehensive ADHD evaluation, treatment, and medication management through telepsychiatry for children, adolescents, and adults — helping identify whether ADHD or another condition contributes to your difficulties.`,
     image: megaMenuImages.geriatrics,
     bgColor: "bg-[#ecd4c8]",
     textColor: "text-black",
@@ -403,8 +314,8 @@ export const servicesData = [
   {
     id: 7,
     title: "OCD",
-    description: `OCD is when a person has repeated, unwanted thoughts (obsessions) and feels the urge to do certain
-    actions (compulsions) to ease anxiety.`,
+    slug: "ocd",
+    description: `Unwanted thoughts, persistent fears, and repetitive behaviors can become exhausting. We provide comprehensive OCD evaluation, treatment planning, and medication management through telepsychiatry.`,
     image: megaMenuImages.refills,
     bgColor: "bg-black",
     textColor: "text-white",
@@ -413,13 +324,13 @@ export const servicesData = [
   {
     id: 8,
     title: "Smoking & Alcohol Cessation",
-    description: `Smoking and heavy drinking can harm your body, mind, and relationships`,
+    slug: "smoking-alcohol-cessation",
+    description: `We provide individualized psychiatric support for patients who want to quit smoking, stop nicotine use, reduce alcohol consumption, or better understand the role substances play in their mental health.`,
     image: megaMenuImages.medication,
     bgColor: "bg-[#4d8e92]",
     textColor: "text-white",
     descriptionColor: "text-white",
   },
- 
 ];
 
 

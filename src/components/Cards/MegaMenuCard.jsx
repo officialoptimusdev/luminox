@@ -1,5 +1,6 @@
 import { servicesData } from "@/constants/data";
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Skeleton } from "@/components/ui/skeleton";
 import { LayoutDashboard, MapPinned, ArrowRight } from "lucide-react";
@@ -47,7 +48,7 @@ const MegaMenuCard = () => {
       className="absolute top-full left-1/2 transform -translate-x-1/2 mt-5 w-[900px] px-4 rounded-md z-50"
     >
       {/* Grid content */}
-      <div className="grid grid-cols-3 rounded-md overflow-hidden">
+      <div className="grid grid-cols-3 rounded-md overflow-hidden shadow-xl border border-gray-100">
         {/* Left menu */}
         <div className="col-span-2 bg-white p-4 flex flex-col gap-2">
           {/* Our Service Title section */}
@@ -63,9 +64,10 @@ const MegaMenuCard = () => {
 
           <div className="grid grid-cols-3 gap-4">
             {servicesData.map((item) => (
-              <motion.div
+              <Link
                 key={item.id}
-                className="py-3 px-3 rounded-lg cursor-pointer"
+                to={item.slug ? `/services/${item.slug}` : "/services"}
+                className="block"
                 onMouseEnter={() => {
                   if (hoverTimeoutRef.current) {
                     clearTimeout(hoverTimeoutRef.current);
@@ -76,22 +78,22 @@ const MegaMenuCard = () => {
               >
                 <motion.div
                   transition={{ duration: 0.2, ease: "easeInOut" }}
-                  className={`flex items-center gap-2 text-sm font-medium whitespace-nowrap px-2 py-3 rounded cursor
+                  className={`flex items-center gap-2 text-sm font-medium whitespace-nowrap px-2 py-3 rounded cursor-pointer transition-colors
           ${activeItem.id === item.id
-                      ? "text-[#2e6f73]"
-                      : "text-gray-800 hover:text-[#2e6f73]"
+                      ? "text-[#2e6f73] font-semibold bg-teal-50/60"
+                      : "text-gray-800 hover:text-[#2e6f73] hover:bg-gray-50"
                     }`}
                 >
                   {/* Bullet point */}
-                  <span className="w-1 h-1 bg-[#2e6f73] rounded-full flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-[#2e6f73] rounded-full flex-shrink-0" />
 
                   {/* Title */}
                   <span>{item.title}</span>
 
                   {/* Arrow Right icon */}
-                  <ArrowRight className="w-2 h-2 flex-shrink-0" />
+                  <ArrowRight className="w-3 h-3 flex-shrink-0 opacity-70" />
                 </motion.div>
-              </motion.div>
+              </Link>
             ))}
           </div>
 
@@ -122,64 +124,72 @@ const MegaMenuCard = () => {
 
         {/* Right preview */}
         <div className="col-span-1 flex flex-col justify-center border-l-4 border-[#dde9ea]">
-          <div
-            className={`rounded-md h-full w-full p-2 flex flex-col justify-center ${activeItem.bgColor}`}
+          <Link
+            to={activeItem.slug ? `/services/${activeItem.slug}` : "/services"}
+            className="block h-full w-full group"
           >
-            <motion.h3
-              key={`title-${activeItem.id}`}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className={`text-lg font-semibold mb-2 ${activeItem.textColor || "text-white"
-                }`}
+            <div
+              className={`rounded-md h-full w-full p-4 flex flex-col justify-between transition-opacity hover:opacity-95 ${activeItem.bgColor}`}
             >
-              {activeItem.title}
-            </motion.h3>
+              <div>
+                <motion.h3
+                  key={`title-${activeItem.id}`}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className={`text-lg font-semibold mb-2 flex items-center justify-between ${activeItem.textColor || "text-white"
+                    }`}
+                >
+                  <span>{activeItem.title}</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </motion.h3>
 
-            <motion.div
-              key={`desc-${activeItem.id}`}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className={`text-sm space-y-2 ${activeItem.descriptionColor || "text-white/90"
-                }`}
-            >
-              {activeItem.description.split("\n").map((line, index) =>
-                line.trim().startsWith("-") ? (
-                  <li key={index} className="list-disc ml-5">
-                    {line.replace("-", "").trim()}
-                  </li>
-                ) : (
-                  <p key={index}>{line}</p>
-                )
-              )}
-            </motion.div>
+                <motion.div
+                  key={`desc-${activeItem.id}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className={`text-sm space-y-2 ${activeItem.descriptionColor || "text-white/90"
+                    }`}
+                >
+                  {activeItem.description.split("\n").map((line, index) =>
+                    line.trim().startsWith("-") ? (
+                      <li key={index} className="list-disc ml-5">
+                        {line.replace("-", "").trim()}
+                      </li>
+                    ) : (
+                      <p key={index}>{line}</p>
+                    )
+                  )}
+                </motion.div>
+              </div>
 
-            {/* Image */}
-            <div className="mt-4 flex justify-center items-center h-40 relative overflow-hidden">
-              <AnimatePresence mode="sync" initial={false}>
-                {!loadedImages[activeItem.image] ? (
-                  <Skeleton
-                    key={`skeleton-${activeItem.id}`}
-                    className="w-32 h-32 rounded-xl absolute"
-                  />
-                ) : (
-                  <motion.img
-                    key={activeItem.image}
-                    src={activeItem.image}
-                    alt={activeItem.title}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="max-h-40 object-contain absolute"
-                  />
-                )}
-              </AnimatePresence>
+              {/* Image */}
+              <div className="mt-4 flex justify-center items-center h-40 relative overflow-hidden">
+                <AnimatePresence mode="sync" initial={false}>
+                  {!loadedImages[activeItem.image] ? (
+                    <Skeleton
+                      key={`skeleton-${activeItem.id}`}
+                      className="w-32 h-32 rounded-xl absolute"
+                    />
+                  ) : (
+                    <motion.img
+                      key={activeItem.image}
+                      src={activeItem.image}
+                      alt={activeItem.title}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="max-h-40 object-contain absolute"
+                    />
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 
 const ServicesCards = ({ service, variant }) => {
+  const detailUrl = service.slug ? `/services/${service.slug}` : "#";
+
   // Big Image Card (default)
   if (variant === "card") {
     return (
@@ -38,15 +41,11 @@ const ServicesCards = ({ service, variant }) => {
             </div>
           </div>
 
-          <a
-            href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link to={detailUrl}>
             <button className="mt-3 inline-flex items-center text-xs font-medium hover:underline">
-              Book Session <ArrowRight className="ml-1 w-3 h-3" />
+              Read More <ArrowRight className="ml-1 w-3 h-3" />
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     );
@@ -80,30 +79,20 @@ const ServicesCards = ({ service, variant }) => {
       </div>
     )}
 
-    {/* Book Session button only on mobile (below description) */}
-    <a
-      href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block mt-3 md:hidden"
-    >
+    {/* Read More button only on mobile (below description) */}
+    <Link to={detailUrl} className="block mt-3 md:hidden">
       <button className="inline-flex items-center text-[13px] font-medium hover:underline">
-        Book Session <ArrowRight className="ml-2 w-4 h-4" />
+        Read More <ArrowRight className="ml-2 w-4 h-4" />
       </button>
-    </a>
+    </Link>
   </div>
 
-  {/* Book Session button only on desktop (right side) */}
-  <a
-    href="https://d2oe0ra32qx05a.cloudfront.net/?practiceKey=k_1_101680"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hidden md:block ml-4"
-  >
+  {/* Read More button only on desktop (right side) */}
+  <Link to={detailUrl} className="hidden md:block ml-4">
     <button className="inline-flex items-center text-[13px] whitespace-nowrap font-medium hover:underline">
-      Book Session <ArrowRight className="ml-2 w-4 h-4" />
+      Read More <ArrowRight className="ml-2 w-4 h-4" />
     </button>
-  </a>
+  </Link>
 </div>
 
 
